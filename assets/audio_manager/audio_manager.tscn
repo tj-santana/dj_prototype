@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://eyvkmbcoi5t3"]
+
+[node name="AudioManager" type="Node2D"]
