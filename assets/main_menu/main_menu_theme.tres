@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://crjslmut5gmhb"]
+
+[ext_resource type="StyleBox" uid="uid://b0r1ho31f7xgm" path="res://assets/main_menu/button_style.tres" id="1_crhdx"]
+[ext_resource type="StyleBox" uid="uid://cux3o54mdjbev" path="res://assets/main_menu/panel_container_style.tres" id="2_ymv2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pr30p"]
+content_margin_bottom = 25.0
+
+[resource]
+Button/styles/normal = ExtResource("1_crhdx")
+Label/font_sizes/font_size = 32
+Label/styles/normal = SubResource("StyleBoxEmpty_pr30p")
+PanelContainer/styles/panel = ExtResource("2_ymv2h")
+VBoxContainer/constants/separation = 25
