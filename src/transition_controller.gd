@@ -15,6 +15,9 @@ func _ready() -> void:
 
 # Public functions
 func perform_transition_out(type: TransitionSettings.TRANSITION_TYPE) -> void:
+	if type == TransitionSettings.TRANSITION_TYPE.NONE:
+		return # No transition to perform
+
 	if not _transition_settings_dict.has(type):
 		push_error("Transition type not found: ", type)
 		return
@@ -23,6 +26,9 @@ func perform_transition_out(type: TransitionSettings.TRANSITION_TYPE) -> void:
 	await _transition_out(settings)
 
 func perform_transition_in(type: TransitionSettings.TRANSITION_TYPE) -> void:
+	if type == TransitionSettings.TRANSITION_TYPE.NONE:
+		return # No transition to perform
+
 	if not _transition_settings_dict.has(type):
 		push_error("Transition type not found: ", type)
 		return
