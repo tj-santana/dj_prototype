@@ -8,10 +8,8 @@ var _sound_effect_dict: Dictionary = {}
 
 # Private functions
 func _ready():
-	var i: int = 0
 	for sound_effect_setting: SoundEffectSettings in sound_effect_settings:
-		_sound_effect_dict[i] = sound_effect_setting
-		i += 1
+		_sound_effect_dict[sound_effect_setting.type] = sound_effect_setting
 
 # Public functions
 func create_audio(type: SoundEffectSettings.SOUND_EFFECT_TYPE):
