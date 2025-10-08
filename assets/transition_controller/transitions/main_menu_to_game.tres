@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TransitionSettings" load_steps=5 format=3 uid="uid://butcpdqm55m1r"]
+
+[ext_resource type="Shader" uid="uid://bgwbwvgvlu1mh" path="res://assets/transition_controller/transition_shaders/fade.gdshader" id="1_671ij"]
+[ext_resource type="Script" uid="uid://374sxn7c2v6m" path="res://src/transition_settings.gd" id="1_pj7ka"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vl10d"]
+shader = ExtResource("1_671ij")
+shader_parameter/progress = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8viy4"]
+shader = ExtResource("1_671ij")
+shader_parameter/progress = 0.0
+
+[resource]
+script = ExtResource("1_pj7ka")
+type = 1
+material_out = SubResource("ShaderMaterial_8viy4")
+material_in = SubResource("ShaderMaterial_vl10d")
+metadata/_custom_type_script = "uid://374sxn7c2v6m"
