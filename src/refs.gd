@@ -12,4 +12,7 @@ const PATHS = {
 	"BOSS_CORRUPT": "uid://ch1yx31kbmfm8",
 	"BOSS_ANTI_CORRUPT": "uid://bof3ks2cj1btn",
 	"TEEN_PROJECTILE": "uid://3fe5ij0dftxt"
+	"MINI_GAME_RULES": "uid://c76di0uhcydaa",
+	"MINI_GAME": "uid://d0wtpgkfw785g",
+	"NEWS_PUBLISHING": "uid://c20bi27e7pxqp",
 }
