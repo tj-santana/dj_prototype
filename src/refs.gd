@@ -7,5 +7,8 @@ const PATHS = {
 	"MAIN_MENU": "uid://b0wa83bgodgj8",
 	"OVERVIEW": "uid://7pp2qjsno264",
 	"PORTATIL": "uid://b2b4chdg82qnc",
-	"FIGHT": "uid://cje2ap7ple78a"
+	"FIGHT": "uid://cje2ap7ple78a",
+	"MINI_GAME_RULES": "uid://c76di0uhcydaa",
+	"MINI_GAME": "uid://d0wtpgkfw785g",
+	"NEWS_PUBLISHING": "uid://c20bi27e7pxqp",
 }
