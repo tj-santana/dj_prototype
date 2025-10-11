@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://7pp2qjsno264"]
+[gd_scene load_steps=4 format=3 uid="uid://7pp2qjsno264"]
+
+[ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_skwpw"]
+[ext_resource type="Texture2D" uid="uid://bncto63kvv4tu" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0001.png" id="2_6qvxk"]
+[ext_resource type="Texture2D" uid="uid://bt7m0fk10ct1l" path="res://assets/overview/resources/2dcitywithoutoutline/citysecondprops/citysecondcityprops0003.png" id="3_f21ms"]
 
 [node name="Overview" type="Control"]
 layout_mode = 3
@@ -7,3 +11,125 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 827.0
+offset_top = 226.0
+offset_right = 867.0
+offset_bottom = 266.0
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -318.0
+offset_right = 1152.0
+offset_bottom = 330.0
+texture = ExtResource("1_skwpw")
+expand_mode = 2
+
+[node name="House1" type="Sprite2D" parent="."]
+position = Vector2(74.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1008, 1564, 401, 363)
+
+[node name="House2" type="Sprite2D" parent="."]
+position = Vector2(174.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="House4" type="Sprite2D" parent="."]
+position = Vector2(274.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(799, 82, 374, 363)
+
+[node name="House5" type="Sprite2D" parent="."]
+position = Vector2(374.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1008, 1564, 401, 363)
+
+[node name="House6" type="Sprite2D" parent="."]
+position = Vector2(474.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(133, 1561, 401, 363)
+
+[node name="House7" type="Sprite2D" parent="."]
+position = Vector2(574.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="House8" type="Sprite2D" parent="."]
+position = Vector2(674.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(799, 82, 374, 363)
+
+[node name="House9" type="Sprite2D" parent="."]
+position = Vector2(774.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="House10" type="Sprite2D" parent="."]
+position = Vector2(874.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1008, 1564, 401, 363)
+
+[node name="House12" type="Sprite2D" parent="."]
+position = Vector2(874.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1008, 1564, 401, 363)
+
+[node name="House13" type="Sprite2D" parent="."]
+position = Vector2(974.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(133, 1561, 401, 363)
+
+[node name="House14" type="Sprite2D" parent="."]
+position = Vector2(1074.25, -45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(133, 1561, 401, 363)
+
+[node name="House 30" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(274, -44)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(90, 752, 435, 350)
+
+[node name="House 6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(165, 175)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="Citysecondcityprops0003" type="Sprite2D" parent="."]
+position = Vector2(76, 38)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_f21ms")
+region_enabled = true
+region_rect = Rect2(903, 729, 291, 220)
