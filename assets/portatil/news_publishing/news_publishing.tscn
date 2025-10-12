@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c20bi27e7pxqp"]
+[gd_scene load_steps=5 format=3 uid="uid://c20bi27e7pxqp"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_6v6oy"]
-[ext_resource type="Script" path="res://src/news_publishing.gd" id="1_hubj2"]
+[ext_resource type="Script" uid="uid://yhfisnm6rncb" path="res://src/news_publishing.gd" id="1_hubj2"]
+[ext_resource type="Texture2D" uid="uid://m56122cmmt60" path="res://assets/portatil/news_publishing/Plain Paper UI SpriteSheet.png" id="2_lyo7j"]
+[ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="3_q7lm8"]
+[ext_resource type="Texture2D" uid="uid://cn44owo58wx03" path="res://assets/portatil/news_publishing/continue.png" id="3_slhmv"]
 
 [node name="NewsPublishing" type="Control"]
 layout_mode = 3
@@ -19,9 +21,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_6v6oy")
+
+[node name="Table" type="Sprite2D" parent="Background"]
+position = Vector2(575.99994, 324)
+scale = Vector2(1.5, 1.1571428)
+texture = ExtResource("2_lyo7j")
+region_enabled = true
+region_rect = Rect2(880, 2288, 768, 560)
+
+[node name="Newspaper" type="Sprite2D" parent="Background"]
+position = Vector2(593.99994, 358)
+rotation = -1.7086773
+scale = Vector2(1.09, 1.09)
+texture = ExtResource("2_lyo7j")
+region_enabled = true
+region_rect = Rect2(49, 780, 621, 503)
+
+[node name="Label" type="Label" parent="Background/Newspaper"]
+offset_left = 260.42245
+offset_top = -188.00897
+offset_right = 634.4225
+offset_bottom = -133.00897
+rotation = 1.5707964
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_q7lm8")
+theme_override_font_sizes/font_size = 43
+text = "BREAKING NEWS"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,4 +63,4 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource("1_6v6oy")
+texture = ExtResource("3_slhmv")

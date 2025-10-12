@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0fy5pt84l300"
-path="res://.godot/imported/Spritesheet_UI_Flat.png-5417d8f7568e9887794dcdd0d81cf5f9.ctex"
+uid="uid://fgwxt17f1ht5"
+path="res://.godot/imported/writing game tutorial.png-ac0ee510f1fcc3a8a7084086469bd056.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/portatil/Spritesheet_UI_Flat.png"
-dest_files=["res://.godot/imported/Spritesheet_UI_Flat.png-5417d8f7568e9887794dcdd0d81cf5f9.ctex"]
+source_file="res://assets/portatil/mini_game_rules/writing game tutorial.png"
+dest_files=["res://.godot/imported/writing game tutorial.png-ac0ee510f1fcc3a8a7084086469bd056.ctex"]
 
 [params]
 

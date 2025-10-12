@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxo3s24b2gnci"
-path="res://.godot/imported/publish button.png-67914327f74b5baf67d5ecb3bc68a86a.ctex"
+uid="uid://0grydqucly40"
+path="res://.godot/imported/email.png-183516bbd5ff500fc88fb16bc97fec80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/portatil/news_publishing/publish button.png"
-dest_files=["res://.godot/imported/publish button.png-67914327f74b5baf67d5ecb3bc68a86a.ctex"]
+source_file="res://assets/portatil/email_&_chat/email.png"
+dest_files=["res://.godot/imported/email.png-183516bbd5ff500fc88fb16bc97fec80.ctex"]
 
 [params]
 
