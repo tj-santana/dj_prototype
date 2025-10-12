@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c76di0uhcydaa"]
+[gd_scene load_steps=6 format=3 uid="uid://c76di0uhcydaa"]
 
 [ext_resource type="Script" uid="uid://ky67c70xvrqd" path="res://src/mini_game_rules.gd" id="1_1fsob"]
+[ext_resource type="Texture2D" uid="uid://fgwxt17f1ht5" path="res://assets/portatil/mini_game_rules/writing game tutorial.png" id="2_m2pgn"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="2_qrj5n"]
+[ext_resource type="FontFile" uid="uid://bwtep74v4w50j" path="res://assets/portatil/PatrickHand-Regular.ttf" id="3_ljj5u"]
+[ext_resource type="Texture2D" uid="uid://63qfvsffoc70" path="res://assets/portatil/mini_game_rules/confirmbutton.png" id="5_rjvo6"]
 
 [node name="MiniGameRules" type="Control"]
 layout_mode = 3
@@ -12,7 +15,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1fsob")
 
+[node name="LaptopscreenNewsgame" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_m2pgn")
+
 [node name="Rules" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,19 +33,25 @@ vertical_alignment = 1
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
-offset_right = 87.0
-offset_bottom = 23.0
+offset_left = 251.0
+offset_top = 95.0
+offset_right = 652.0
+offset_bottom = 134.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Writing an Article for dummies:"
+theme_override_fonts/font = ExtResource("3_ljj5u")
+theme_override_font_sizes/font_size = 28
+text = "e-mail: Writing an Article for dummies:"
 
 [node name="Timer" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -128.0
-offset_bottom = 128.0
+offset_left = -219.0
+offset_top = 51.0
+offset_right = -91.0
+offset_bottom = 179.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -50,10 +64,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -128.0
+offset_left = -497.0
+offset_top = -169.0
+offset_right = -260.0
+offset_bottom = -103.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource("2_qrj5n")
+texture = ExtResource("5_rjvo6")
