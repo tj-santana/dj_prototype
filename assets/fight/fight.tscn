@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://cje2ap7ple78a"]
+[gd_scene load_steps=4 format=3 uid="uid://cje2ap7ple78a"]
+
+[ext_resource type="PackedScene" uid="uid://bx1imjkaglqrh" path="res://assets/player/player.tscn" id="1_6nq0e"]
+[ext_resource type="PackedScene" uid="uid://btosv36bli7l5" path="res://assets/boss/boss.tscn" id="2_avfyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nq0e"]
+size = Vector2(1200, 20)
 
 [node name="Fight" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6nq0e")]
+position = Vector2(583, 495)
+
+[node name="Boss" parent="." instance=ExtResource("2_avfyy")]
+position = Vector2(145, 520)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(585, 658)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_6nq0e")
