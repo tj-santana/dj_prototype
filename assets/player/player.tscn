@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://bx1imjkaglqrh"]
+
+[ext_resource type="Script" uid="uid://cd55x145elyua" path="res://src/player.gd" id="1_d5dr7"]
+[ext_resource type="Script" uid="uid://b4fxwm2xv38nw" path="res://src/state_machine.gd" id="1_v2miy"]
+[ext_resource type="Script" uid="uid://ci58kgd08du0r" path="res://src/player_state_idle.gd" id="2_ouxva"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="2_toylo"]
+[ext_resource type="Script" uid="uid://uj21po675lwv" path="res://src/player_state_walk.gd" id="3_d5dr7"]
+[ext_resource type="Script" uid="uid://bvvgkev5qvyjv" path="res://src/hurtbox_component.gd" id="3_kwvpd"]
+[ext_resource type="Script" uid="uid://ce16e6y477g65" path="res://src/health_component.gd" id="4_op4fd"]
+[ext_resource type="Script" uid="uid://cqur7mymd1m58" path="res://src/player_state_jump.gd" id="6_toylo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwvpd"]
+size = Vector2(122, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2mll"]
+size = Vector2(130, 130)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_d5dr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kwvpd")
+
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+unique_name_in_owner = true
+collision_mask = 2
+input_pickable = false
+script = ExtResource("3_kwvpd")
+health_component = NodePath("../HealthComponent")
+invincibility_enabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_m2mll")
+debug_color = Color(0.880595, 0.2930992, 0.44435066, 0.41960785)
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_toylo")
+
+[node name="HealthComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_op4fd")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_v2miy")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://b4fxwm2xv38nw"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("2_ouxva")
+metadata/_custom_type_script = "uid://dqdmec1f3ttmn"
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("3_d5dr7")
+metadata/_custom_type_script = "uid://dqdmec1f3ttmn"
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("6_toylo")
+metadata/_custom_type_script = "uid://cvj1x685kgkuo"
