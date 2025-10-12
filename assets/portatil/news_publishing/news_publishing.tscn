@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c20bi27e7pxqp"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_6v6oy"]
-[ext_resource type="Script" uid="uid://yhfisnm6rncb" path="res://src/news_publishing.gd" id="1_hubj2"]
+[ext_resource type="Script" path="res://src/news_publishing.gd" id="1_hubj2"]
 
 [node name="NewsPublishing" type="Control"]
 layout_mode = 3

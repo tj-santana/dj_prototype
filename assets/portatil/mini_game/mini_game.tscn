@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0wtpgkfw785g"]
+[gd_scene load_steps=13 format=3 uid="uid://d0wtpgkfw785g"]
 
-[ext_resource type="Script" uid="uid://bwo0anqu8k4a8" path="res://src/mini_game.gd" id="1_s1gus"]
+[ext_resource type="Script" path="res://src/mini_game.gd" id="1_s1gus"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_ycabl"]
-[ext_resource type="Script" uid="uid://dppr32xp2wbag" path="res://src/rich_text_good.gd" id="2_oe4s0"]
-[ext_resource type="Script" uid="uid://b2b2n7mv7oe84" path="res://src/rich_text_bad.gd" id="2_uc01f"]
+[ext_resource type="Texture2D" uid="uid://btpx5sxg2u2p1" path="res://assets/portatil/mini_game/laptopscreen - newsgame.png" id="2_n151k"]
+[ext_resource type="Script" path="res://src/rich_text_good.gd" id="2_oe4s0"]
+[ext_resource type="Script" path="res://src/rich_text_bad.gd" id="2_uc01f"]
+[ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="3_sawhp"]
 [ext_resource type="Script" uid="uid://dwicd6gc3ctlb" path="res://src/mini_game_prompt.gd" id="4_x0hv8"]
+[ext_resource type="FontFile" uid="uid://bwtep74v4w50j" path="res://assets/portatil/PatrickHand-Regular.ttf" id="6_4l45w"]
+[ext_resource type="Texture2D" uid="uid://cyjnmhv5bbvh2" path="res://assets/portatil/mini_game/publishbutton.png" id="8_4l45w"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_x0hv8"]
 script = ExtResource("2_oe4s0")
@@ -14,6 +18,10 @@ metadata/_custom_type_script = "uid://dppr32xp2wbag"
 script = ExtResource("2_uc01f")
 metadata/_custom_type_script = "uid://b2b2n7mv7oe84"
 
+[sub_resource type="LabelSettings" id="LabelSettings_sawhp"]
+font = ExtResource("6_4l45w")
+font_size = 23
+
 [node name="MiniGame" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -22,6 +30,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s1gus")
+
+[node name="LaptopscreenNewsgame" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_n151k")
 
 [node name="MiniGamePrompt" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(750, 400)
@@ -33,6 +45,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_sawhp")
 bbcode_enabled = true
 text = "If you are reading this. This is how options work [table=1,center][cell][center][good]Good[/good][/center][/cell][cell][center][bad]Bad[/bad][/center][/cell][/table]. I think they are working fine not sure. Are they good? [table=1,center][cell][center][good]Yes[/good][/center][/cell][cell][center][bad]No[/bad][/center][/cell][/table]."
 scroll_active = false
@@ -44,19 +58,24 @@ raw_text = "If you are reading this. This is how options work {options_0}. I thi
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_right = 87.0
-offset_bottom = 23.0
+offset_left = 287.0
+offset_top = 92.0
+offset_right = 563.0
+offset_bottom = 126.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Writing an Article for dummies:"
+text = "Interstingtitle.docx"
+label_settings = SubResource("LabelSettings_sawhp")
 
 [node name="TimerUI" type="TextureProgressBar" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -128.0
-offset_bottom = 128.0
+offset_left = -191.0
+offset_top = 84.0
+offset_right = -63.0
+offset_bottom = 212.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -71,10 +90,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -128.0
+offset_left = -324.0
+offset_top = -519.0
+offset_right = -212.0
+offset_bottom = -485.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource("1_ycabl")
+texture = ExtResource("8_4l45w")
