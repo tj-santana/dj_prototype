@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://63qfvsffoc70"
-path="res://.godot/imported/publishbutton.png-8938b37f7ee08d454a2decf9fb9d62b5.ctex"
+uid="uid://byylgmmnwi7yi"
+path="res://.godot/imported/immoralbutton.png-8e65b9f69c51c9e47b8089f9217e30e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/portatil/mini_game/publishbutton.png"
-dest_files=["res://.godot/imported/publishbutton.png-8938b37f7ee08d454a2decf9fb9d62b5.ctex"]
+source_file="res://assets/portatil/mini_game/immoralbutton.png"
+dest_files=["res://.godot/imported/immoralbutton.png-8e65b9f69c51c9e47b8089f9217e30e4.ctex"]
 
 [params]
 
