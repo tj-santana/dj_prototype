@@ -5,6 +5,10 @@ class_name Player
 @onready var _visuals: Sprite2D = %Visuals
 @onready var _health_component: HealthComponent = %HealthComponent
 @onready var _hurtbox_component: HurtboxComponent = %HurtboxComponent
+@onready var _hitbox_component: HitboxComponent = %HitboxComponent
+@onready var _animation_player: AnimationPlayer = %AnimationPlayer
+
+var _facing_right: bool = true
 
 # Debug dictionary
 var debug: Dictionary = {
@@ -30,11 +34,20 @@ func _process(_delta: float) -> void:
 	debug["velocity"] = velocity
 	queue_redraw()
 
+func _flip_facing(facing_right: bool) -> void:
+	# Flip the sprite
+	_visuals.scale.x = 1 if facing_right else -1
+
+	# Flip the hitbox horizontally relative to the player
+	_hitbox_component.scale.x = 1 if facing_right else -1
+
 func _on_health_changed(current_health: int) -> void:
 	print("Player Health Updated: %d" % current_health)
+	SignalBus.on_player_health_changed.emit(current_health)
 
 func _on_died() -> void:
 	print("Player has died!")
+	SignalBus.on_player_died.emit()
 
 func _on_invincibility_started() -> void:
 	var tween = create_tween().set_loops()
@@ -62,6 +75,21 @@ func update_input(speed: float, acceleration: float, deceleration: float, delta:
 		velocity.x = move_toward(velocity.x, input_dir * speed, acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, deceleration * delta)
+	
+	# Update facing direction
+	if input_dir > 0:
+		_facing_right = true
+	elif input_dir < 0:
+		_facing_right = false
+
+	# Flip visuals and hitbox
+	_flip_facing(_facing_right)
+
+	# Attack
+	# Handle attack input
+	if Input.is_action_just_pressed("attack"):
+		print("Player: Attack input detected.")
+		_animation_player.play("light_attack")
 
 func update_velocity() -> void:
 	move_and_slide()
