@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0wtpgkfw785g"]
+[gd_scene load_steps=16 format=3 uid="uid://d0wtpgkfw785g"]
 
 [ext_resource type="Script" uid="uid://bwo0anqu8k4a8" path="res://src/mini_game.gd" id="1_s1gus"]
 [ext_resource type="Texture2D" uid="uid://btpx5sxg2u2p1" path="res://assets/portatil/mini_game/laptopscreen - newsgame.png" id="2_n151k"]
@@ -7,9 +7,11 @@
 [ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="3_sawhp"]
 [ext_resource type="Script" uid="uid://dwicd6gc3ctlb" path="res://src/mini_game_prompt.gd" id="4_x0hv8"]
 [ext_resource type="FontFile" uid="uid://bwtep74v4w50j" path="res://assets/portatil/PatrickHand-Regular.ttf" id="6_4l45w"]
-[ext_resource type="Texture2D" uid="uid://cyjnmhv5bbvh2" path="res://assets/portatil/mini_game/publishbutton.png" id="8_4l45w"]
+[ext_resource type="Texture2D" uid="uid://63qfvsffoc70" path="res://assets/portatil/mini_game/publishbutton.png" id="8_4l45w"]
 [ext_resource type="Texture2D" uid="uid://w3rweugt1olj" path="res://assets/portatil/temptimerclock.png" id="8_ved5p"]
+[ext_resource type="Texture2D" uid="uid://byylgmmnwi7yi" path="res://assets/portatil/mini_game/immoralbutton.png" id="10_6dm1v"]
 [ext_resource type="Script" uid="uid://biohqb30vn8a8" path="res://src/camera_shake.gd" id="10_ved5p"]
+[ext_resource type="Texture2D" uid="uid://dxn8b33o3xbs3" path="res://assets/portatil/mini_game/moralbutton.png" id="11_55gcl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sawhp"]
 font = ExtResource("6_4l45w")
@@ -84,17 +86,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-<<<<<<< Updated upstream
-offset_left = -153.0
-offset_top = 95.0
-offset_right = -131.0
-offset_bottom = 117.0
-=======
 offset_left = -227.0
 offset_top = 48.0
 offset_right = -99.0
 offset_bottom = 176.0
->>>>>>> Stashed changes
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -110,10 +105,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -295.0
-offset_top = -467.0
+offset_left = -351.0
+offset_top = -473.0
 offset_right = -114.0
-offset_bottom = -418.0
+offset_bottom = -407.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
@@ -128,16 +123,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -453.0
-offset_top = -314.0
-offset_right = -272.0
+offset_left = -460.0
+offset_top = -331.0
+offset_right = -223.0
 offset_bottom = -265.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 focus_mode = 0
-texture_normal = ExtResource("8_4l45w")
+texture_normal = ExtResource("10_6dm1v")
 
 [node name="AnticorruptButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -146,16 +141,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -941.0
-offset_top = -318.0
-offset_right = -760.0
+offset_left = -958.0
+offset_top = -335.0
+offset_right = -721.0
 offset_bottom = -269.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 focus_mode = 0
-texture_normal = ExtResource("8_4l45w")
+texture_normal = ExtResource("11_55gcl")
 
 [node name="CameraShake" type="Camera2D" parent="."]
 unique_name_in_owner = true

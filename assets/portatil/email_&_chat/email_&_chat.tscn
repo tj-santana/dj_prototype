@@ -119,6 +119,19 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("5_xqmil")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Chat/ChatVisuals"]
+layout_mode = 0
+offset_left = 19.450989
+offset_top = 67.068
+offset_right = 500.451
+offset_bottom = 418.068
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_uuhjh")
+text = "joaomario12: bla bla bla
+joaomario12: bla bla bla bla
+tu: bla bla bla
+joaomario12: mas ele gosta mesmo de fumar :("
+
 [node name="ChatCloseWindow" type="TextureButton" parent="HBoxContainer/Chat"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
