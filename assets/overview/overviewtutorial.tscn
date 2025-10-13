@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d363ld3jefcrm"]
+[gd_scene load_steps=14 format=3 uid="uid://d363ld3jefcrm"]
 
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_ultgh"]
 [ext_resource type="Texture2D" uid="uid://ff6dojch1p4d" path="res://assets/overview/resources/2dcitywithoutoutline/citysecondprops/citysecondcityprops0001.png" id="2_abrsk"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cwicrn4o51f8j" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0003.png" id="9_yxuyl"]
 [ext_resource type="Texture2D" uid="uid://cocf2l76a14u6" path="res://assets/overview/resources/2dcitywithoutoutline/vehicles/vehicles0001.png" id="10_yis5c"]
 [ext_resource type="Texture2D" uid="uid://b3wildg4gacyj" path="res://assets/overview/resources/2dcitywithoutoutline/divers/divers0001.png" id="11_7tgpn"]
+[ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="12_npvgp"]
+[ext_resource type="Texture2D" uid="uid://derwa8tc1h0cr" path="res://assets/overview/tutorialtextwall.png" id="13_vsqcu"]
 
 [node name="Overview" type="Control"]
 layout_mode = 3
@@ -435,3 +437,24 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_7tgpn")
 region_enabled = true
 region_rect = Rect2(98, 147, 607, 391)
+
+[node name="Smog" type="Sprite2D" parent="."]
+position = Vector2(574, 286)
+texture = ExtResource("12_npvgp")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 652.0
+color = Color(1.1374342, 1.1374342, 1.1374342, 0.47058824)
+
+[node name="Tutorialtextwall" type="Sprite2D" parent="ColorRect2"]
+position = Vector2(583, 319)
+texture = ExtResource("13_vsqcu")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 1155.0
+offset_bottom = 654.0
