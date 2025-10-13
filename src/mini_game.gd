@@ -7,7 +7,7 @@ class_name MiniGame
 @export_range(0.0, 500.0, 1.0) var camera_shake_intensity: float = 8.0
 @export_range(0.0, 5.0, 0.1) var camera_shake_duration: float = 0.5
 
-@onready var _prompt: MiniGamePrompt = $MiniGamePrompt
+@onready var _header: Header = $Header
 @onready var _timer_ui: TextureProgressBar = $TimerUI
 @onready var _camera_shake: CameraShake = %CameraShake
 
@@ -28,8 +28,8 @@ func _ready() -> void:
 	_timer_ui.max_value = time_limit
 	_timer_ui.value = time_limit
 
-	# Parse the prompt for placeholders
-	structured_text = _prompt.raw_text
+	# Parse the header for placeholders
+	structured_text = _header.raw_text
 	_parse_placeholders()
 
 func _process(_delta: float) -> void:
@@ -40,7 +40,7 @@ func _parse_placeholders() -> void:
 	placeholders.clear()
 	var text = structured_text
 	
-	for key in _prompt.option_sets.keys():
+	for key in _header.option_sets.keys():
 		var tag = "{" + key + "}"
 		var pos = 0
 		
@@ -49,7 +49,7 @@ func _parse_placeholders() -> void:
 			if pos == -1:
 				break
 			
-			var opts = _prompt.get_options_for_placeholder(key)
+			var opts = _header.get_options_for_placeholder(key)
 			placeholders.append({
 				"start": pos,
 				"end": pos + tag.length(),
@@ -164,7 +164,7 @@ func _update_display() -> void:
 			var tag = "{" + ph["tag"] + "}"
 
 			if ph["chosen_option"] == -1:
-				display_text += _prompt.build_table_with_array_highlight(ph["options"], -1)
+				display_text += _header.build_table_with_array_highlight(ph["options"], -1)
 			else:
 				var option = ph["options"][ph["chosen_option"]]
 				for i in range(option.length()):
@@ -190,7 +190,7 @@ func _update_display() -> void:
 		display_text += "[color=%s]%s[/color]" % [color, expected_char]
 		text_pos += 1
 
-	_prompt.raw_text = display_text
+	_header.raw_text = display_text
 
 func _start_game() -> void:
 	started = true

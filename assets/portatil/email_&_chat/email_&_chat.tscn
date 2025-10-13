@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://by3l8pe5cny04"]
+[gd_scene load_steps=8 format=3 uid="uid://by3l8pe5cny04"]
 
 [ext_resource type="Script" uid="uid://bevyal6lfjxsw" path="res://src/email_&_chat.gd" id="1_i7aha"]
 [ext_resource type="Texture2D" uid="uid://brwm1fmo0ybxs" path="res://assets/portatil/email_&_chat/emailandchatbackground.png" id="2_a8nqs"]
 [ext_resource type="Texture2D" uid="uid://0grydqucly40" path="res://assets/portatil/email_&_chat/email.png" id="3_uuhjh"]
 [ext_resource type="Texture2D" uid="uid://cngq2fwjqvts8" path="res://assets/portatil/email_&_chat/close button.png" id="4_25iqt"]
+[ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="4_uuhjh"]
+[ext_resource type="FontFile" uid="uid://354o3xn0ohmx" path="res://assets/portatil/Merriweather-Italic-VariableFont_opsz,wdth,wght.ttf" id="5_25iqt"]
 [ext_resource type="Texture2D" uid="uid://ben00rgleg4um" path="res://assets/portatil/email_&_chat/chat.png" id="5_xqmil"]
 
 [node name="Email&Chat" type="Control"]
@@ -42,6 +44,62 @@ layout_mode = 2
 [node name="EmailVisuals" type="TextureRect" parent="HBoxContainer/Email"]
 layout_mode = 2
 texture = ExtResource("3_uuhjh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Email/EmailVisuals"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.037
+anchor_bottom = 0.086
+offset_left = 96.45099
+offset_top = 63.067993
+offset_right = 393.06198
+offset_bottom = 49.443993
+theme_override_colors/default_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+theme_override_fonts/normal_font = ExtResource("4_uuhjh")
+theme_override_fonts/bold_font = ExtResource("4_uuhjh")
+text = "jarlboro.ceo@jarlboroindustries.com"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HBoxContainer/Email/EmailVisuals"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.037
+anchor_bottom = 0.086
+offset_left = 96.45099
+offset_top = 93.06799
+offset_right = 422.06198
+offset_bottom = 79.44399
+theme_override_colors/default_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+theme_override_fonts/normal_font = ExtResource("4_uuhjh")
+theme_override_fonts/bold_font = ExtResource("4_uuhjh")
+text = "Upcoming News Article - Partnership Offer"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HBoxContainer/Email/EmailVisuals"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.037
+anchor_bottom = 0.086
+offset_left = 14.450996
+offset_top = 136.068
+offset_right = 467.06198
+offset_bottom = 430.444
+theme_override_colors/default_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+theme_override_constants/line_separation = 3
+theme_override_fonts/normal_font = ExtResource("4_uuhjh")
+theme_override_fonts/bold_font = ExtResource("4_uuhjh")
+theme_override_fonts/italics_font = ExtResource("5_25iqt")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "Good evening, 
+
+On behalf of Järlboro Industries, I want to offer you a lifetime supply of our signature [i]Järlboro Lite™[/i] cigarrettes, as well as a small personal donation (5000$) in exchange for an article that favors our company's mission.
+
+We hope this is the beginning of a long a prosperous relationship...
+
+Kindest Regards,
+Järl Järlsson, Järlboro Industries CEO
+"
 
 [node name="EmailCloseWindow" type="TextureButton" parent="HBoxContainer/Email"]
 custom_minimum_size = Vector2(50, 50)
