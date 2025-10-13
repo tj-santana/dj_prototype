@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0wtpgkfw785g"]
+[gd_scene load_steps=14 format=3 uid="uid://d0wtpgkfw785g"]
 
 [ext_resource type="Script" uid="uid://bwo0anqu8k4a8" path="res://src/mini_game.gd" id="1_s1gus"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_ycabl"]
 [ext_resource type="Texture2D" uid="uid://btpx5sxg2u2p1" path="res://assets/portatil/mini_game/laptopscreen - newsgame.png" id="2_n151k"]
-[ext_resource type="Script" uid="uid://dppr32xp2wbag" path="res://src/rich_text_good.gd" id="2_oe4s0"]
-[ext_resource type="Script" uid="uid://b2b2n7mv7oe84" path="res://src/rich_text_bad.gd" id="2_uc01f"]
+[ext_resource type="Script" path="res://src/rich_text_good.gd" id="2_oe4s0"]
+[ext_resource type="Script" path="res://src/rich_text_bad.gd" id="2_uc01f"]
 [ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="3_sawhp"]
-[ext_resource type="Script" uid="uid://dwicd6gc3ctlb" path="res://src/mini_game_prompt.gd" id="4_x0hv8"]
+[ext_resource type="Script" path="res://src/mini_game_prompt.gd" id="4_x0hv8"]
 [ext_resource type="FontFile" uid="uid://bwtep74v4w50j" path="res://assets/portatil/PatrickHand-Regular.ttf" id="6_4l45w"]
 [ext_resource type="Texture2D" uid="uid://cyjnmhv5bbvh2" path="res://assets/portatil/mini_game/publishbutton.png" id="8_4l45w"]
+[ext_resource type="Script" uid="uid://biohqb30vn8a8" path="res://src/camera_shake.gd" id="10_ved5p"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_x0hv8"]
 script = ExtResource("2_oe4s0")
@@ -31,8 +32,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s1gus")
 
-[node name="LaptopscreenNewsgame" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
+[node name="LaptopscreenNewsgame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_n151k")
 
 [node name="MiniGamePrompt" type="RichTextLabel" parent="."]
@@ -83,19 +89,31 @@ value = 100.0
 fill_mode = 5
 texture_progress = ExtResource("1_ycabl")
 
-[node name="ConfirmButton" type="TextureRect" parent="."]
+[node name="PublishButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -291.0
-offset_top = -158.0
-offset_right = -110.0
-offset_bottom = -109.0
+offset_left = -300.0
+offset_top = -169.0
+offset_right = -119.0
+offset_bottom = -120.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource("8_4l45w")
+focus_mode = 0
+texture_normal = ExtResource("8_4l45w")
+
+[node name="CameraShake" type="Camera2D" parent="."]
+unique_name_in_owner = true
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+script = ExtResource("10_ved5p")
+metadata/_custom_type_script = "uid://biohqb30vn8a8"
+
+[connection signal="pressed" from="PublishButton" to="." method="_on_publish_button_pressed"]
