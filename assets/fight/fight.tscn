@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cje2ap7ple78a"]
 
 [ext_resource type="PackedScene" uid="uid://bx1imjkaglqrh" path="res://assets/player/player.tscn" id="1_6nq0e"]
-[ext_resource type="PackedScene" uid="uid://btosv36bli7l5" path="res://assets/boss/boss.tscn" id="2_avfyy"]
+[ext_resource type="PackedScene" uid="uid://bof3ks2cj1btn" path="res://assets/boss/boss.tscn" id="2_avfyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6nq0e"]
 size = Vector2(1200, 20)
@@ -9,10 +9,10 @@ size = Vector2(1200, 20)
 [node name="Fight" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_6nq0e")]
-position = Vector2(583, 495)
+position = Vector2(1002, 536)
 
 [node name="Boss" parent="." instance=ExtResource("2_avfyy")]
-position = Vector2(145, 520)
+position = Vector2(576, 598)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(585, 658)
