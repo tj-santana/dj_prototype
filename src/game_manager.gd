@@ -1,4 +1,6 @@
+class_name GameManager
 extends Node
+
 
 enum LEVEL{
 	TABACO,
@@ -9,6 +11,7 @@ enum LEVEL{
 }
 
 enum DECISION_TYPE{
+	TODO,
 	MISS,
 	GOOD,
 	BAD
@@ -19,13 +22,20 @@ enum DECISION_TYPE{
 
 func _ready() -> void:
 	for level in LEVEL:
-		_decisionLog[level] = DECISION_TYPE.MISS
+		_decisionLog[level] = DECISION_TYPE.TODO
 
 func getLevelDecision(level: LEVEL) -> DECISION_TYPE:
 	return _decisionLog[level]
 
 func setLevelDecision(level: LEVEL, decision: DECISION_TYPE):
 	_decisionLog[level] = decision
+	
+func getLevelsDone():
+	var result: Array = []
+	for k in _decisionLog.keys():
+		if _decisionLog[k] != DECISION_TYPE.TODO:
+			result.append(k)
+	return result
 
 func getMoney() -> int:
 	return _money
