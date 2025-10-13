@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d363ld3jefcrm"]
+[gd_scene load_steps=15 format=3 uid="uid://d363ld3jefcrm"]
 
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_ultgh"]
 [ext_resource type="Texture2D" uid="uid://ff6dojch1p4d" path="res://assets/overview/resources/2dcitywithoutoutline/citysecondprops/citysecondcityprops0001.png" id="2_abrsk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b3wildg4gacyj" path="res://assets/overview/resources/2dcitywithoutoutline/divers/divers0001.png" id="11_7tgpn"]
 [ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="12_npvgp"]
 [ext_resource type="Texture2D" uid="uid://derwa8tc1h0cr" path="res://assets/overview/tutorialtextwall.png" id="13_vsqcu"]
+[ext_resource type="FontFile" uid="uid://fu5e8at0umcu" path="res://assets/Merriweather.ttf" id="14_vsqcu"]
 
 [node name="Overview" type="Control"]
 layout_mode = 3
@@ -449,10 +450,26 @@ offset_bottom = 652.0
 color = Color(1.1374342, 1.1374342, 1.1374342, 0.47058824)
 
 [node name="Tutorialtextwall" type="Sprite2D" parent="ColorRect2"]
+visible = false
 position = Vector2(583, 319)
 texture = ExtResource("13_vsqcu")
 
+[node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 41.0
+offset_right = 4076.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_vsqcu")
+theme_override_font_sizes/font_size = 26
+text = "Welcome to Burla City! It used to be the perfect place to live, until [b]corruption[\\b] started spreading across it. Nowadays, it barely qualifies as a “safe”, much less a “perfect” city to live in. 
+You’re a Senior Reporter in The Daily Burla, and your job is to expose the corruption spreading through Burla City. 
+To do so, you can check the City Map for possible leads, which will show up in the form of Alerts[AlertSymbol]. After receiving a summary of the proposed piece and the Factions[FactionSymbol] it will affect, you can choose to start writing that article or choose a different one (if available).
+To begin, click on the Factory[FactorySymbol]’s Alerts[AlertSymbol] and choose it to be this week’s headliner!"
+
 [node name="TextureButton2" type="TextureButton" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -2.0
 offset_top = 1.0

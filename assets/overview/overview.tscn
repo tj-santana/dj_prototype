@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://7pp2qjsno264"]
+[gd_scene load_steps=15 format=3 uid="uid://7pp2qjsno264"]
 
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_skwpw"]
 [ext_resource type="Texture2D" uid="uid://bncto63kvv4tu" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0001.png" id="2_6qvxk"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cjubxd1jk6xa2" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0007.png" id="9_jcbmv"]
 [ext_resource type="Texture2D" uid="uid://cwicrn4o51f8j" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0003.png" id="10_b7odv"]
 [ext_resource type="Texture2D" uid="uid://cocf2l76a14u6" path="res://assets/overview/resources/2dcitywithoutoutline/vehicles/vehicles0001.png" id="11_7vgr4"]
-[ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="12_87qgn"]
+[ext_resource type="Texture2D" uid="uid://b2auv4j5k7bkn" path="res://assets/overview/resources/smogworse.png" id="12_dx7nr"]
+[ext_resource type="Texture2D" uid="uid://b0lf1xbgymh2g" path="res://assets/overview/resources/factoryicon.png" id="13_1xkay"]
+[ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="14_1xkay"]
 
 [node name="Overview" type="Control"]
 layout_mode = 3
@@ -430,6 +432,17 @@ texture = ExtResource("8_hjwqe")
 region_enabled = true
 region_rect = Rect2(98, 147, 607, 391)
 
+[node name="Smogworse" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(577, 284)
+texture = ExtResource("12_dx7nr")
+
+[node name="Factoryicon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(183, 591)
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("13_1xkay")
+
 [node name="Smog" type="Sprite2D" parent="."]
-position = Vector2(576, 285)
-texture = ExtResource("12_87qgn")
+position = Vector2(574, 286)
+texture = ExtResource("14_1xkay")
