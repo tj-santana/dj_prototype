@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d363ld3jefcrm"]
+[gd_scene load_steps=14 format=3 uid="uid://cgpiuj0npbf6i"]
 
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_ultgh"]
 [ext_resource type="Texture2D" uid="uid://ff6dojch1p4d" path="res://assets/overview/resources/2dcitywithoutoutline/citysecondprops/citysecondcityprops0001.png" id="2_abrsk"]
@@ -21,13 +21,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 827.0
-offset_top = 226.0
-offset_right = 867.0
-offset_bottom = 266.0
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
