@@ -15,16 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://b0lf1xbgymh2g" path="res://assets/overview/resources/factoryicon.png" id="13_1xkay"]
 [ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="14_1xkay"]
 
-[node name="Overview" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Overview" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
 offset_top = -318.0
 offset_right = 1152.0
 offset_bottom = 330.0
@@ -32,7 +25,6 @@ texture = ExtResource("1_skwpw")
 expand_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
 offset_top = 231.0
 offset_right = 1152.0
 offset_bottom = 648.0

@@ -23,13 +23,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 827.0
-offset_top = 226.0
-offset_right = 867.0
-offset_bottom = 266.0
-
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_top = -318.0
@@ -447,14 +440,14 @@ texture = ExtResource("12_npvgp")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 652.0
-color = Color(1.1374342, 1.1374342, 1.1374342, 0.47058824)
+color = Color(1.1374342, 1.1374342, 1.1374342, 0.70980394)
 
 [node name="Tutorialtextwall" type="Sprite2D" parent="ColorRect2"]
-visible = false
 position = Vector2(583, 319)
 texture = ExtResource("13_vsqcu")
 
 [node name="Label" type="Label" parent="ColorRect2"]
+visible = false
 layout_mode = 0
 offset_left = 28.0
 offset_top = 41.0
