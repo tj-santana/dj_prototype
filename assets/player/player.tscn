@@ -1,31 +1,97 @@
-[gd_scene load_steps=11 format=3 uid="uid://bx1imjkaglqrh"]
+[gd_scene load_steps=19 format=3 uid="uid://bx1imjkaglqrh"]
 
 [ext_resource type="Script" uid="uid://cd55x145elyua" path="res://src/player.gd" id="1_d5dr7"]
 [ext_resource type="Script" uid="uid://b4fxwm2xv38nw" path="res://src/state_machine.gd" id="1_v2miy"]
+[ext_resource type="Script" uid="uid://epblsx3i6y5v" path="res://src/hitbox_component.gd" id="2_op4fd"]
 [ext_resource type="Script" uid="uid://ci58kgd08du0r" path="res://src/player_state_idle.gd" id="2_ouxva"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="2_toylo"]
 [ext_resource type="Script" uid="uid://uj21po675lwv" path="res://src/player_state_walk.gd" id="3_d5dr7"]
 [ext_resource type="Script" uid="uid://bvvgkev5qvyjv" path="res://src/hurtbox_component.gd" id="3_kwvpd"]
+[ext_resource type="Script" uid="uid://dof5pd4m1eyvl" path="res://src/attack.gd" id="3_m2mll"]
 [ext_resource type="Script" uid="uid://ce16e6y477g65" path="res://src/health_component.gd" id="4_op4fd"]
 [ext_resource type="Script" uid="uid://cqur7mymd1m58" path="res://src/player_state_jump.gd" id="6_toylo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwvpd"]
 size = Vector2(122, 122)
 
+[sub_resource type="Resource" id="Resource_m2mll"]
+script = ExtResource("3_m2mll")
+metadata/_custom_type_script = "uid://dof5pd4m1eyvl"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_op4fd"]
+size = Vector2(87, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2mll"]
 size = Vector2(130, 130)
 
+[sub_resource type="Animation" id="Animation_vlpqo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitboxComponent:monitorable")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_m2mll"]
+resource_name = "heavy_attack"
+step = 0.0333333
+
+[sub_resource type="Animation" id="Animation_hai6l"]
+resource_name = "light_attack"
+length = 0.1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitboxComponent:monitorable")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hai6l"]
+_data = {
+&"RESET": SubResource("Animation_vlpqo"),
+&"heavy_attack": SubResource("Animation_m2mll"),
+&"light_attack": SubResource("Animation_hai6l")
+}
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
+collision_mask = 4
 script = ExtResource("1_d5dr7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kwvpd")
 
+[node name="HitboxComponent" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 0
+input_pickable = false
+monitorable = false
+script = ExtResource("2_op4fd")
+attack = SubResource("Resource_m2mll")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(109.5, 0)
+shape = SubResource("RectangleShape2D_op4fd")
+
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 unique_name_in_owner = true
+collision_layer = 0
 collision_mask = 2
 input_pickable = false
+monitorable = false
 script = ExtResource("3_kwvpd")
 health_component = NodePath("../HealthComponent")
 invincibility_enabled = true
@@ -41,6 +107,7 @@ texture = ExtResource("2_toylo")
 [node name="HealthComponent" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_op4fd")
+max_health = 6
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_v2miy")
@@ -58,3 +125,9 @@ metadata/_custom_type_script = "uid://dqdmec1f3ttmn"
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource("6_toylo")
 metadata/_custom_type_script = "uid://cvj1x685kgkuo"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_hai6l")
+}
