@@ -1,68 +1,77 @@
-[gd_scene load_steps=13 format=3 uid="uid://btosv36bli7l5"]
+[gd_scene load_steps=9 format=3 uid="uid://bof3ks2cj1btn"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_i37gy"]
-[ext_resource type="Script" uid="uid://oeba4xfu436o" path="res://src/boss.gd" id="1_si506"]
-[ext_resource type="Script" uid="uid://bvvgkev5qvyjv" path="res://src/hurtbox_component.gd" id="2_si506"]
-[ext_resource type="Script" uid="uid://ce16e6y477g65" path="res://src/health_component.gd" id="3_toilc"]
-[ext_resource type="Script" uid="uid://b4fxwm2xv38nw" path="res://src/state_machine.gd" id="4_1sr2b"]
-[ext_resource type="Script" uid="uid://epblsx3i6y5v" path="res://src/hitbox_component.gd" id="4_si506"]
-[ext_resource type="Script" uid="uid://dftett0vf6tdy" path="res://src/attack_knockback.gd" id="5_toilc"]
-[ext_resource type="Script" uid="uid://2624vrfshfi6" path="res://src/boss_state_idle.gd" id="6_toilc"]
+[ext_resource type="Script" uid="uid://cqi7p1a657ydg" path="res://src/boss.gd" id="1_q8i4t"]
+[ext_resource type="PackedScene" uid="uid://btosv36bli7l5" path="res://assets/boss/boss_body.tscn" id="1_yjyou"]
+[ext_resource type="Script" uid="uid://b4fxwm2xv38nw" path="res://src/state_machine.gd" id="2_yvulm"]
+[ext_resource type="Script" uid="uid://2624vrfshfi6" path="res://src/boss_state_idle.gd" id="3_q8i4t"]
+[ext_resource type="Script" uid="uid://du4rksljymchq" path="res://src/boss_state_attack.gd" id="6_i37gy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4rjp"]
-size = Vector2(120, 122)
+[sub_resource type="Curve2D" id="Curve2D_aephb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 440, 0, 0, 0, 0, 0, 0, -377, 0, 0, 0, 0, -394, -1, 0, 0, 0, 0, 439, 0)
+}
+point_count = 4
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5rkq"]
-size = Vector2(130, 130)
+[sub_resource type="Curve2D" id="Curve2D_i37gy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, -2, 0, 0, 0, 0, 449, -206, 0, 0, 0, 0, -4, -380, 0, 0, 0, 0, -384, -203, 0, 0, 0, 0, -4, -7)
+}
+point_count = 5
 
-[sub_resource type="Resource" id="Resource_1sr2b"]
-script = ExtResource("5_toilc")
-metadata/_custom_type_script = "uid://dftett0vf6tdy"
+[sub_resource type="Curve2D" id="Curve2D_si506"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 435, -11, 0, 0, 0, 0, 437, -381, 0, 0, 0, 0, -361, -381, 0, 0, 0, 0, -375, -23, 0, 0, 0, 0, 435, -11)
+}
+point_count = 5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i37gy"]
-size = Vector2(130, 130)
+[node name="Boss" type="Node2D"]
+script = ExtResource("1_q8i4t")
 
-[node name="Boss" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 5
-script = ExtResource("1_si506")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_c4rjp")
-
-[node name="Visuals" type="Sprite2D" parent="."]
+[node name="Paths" type="Node2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("1_i37gy")
 
-[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
-collision_layer = 2
-input_pickable = false
-script = ExtResource("2_si506")
-health_component = NodePath("../HealthComponent")
+[node name="Path2D" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_aephb")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("RectangleShape2D_w5rkq")
-debug_color = Color(0.880595, 0.2930992, 0.44435066, 0.41960785)
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
+position = Vector2(439.00006, 0)
+rotation = -2.4320292
+progress = 1957.0453
+rotates = false
 
-[node name="HitboxComponent" type="Area2D" parent="."]
-collision_layer = 2
-input_pickable = false
-script = ExtResource("4_si506")
-attack = SubResource("Resource_1sr2b")
+[node name="Path2D2" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_i37gy")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxComponent"]
-shape = SubResource("RectangleShape2D_i37gy")
-debug_color = Color(0.880595, 0.2930992, 0.44435066, 0.41960785)
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D2"]
+position = Vector2(-4, -7)
+rotation = -2.4320292
+progress = 1957.0453
+rotates = false
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="Path2D3" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_si506")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D3"]
+position = Vector2(55.719303, -16.618973)
+rotation = -2.4320292
+progress = 1957.0453
+rotates = false
+
+[node name="BossBody" parent="." instance=ExtResource("1_yjyou")]
 unique_name_in_owner = true
-script = ExtResource("3_toilc")
+position = Vector2(-250, -148)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("4_1sr2b")
+script = ExtResource("2_yvulm")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://b4fxwm2xv38nw"
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("6_toilc")
+script = ExtResource("3_q8i4t")
 metadata/_custom_type_script = "uid://dqdmec1f3ttmn"
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("6_i37gy")
+speed_on_path = 0.3
+attack_duration = 10.0
+metadata/_custom_type_script = "uid://cnyqg50dnvhbj"

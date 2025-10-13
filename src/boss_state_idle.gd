@@ -2,10 +2,30 @@ extends BossState
 class_name BossStateIdle
 
 # Public variables
-@export var speed: float = 200.0
-@export var acceleration: float = 2000.0
-@export var deceleration: float = 1500.0
+@export var idle_time: float = 2.0
+
+var _timer: Timer = null
+
+func enter(_previous_state: State = null) -> void:
+	_timer = Timer.new()
+	_timer.wait_time = idle_time
+	_timer.one_shot = true
+	_timer.timeout.connect(_on_timer_timeout)
+	add_child(_timer)
+	_timer.start()
+
+func exit() -> void:
+	print("Exiting Idle State")
+	# Timer cleanup
+	if _timer:
+		_timer.queue_free()
+		_timer = null
+	pass
 
 func physics_update(delta: float) -> void:
-	_boss.update_gravity(delta)
-	_boss.update_velocity()
+	_boss_body.update_gravity(delta)
+	_boss_body.update_velocity()
+
+func _on_timer_timeout() -> void:
+	transitioned.emit(self, "Attack")
+	pass

@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://btosv36bli7l5"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="1_i37gy"]
+[ext_resource type="Script" uid="uid://oeba4xfu436o" path="res://src/boss_body.gd" id="1_si506"]
+[ext_resource type="Script" uid="uid://bvvgkev5qvyjv" path="res://src/hurtbox_component.gd" id="2_si506"]
+[ext_resource type="Script" uid="uid://ce16e6y477g65" path="res://src/health_component.gd" id="3_aewte"]
+[ext_resource type="Script" uid="uid://epblsx3i6y5v" path="res://src/hitbox_component.gd" id="4_si506"]
+[ext_resource type="Script" uid="uid://dftett0vf6tdy" path="res://src/attack_knockback.gd" id="5_toilc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4rjp"]
+size = Vector2(120, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5rkq"]
+size = Vector2(130, 130)
+
+[sub_resource type="Resource" id="Resource_1sr2b"]
+script = ExtResource("5_toilc")
+damage = 1
+metadata/_custom_type_script = "uid://dftett0vf6tdy"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i37gy"]
+size = Vector2(130, 130)
+
+[node name="BossBody" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_si506")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c4rjp")
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_i37gy")
+
+[node name="HealthComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_aewte")
+
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+unique_name_in_owner = true
+collision_layer = 0
+input_pickable = false
+monitorable = false
+script = ExtResource("2_si506")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_w5rkq")
+debug_color = Color(0.880595, 0.2930992, 0.44435066, 0.41960785)
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+input_pickable = false
+monitoring = false
+script = ExtResource("4_si506")
+attack = SubResource("Resource_1sr2b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_i37gy")
+debug_color = Color(0.880595, 0.2930992, 0.44435066, 0.41960785)
