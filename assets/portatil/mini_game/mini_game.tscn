@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://w3rweugt1olj" path="res://assets/portatil/temptimerclock.png" id="8_ved5p"]
 [ext_resource type="Script" uid="uid://biohqb30vn8a8" path="res://src/camera_shake.gd" id="10_ved5p"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_sawhp"]
+font = ExtResource("6_4l45w")
+font_size = 23
+
 [sub_resource type="RichTextEffect" id="RichTextEffect_x0hv8"]
 script = ExtResource("2_oe4s0")
 metadata/_custom_type_script = "uid://dppr32xp2wbag"
@@ -18,10 +22,6 @@ metadata/_custom_type_script = "uid://dppr32xp2wbag"
 [sub_resource type="RichTextEffect" id="RichTextEffect_mjgqc"]
 script = ExtResource("2_uc01f")
 metadata/_custom_type_script = "uid://b2b2n7mv7oe84"
-
-[sub_resource type="LabelSettings" id="LabelSettings_sawhp"]
-font = ExtResource("6_4l45w")
-font_size = 23
 
 [node name="MiniGame" type="Control"]
 layout_mode = 3
@@ -41,27 +41,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_n151k")
 
-[node name="MiniGamePrompt" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(750, 400)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_sawhp")
-bbcode_enabled = true
-text = "If you are reading this. This is how options work [table=1,center][cell][center][good]Good[/good][/center][/cell][cell][center][bad]Bad[/bad][/center][/cell][/table]. I think they are working fine not sure. Are they good? [table=1,center][cell][center][good]Yes[/good][/center][/cell][cell][center][bad]No[/bad][/center][/cell][/table]."
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffect_mjgqc")]
-script = ExtResource("4_x0hv8")
-raw_text = "If you are reading this. This is how options work {options_0}. I think they are working fine not sure. Are they good? {options_1}."
-
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
 offset_left = 287.0
@@ -73,19 +52,54 @@ size_flags_vertical = 0
 text = "Interstingtitle.docx"
 label_settings = SubResource("LabelSettings_sawhp")
 
+[node name="Header" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(750, 400)
+layout_mode = 0
+offset_left = 110.0
+offset_top = 48.0
+offset_right = 860.0
+offset_bottom = 448.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_sawhp")
+theme_override_fonts/bold_font = ExtResource("3_sawhp")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "[b]The Rise of Vaping in Schools: [/b]
+
+The appearance of vapes in schools has been worrying parents and teachers. Are their concerns valid? Of course..."
+scroll_active = false
+shortcut_keys_enabled = false
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffect_mjgqc")]
+script = ExtResource("4_x0hv8")
+raw_text = "[b]The Rise of Vaping in Schools: [/b]
+
+The appearance of vapes in schools has been worrying parents and teachers. Are their concerns valid? Of course..."
+
 [node name="TimerUI" type="TextureProgressBar" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
+<<<<<<< Updated upstream
 offset_left = -153.0
 offset_top = 95.0
 offset_right = -131.0
 offset_bottom = 117.0
+=======
+offset_left = -227.0
+offset_top = 48.0
+offset_right = -99.0
+offset_bottom = 176.0
+>>>>>>> Stashed changes
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 value = 100.0
+exp_edit = true
 fill_mode = 5
 texture_progress = ExtResource("8_ved5p")
 
@@ -96,10 +110,46 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -169.0
-offset_right = -119.0
-offset_bottom = -120.0
+offset_left = -295.0
+offset_top = -467.0
+offset_right = -114.0
+offset_bottom = -418.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+focus_mode = 0
+texture_normal = ExtResource("8_4l45w")
+
+[node name="CorruptButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -453.0
+offset_top = -314.0
+offset_right = -272.0
+offset_bottom = -265.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+focus_mode = 0
+texture_normal = ExtResource("8_4l45w")
+
+[node name="AnticorruptButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -941.0
+offset_top = -318.0
+offset_right = -760.0
+offset_bottom = -269.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
@@ -116,4 +166,53 @@ limit_bottom = 648
 script = ExtResource("10_ved5p")
 metadata/_custom_type_script = "uid://biohqb30vn8a8"
 
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 111.0
+offset_top = 375.0
+offset_right = -129.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnticorruptBody" type="RichTextLabel" parent="HSplitContainer"]
+custom_minimum_size = Vector2(450, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_sawhp")
+theme_override_fonts/bold_font = ExtResource("3_sawhp")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 35
+bbcode_enabled = true
+text = "Both vaping and smoking are detrimental to your health and the health of those around you. It is the respnsibility of each of us to make sure it is never promoted to children. Be responsible!"
+scroll_active = false
+shortcut_keys_enabled = false
+custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffect_mjgqc")]
+script = ExtResource("4_x0hv8")
+raw_text = "Both vaping and smoking are detrimental to your health and the health of those around you. It is the respnsibility of each of us to make sure it is never promoted to children. Be responsible!"
+
+[node name="CorruptBody" type="RichTextLabel" parent="HSplitContainer"]
+custom_minimum_size = Vector2(450, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_sawhp")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 35
+bbcode_enabled = true
+text = "Think of how cool you would look if you were smoking a cigarette right now! And if you don't like the smell, Jarlboro has a brand new coconut-scented vape just for you!"
+scroll_active = false
+shortcut_keys_enabled = false
+custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffect_mjgqc")]
+script = ExtResource("4_x0hv8")
+raw_text = "Think of how cool you would look if you were smoking a cigarette right now! And if you don't like the smell, Jarlboro has a brand new coconut-scented vape just for you!"
+
 [connection signal="pressed" from="PublishButton" to="." method="_on_publish_button_pressed"]
+[connection signal="pressed" from="CorruptButton" to="." method="_on_publish_button_pressed"]
+[connection signal="pressed" from="AnticorruptButton" to="." method="_on_publish_button_pressed"]

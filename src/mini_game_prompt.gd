@@ -1,6 +1,6 @@
 @tool
 extends RichTextLabel
-class_name MiniGamePrompt
+class_name Header
 
 @export_multiline var raw_text: String:
 	set(value):
@@ -10,8 +10,7 @@ class_name MiniGamePrompt
 		return raw_text
 
 @export var option_sets: Dictionary = {
-	"options_0": ["Good", "Bad"],
-	"options_1": ["Yes", "No"]
+	"options_0": ["they are", "not"]
 }
 
 func get_options_for_placeholder(tag: String) -> Array:
