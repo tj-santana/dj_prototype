@@ -2,6 +2,8 @@
 extends ComputerScreen
 class_name MiniGame
 
+signal text_complete
+
 # Public Variables
 @export var time_limit: float = 300.0
 @export_group("Camera Shake")
@@ -93,11 +95,13 @@ func _process_header_typing(c: String) -> void:
 func _process_body_typing(c: String) -> void:
 	if typed_index >= body_text.length():
 		return
-
+	
 	var expected_char = body_text[typed_index]
 	if c == expected_char:
 		typed_text += c
 		typed_index += 1
+		if typed_index==body_text.length():
+			text_complete.emit()
 	else:
 		_camera_shake.screen_shake(camera_shake_intensity, camera_shake_duration)
 
