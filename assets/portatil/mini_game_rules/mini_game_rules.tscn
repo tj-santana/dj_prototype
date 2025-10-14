@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c76di0uhcydaa"]
+[gd_scene load_steps=4 format=3 uid="uid://c76di0uhcydaa"]
 
 [ext_resource type="Script" uid="uid://ky67c70xvrqd" path="res://src/mini_game_rules.gd" id="1_1fsob"]
 [ext_resource type="Texture2D" uid="uid://fgwxt17f1ht5" path="res://assets/portatil/mini_game_rules/writing game tutorial.png" id="2_m2pgn"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="2_qrj5n"]
 [ext_resource type="FontFile" uid="uid://bwtep74v4w50j" path="res://assets/portatil/PatrickHand-Regular.ttf" id="3_ljj5u"]
-[ext_resource type="Texture2D" uid="uid://cyjnmhv5bbvh2" path="res://assets/portatil/mini_game/publishbutton.png" id="5_rjvo6"]
 
 [node name="MiniGameRules" type="Control"]
 layout_mode = 3
@@ -15,62 +13,46 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1fsob")
 
-[node name="LaptopscreenNewsgame" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-texture = ExtResource("2_m2pgn")
-
-[node name="Rules" type="RichTextLabel" parent="."]
-visible = false
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Rules blah blah blah blah"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("2_m2pgn")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
-offset_left = 251.0
-offset_top = 95.0
-offset_right = 652.0
-offset_bottom = 134.0
+anchors_preset = -1
+anchor_left = 0.216
+anchor_top = 0.14500001
+anchor_right = 0.61300004
+anchor_bottom = 0.21300001
+offset_left = 0.16799927
+offset_top = 0.039993286
+offset_right = -0.17602539
+offset_bottom = -0.024002075
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_ljj5u")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "e-mail: Writing an Article for dummies:"
+metadata/_edit_use_anchors_ = true
 
-[node name="Timer" type="TextureRect" parent="."]
-visible = false
+[node name="ConfirmButton" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -206.0
-offset_top = 74.0
-offset_right = -78.0
-offset_bottom = 202.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-texture = ExtResource("2_qrj5n")
-
-[node name="ConfirmButton" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -485.0
-offset_top = -162.0
-offset_right = -248.0
-offset_bottom = -96.0
-grow_horizontal = 0
-grow_vertical = 0
+anchors_preset = -1
+anchor_left = 0.578
+anchor_top = 0.75000006
+anchor_right = 0.78000003
+anchor_bottom = 0.84700006
+offset_left = 0.14398193
+offset_top = -3.0517578e-05
+offset_right = -0.5600586
+offset_bottom = 0.14398193
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource("5_rjvo6")
+action_mode = 0
+
+[connection signal="pressed" from="ConfirmButton" to="." method="_on_confirm_button_pressed"]
