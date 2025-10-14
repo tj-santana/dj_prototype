@@ -1,10 +1,9 @@
 extends Control
 class_name Portatil
 
-#Prvate Variables
+# Private Variables
 # Should only have one child, which is the current scene shown on the computer screen.
-@onready var computer_screen: MarginContainer = %ComputerScreen
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var computer_screen: Control = %ComputerScreen
 
 var current_screen: ComputerScreen = null
 
@@ -20,7 +19,6 @@ func get_scene_on_screen() -> ComputerScreen:
 # Private Functions
 func _ready() -> void:
 	assert(computer_screen != null, "ComputerScreen reference is missing.")
-	assert(animation_player != null, "AnimationPlayer reference is missing.")
 
 	current_screen = get_scene_on_screen()
 	if current_screen:
@@ -37,22 +35,7 @@ func _connect_screen_signals(screen: ComputerScreen) -> void:
 		push_warning("Screen does not define signal 'request_screen_change'.")
 		return
 
-	screen.request_screen_change.connect(_on_screen_change_requested)
-
-func _on_screen_change_requested(target_uid: String) -> void:
-	await _animate_screen_out()
-	_replace_screen(target_uid)
-	await _animate_screen_in()
-
-func _animate_screen_out() -> void:
-	if animation_player and animation_player.has_animation("screen_out"):
-		animation_player.play("screen_out")
-		await animation_player.animation_finished
-
-func _animate_screen_in() -> void:
-	if animation_player and animation_player.has_animation("screen_in"):
-		animation_player.play("screen_in")
-		await animation_player.animation_finished
+	screen.request_screen_change.connect(_replace_screen)
 
 func _replace_screen(target_uid: String) -> void:
 	# Free old screen safely
