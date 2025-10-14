@@ -17,35 +17,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i7aha")
 
-[node name="Emailandchatbackground" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-texture = ExtResource("2_a8nqs")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-clip_contents = true
+[node name="Emailandchatbackground" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 67.549
-offset_top = 76.932
-offset_right = -65.453735
-offset_bottom = -87.06799
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_a8nqs")
+
+[node name="Control" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Email" type="PanelContainer" parent="HBoxContainer"]
+[node name="Email" type="PanelContainer" parent="Control/HBoxContainer"]
 unique_name_in_owner = true
-clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="EmailVisuals" type="TextureRect" parent="HBoxContainer/Email"]
+[node name="EmailVisuals" type="TextureRect" parent="Control/HBoxContainer/Email"]
 layout_mode = 2
 texture = ExtResource("3_uuhjh")
+stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Email/EmailVisuals"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/HBoxContainer/Email/EmailVisuals"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.037
@@ -59,7 +65,7 @@ theme_override_fonts/normal_font = ExtResource("4_uuhjh")
 theme_override_fonts/bold_font = ExtResource("4_uuhjh")
 text = "jarlboro.ceo@jarlboroindustries.com"
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="HBoxContainer/Email/EmailVisuals"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="Control/HBoxContainer/Email/EmailVisuals"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.037
@@ -73,7 +79,7 @@ theme_override_fonts/normal_font = ExtResource("4_uuhjh")
 theme_override_fonts/bold_font = ExtResource("4_uuhjh")
 text = "Upcoming News Article - Partnership Offer"
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="HBoxContainer/Email/EmailVisuals"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="Control/HBoxContainer/Email/EmailVisuals"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.037
@@ -101,7 +107,7 @@ Kindest Regards,
 Järl Järlsson, Järlboro Industries CEO
 "
 
-[node name="EmailCloseWindow" type="TextureButton" parent="HBoxContainer/Email"]
+[node name="EmailCloseWindow" type="TextureButton" parent="Control/HBoxContainer/Email"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -110,29 +116,18 @@ texture_normal = ExtResource("4_25iqt")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Chat" type="PanelContainer" parent="HBoxContainer"]
+[node name="Chat" type="PanelContainer" parent="Control/HBoxContainer"]
 unique_name_in_owner = true
-clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="ChatVisuals" type="TextureRect" parent="HBoxContainer/Chat"]
+[node name="ChatVisuals" type="TextureRect" parent="Control/HBoxContainer/Chat"]
 layout_mode = 2
 texture = ExtResource("5_xqmil")
+stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Chat/ChatVisuals"]
-layout_mode = 0
-offset_left = 19.450989
-offset_top = 67.068
-offset_right = 500.451
-offset_bottom = 418.068
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_uuhjh")
-text = "joaomario12: bla bla bla
-joaomario12: bla bla bla bla
-tu: bla bla bla
-joaomario12: mas ele gosta mesmo de fumar :("
-
-[node name="ChatCloseWindow" type="TextureButton" parent="HBoxContainer/Chat"]
+[node name="ChatCloseWindow" type="TextureButton" parent="Control/HBoxContainer/Chat"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -141,5 +136,5 @@ texture_normal = ExtResource("4_25iqt")
 ignore_texture_size = true
 stretch_mode = 5
 
-[connection signal="pressed" from="HBoxContainer/Email/EmailCloseWindow" to="." method="_on_email_close_window_pressed"]
-[connection signal="pressed" from="HBoxContainer/Chat/ChatCloseWindow" to="." method="_on_chat_close_window_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Email/EmailCloseWindow" to="." method="_on_email_close_window_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Chat/ChatCloseWindow" to="." method="_on_chat_close_window_pressed"]
