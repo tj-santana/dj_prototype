@@ -2,21 +2,26 @@
 extends ComputerScreen
 class_name MiniGame
 
-@export var time_limit: float = 60.0
+# Public Variables
+@export var time_limit: float = 300.0
 @export_group("Camera Shake")
 @export_range(0.0, 500.0, 1.0) var camera_shake_intensity: float = 8.0
 @export_range(0.0, 5.0, 0.1) var camera_shake_duration: float = 0.5
 
-@onready var _header: Header = $Header
-@onready var _timer_ui: TextureProgressBar = $TimerUI
+# Private Variables
+@onready var _timer_ui: TextureProgressBar = %Timer
+@onready var _news: News = %News
 @onready var _camera_shake: CameraShake = %CameraShake
 
 var timer: Timer = Timer.new()
 var started: bool = false
 var typed_text: String = ""
 var typed_index: int = 0
-var structured_text: String = ""
-var placeholders: Array = []
+var header_text: String = ""
+var body_text: String = ""
+var typing_header: bool = true
+var original_header_text: String = ""
+var original_body_text: String = ""
 
 func _ready() -> void:
 	# Setup timer
@@ -28,182 +33,164 @@ func _ready() -> void:
 	_timer_ui.max_value = time_limit
 	_timer_ui.value = time_limit
 
-	# Parse the header for placeholders
-	structured_text = _header.raw_text
-	_parse_placeholders()
+	# Connect signals
+	_news.option_chosen.connect(_on_option_chosen)
 
 func _process(_delta: float) -> void:
 	if started and timer.time_left > 0:
 		_timer_ui.value = timer.time_left
 
-func _parse_placeholders() -> void:
-	placeholders.clear()
-	var text = structured_text
-	
-	for key in _header.option_sets.keys():
-		var tag = "{" + key + "}"
-		var pos = 0
-		
-		while true:
-			pos = text.find(tag, pos)
-			if pos == -1:
-				break
-			
-			var opts = _header.get_options_for_placeholder(key)
-			placeholders.append({
-				"start": pos,
-				"end": pos + tag.length(),
-				"tag": key,
-				"options": opts,
-				"chosen_option": - 1
-			})
-			pos += tag.length()
-
 func _input(event: InputEvent) -> void:
 	if not (event is InputEventKey and event.pressed and not event.echo):
 		return
+	if event.unicode == 0:
+		return
 
-	if not started:
-		_start_game()
-
-	var key_event = event as InputEventKey
-
-	if key_event.unicode != 0:
-		_process_typed_char(char(key_event.unicode))
-
-func _get_placeholder_at(pos: int) -> Dictionary:
-	for ph in placeholders:
-		if pos >= ph["start"] and pos < ph["end"]:
-			return ph
-	return {}
+	if started:
+		_process_typed_char(char(event.unicode))
+	else:
+		_camera_shake.screen_shake(camera_shake_intensity, camera_shake_duration)
 
 func _process_typed_char(c: String) -> void:
-	if typed_index >= structured_text.length():
-		return
-	
-	var placeholder := _get_placeholder_at(typed_index)
-	
-	if placeholder:
-		_handle_placeholder_typing(placeholder, c)
+	if typing_header:
+		_process_header_typing(c)
 	else:
-		_handle_normal_typing(c)
+		_process_body_typing(c)
 	
-	_update_display()
+	# DEBUG
+	#var expected_text := header_text if typing_header else body_text
+	#print("Expected:", expected_text) # shows continuous text
+	#print("Typed index:", typed_index)
+	#print("Next char to type:", expected_text[typed_index] if typed_index < expected_text.length() else "END")
 
-func _handle_normal_typing(c: String) -> void:
-	var expected_char = structured_text[typed_index]
-	print("Expected char: '%s', typed char: '%s'" % [expected_char, c])
+func _process_header_typing(c: String) -> void:
+	if typed_index >= header_text.length():
+		# Header is done — move on to body
+		typing_header = false
+		typed_index = 0
+		typed_text = ""
+		_update_body_display()
+		return
+
+	var expected_char = header_text[typed_index]
+
 	if c == expected_char:
 		typed_text += c
 		typed_index += 1
 	else:
-		print("Wrong character typed: expected '%s', got '%s'" % [expected_char, c])
 		_camera_shake.screen_shake(camera_shake_intensity, camera_shake_duration)
-		# else do nothing — player must type the correct char
 
-func _handle_placeholder_typing(ph: Dictionary, c: String) -> void:
-	var options = ph["options"]
+	_update_header_display()
 
-	# If no option chosen yet, try to pick by first letter
-	if ph["chosen_option"] == -1:
-		var picked := -1
-		for i in range(options.size()):
-			if options[i].length() > 0 and options[i][0] == c:
-				picked = i
-				break
-		if picked == -1:
-			# typed char does not match any first option letter -> ignore
-			return
-		ph["chosen_option"] = picked
-		# the first character is being typed now; check that it actually matches the first letter (it does)
-		ph["progress"] = 0 # start progress at 0, we'll validate next lines
+	# If header is fully typed, switch automatically
+	if typed_index >= header_text.length():
+		typing_header = false
+		typed_index = 0
+		typed_text = ""
+		_update_body_display()
 
-	# Ensure chosen_option is valid
-	if ph["chosen_option"] < 0 or ph["chosen_option"] >= ph["options"].size():
+
+func _process_body_typing(c: String) -> void:
+	if typed_index >= body_text.length():
 		return
 
-	var option = ph["options"][ph["chosen_option"]]
-	var progress := int(ph["progress"]) # how many chars already typed of this option
-
-	# The expected character to type now is option[progress]
-	if progress < option.length():
-		var expected_char = option[progress]
-		# compare case-insensitively on input vs expected (use exact if you prefer)
-		if c == expected_char:
-			# accept character
-			typed_text += c
-			typed_index += 1
-			progress += 1
-			ph["progress"] = progress
-
-			# If we've finished typing the option, move typed_index to the end of the tag
-			if progress == option.length():
-				# advance typed_index to after the placeholder tag in structured_text
-				typed_index = ph["end"]
-				# reset progress (optional)
-				ph["progress"] = 0
-		else:
-			# wrong character for this option -> ignore (player must type correct char)
-			print("Wrong character typed: expected '%s', got '%s'" % [expected_char, c])
-			_camera_shake.screen_shake(camera_shake_intensity, camera_shake_duration)
-			return
+	var expected_char = body_text[typed_index]
+	if c == expected_char:
+		typed_text += c
+		typed_index += 1
 	else:
-		# If progress is already >= option.length(), make sure we skip the tag
-		typed_index = ph["end"]
+		_camera_shake.screen_shake(camera_shake_intensity, camera_shake_duration)
 
-func _update_display() -> void:
-	var display_text := ""
-	var text_pos := 0
-	var typed_pos := 0
+	_update_body_display()
 
-	while text_pos < structured_text.length():
-		var ph := _get_placeholder_at(text_pos)
-		var color: String
-	
-		if ph:
-			var tag = "{" + ph["tag"] + "}"
+func _update_header_display() -> void:
+	var colored := _colorize_bbcode_text(original_header_text, header_text, typed_text)
+	_news.set_header_text(colored)
 
-			if ph["chosen_option"] == -1:
-				display_text += _header.build_table_with_array_highlight(ph["options"], -1)
-			else:
-				var option = ph["options"][ph["chosen_option"]]
-				for i in range(option.length()):
-					color = "gray"
-					if typed_pos < typed_text.length():
-						var typed_char = typed_text[typed_pos]
-						if typed_char == option[i]:
-							color = "green"
-							typed_pos += 1
-					display_text += "[color=%s]%s[/color]" % [color, option[i]]
+func _update_body_display() -> void:
+	var colored := _colorize_bbcode_text(original_body_text, body_text, typed_text)
+	_news.set_body_text(colored)
 
-			text_pos += tag.length()
+# This preserves all original BBCode (like [b], [i], etc.)
+func _colorize_bbcode_text(original_bbcode: String, clean_text: String, typed: String) -> String:
+	var result := ""
+	var visible_index := 0
+	var inside_tag := false
+
+	for i in range(original_bbcode.length()):
+		var c := original_bbcode[i]
+
+		if c == "\n":
+			result += "\n" # just copy it as is
+			# do not increment visible_index, because player doesn't type newline
 			continue
 
-		# Normal character
-		var expected_char := structured_text[text_pos]
-		color = "gray"
-		if typed_pos < typed_text.length():
-			var typed_char := typed_text[typed_pos]
-			if typed_char == expected_char:
-				color = "green"
-				typed_pos += 1
-		display_text += "[color=%s]%s[/color]" % [color, expected_char]
-		text_pos += 1
+		# Detect BBCode tags and copy them verbatim
+		if c == "[":
+			inside_tag = true
+			result += c
+			continue
+		elif c == "]" and inside_tag:
+			inside_tag = false
+			result += c
+			continue
 
-	_header.raw_text = display_text
+		if inside_tag:
+			result += c
+			continue
 
-func _start_game() -> void:
+		# c is a visible character (not part of BBCode)
+		var color := "gray"
+		if visible_index < typed.length() and typed[visible_index] == clean_text[visible_index]:
+			color = "green"
+
+		result += "[color=%s]%s[/color]" % [color, c]
+		visible_index += 1
+
+	return result
+
+# This removes all BBCode tags, leaving only visible text
+func _strip_bbcode(text: String) -> String:
+	var result := ""
+	var inside_tag := false
+	for c in text:
+		if c == "[":
+			inside_tag = true
+			continue
+		elif c == "]":
+			inside_tag = false
+			continue
+		if not inside_tag:
+			if c != "\n": # ignore newlines completely
+				result += c
+	return result
+
+# Signal Handlers
+# Start Game
+func _on_option_chosen() -> void:
 	started = true
 	timer.start()
+	# Get original BBCode text
+	original_header_text = _news.get_header_text()
+	original_body_text = _news.get_body_text()
+	# Strip BBCode for typing comparison
+	header_text = _strip_bbcode(original_header_text)
+	body_text = _strip_bbcode(original_body_text)
+	typing_header = true
+	typed_index = 0
+	typed_text = ""
+	_update_header_display()
+	_update_body_display()
 
+# Time's up
 func _on_time_timeout() -> void:
 	print("Time's up!")
-	print("PLZ EXPLAIN WHAT TO DO WHEN TIME'S UP...")
+	print("Become old news!")
 
-
+# Publish button pressed
 func _on_publish_button_pressed() -> void:
 	# Check if the player has typed all characters
-	if typed_index >= structured_text.length():
+	if not typing_header and typed_text.length() == body_text.length():
 		print("All text typed correctly! Publishing...")
 		# Do whatever happens after completion
 		timer.stop()
