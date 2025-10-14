@@ -11,6 +11,7 @@ signal option_chosen
 @onready var corrupt: VBoxContainer = %Corrupt
 @onready var corrupt_button: TextureButton = %CorruptButton
 @onready var corrupt_body: RichTextLabel = %CorruptBody
+@onready var publish_button: TextureButton = %PublishButton
 
 var _body_label: RichTextLabel
 var _header_text: String = ""
@@ -36,7 +37,7 @@ func set_body_text(text: String) -> void:
 func _ready() -> void:
 	# Initialize header text
 	_header_text = header_label.text
-
+	publish_button.visible = false
 	# Connect button signals
 	anti_corrupt_button.pressed.connect(_on_anti_corrupt_button_pressed)
 	corrupt_button.pressed.connect(_on_corrupt_button_pressed)
@@ -58,3 +59,8 @@ func _on_corrupt_button_pressed() -> void:
 	_body_text = corrupt_body.text
 	_body_label = corrupt_body
 	option_chosen.emit()
+
+
+func _on_mini_game_text_complete() -> void:
+	publish_button.visible = true	
+	pass # Replace with function body.
