@@ -8,19 +8,19 @@
 
 [sub_resource type="Curve2D" id="Curve2D_aephb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 440, 0, 0, 0, 0, 0, 0, -377, 0, 0, 0, 0, -394, -1, 0, 0, 0, 0, 439, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 500, -15, 0, 0, 0, 0, 0, -500, 0, 0, 0, 0, -500, -25, 0, 0, 0, 0, 500, -25)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_i37gy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -4, -2, 0, 0, 0, 0, 449, -206, 0, 0, 0, 0, -4, -380, 0, 0, 0, 0, -384, -203, 0, 0, 0, 0, -4, -7)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -25, 0, 0, 0, 0, 500, -250, 0, 0, 0, 0, 0, -500, 0, 0, 0, 0, -500, -250, 0, 0, 0, 0, 0, -25)
 }
 point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_si506"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 435, -11, 0, 0, 0, 0, 437, -381, 0, 0, 0, 0, -361, -381, 0, 0, 0, 0, -375, -23, 0, 0, 0, 0, 435, -11)
+"points": PackedVector2Array(0, 0, 0, 0, 500, -25, 0, 0, 0, 0, 500, -500, 0, 0, 0, 0, -500, -500, 0, 0, 0, 0, -500, -25, 0, 0, 0, 0, 500, -25)
 }
 point_count = 5
 
@@ -34,7 +34,7 @@ unique_name_in_owner = true
 curve = SubResource("Curve2D_aephb")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
-position = Vector2(439.00006, 0)
+position = Vector2(70.80898, -25)
 rotation = -2.4320292
 progress = 1957.0453
 rotates = false
@@ -43,7 +43,7 @@ rotates = false
 curve = SubResource("Curve2D_i37gy")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D2"]
-position = Vector2(-4, -7)
+position = Vector2(-234.88779, -130.69951)
 rotation = -2.4320292
 progress = 1957.0453
 rotates = false
@@ -52,26 +52,28 @@ rotates = false
 curve = SubResource("Curve2D_si506")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D3"]
-position = Vector2(55.719303, -16.618973)
+position = Vector2(-493.00687, -25)
 rotation = -2.4320292
 progress = 1957.0453
 rotates = false
 
 [node name="BossBody" parent="." instance=ExtResource("1_yjyou")]
 unique_name_in_owner = true
-position = Vector2(-250, -148)
+position = Vector2(450, -15)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_yvulm")
-initial_state = NodePath("Idle")
+initial_state = NodePath("Attack")
 metadata/_custom_type_script = "uid://b4fxwm2xv38nw"
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_q8i4t")
+idle_time = 4.0
 metadata/_custom_type_script = "uid://dqdmec1f3ttmn"
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_i37gy")
-speed_on_path = 0.3
-attack_duration = 10.0
+speed_to_path = 350.0
+speed_on_path = 0.25
+attack_duration = 7.5
 metadata/_custom_type_script = "uid://cnyqg50dnvhbj"
