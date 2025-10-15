@@ -5,13 +5,13 @@ class_name MiniGame
 signal text_complete
 
 # Public Variables
-@export var time_limit: float = 300.0
+@export var time_limit: int = 300
 @export_group("Camera Shake")
 @export_range(0.0, 500.0, 1.0) var camera_shake_intensity: float = 8.0
 @export_range(0.0, 5.0, 0.1) var camera_shake_duration: float = 0.5
 
 # Private Variables
-@onready var _timer_ui: TextureProgressBar = %Timer
+@onready var _timer_ui: Label = %Timer
 @onready var _news: News = %News
 @onready var _camera_shake: CameraShake = %CameraShake
 
@@ -32,15 +32,14 @@ func _ready() -> void:
 	timer.one_shot = true
 	timer.timeout.connect(_on_time_timeout)
 
-	_timer_ui.max_value = time_limit
-	_timer_ui.value = time_limit
+	_timer_ui.text = str(time_limit)
 
 	# Connect signals
 	_news.option_chosen.connect(_on_option_chosen)
 
 func _process(_delta: float) -> void:
-	if started and timer.time_left > 0:
-		_timer_ui.value = timer.time_left
+	if started and timer.time_left >= 0.0:
+		_timer_ui.text = str(int(ceil(timer.time_left)))
 
 func _input(event: InputEvent) -> void:
 	if not (event is InputEventKey and event.pressed and not event.echo):
@@ -100,7 +99,7 @@ func _process_body_typing(c: String) -> void:
 	if c == expected_char:
 		typed_text += c
 		typed_index += 1
-		if typed_index==body_text.length():
+		if typed_index == body_text.length():
 			text_complete.emit()
 	else:
 		_camera_shake.screen_shake(camera_shake_intensity, camera_shake_duration)
