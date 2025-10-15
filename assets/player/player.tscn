@@ -116,14 +116,22 @@ metadata/_custom_type_script = "uid://b4fxwm2xv38nw"
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("2_ouxva")
+speed = 500.0
+acceleration = 2500.0
+deceleration = 2000.0
 metadata/_custom_type_script = "uid://dqdmec1f3ttmn"
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("3_d5dr7")
+speed = 500.0
+acceleration = 2500.0
+deceleration = 2000.0
 metadata/_custom_type_script = "uid://dqdmec1f3ttmn"
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource("6_toylo")
+jump_force = 650.0
+speed = 300.0
 metadata/_custom_type_script = "uid://cvj1x685kgkuo"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
