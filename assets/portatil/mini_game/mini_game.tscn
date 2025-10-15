@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://cjemgf61mwwk0" path="res://src/news.gd" id="5_ved5p"]
 [ext_resource type="FontFile" uid="uid://bwtep74v4w50j" path="res://assets/portatil/PatrickHand-Regular.ttf" id="6_4l45w"]
 [ext_resource type="Texture2D" uid="uid://63qfvsffoc70" path="res://assets/portatil/mini_game/publishbutton.png" id="8_4l45w"]
-[ext_resource type="Texture2D" uid="uid://w3rweugt1olj" path="res://assets/portatil/temptimerclock.png" id="8_ved5p"]
 [ext_resource type="Texture2D" uid="uid://dxn8b33o3xbs3" path="res://assets/portatil/mini_game/moralbutton.png" id="10_6dm1v"]
 [ext_resource type="Script" path="res://src/camera_shake.gd" id="10_ved5p"]
 [ext_resource type="Texture2D" uid="uid://byylgmmnwi7yi" path="res://assets/portatil/mini_game/immoralbutton.png" id="11_55gcl"]
@@ -16,6 +15,12 @@
 [sub_resource type="LabelSettings" id="LabelSettings_sawhp"]
 font = ExtResource("6_4l45w")
 font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_55gcl"]
+line_spacing = 0.0
+font = ExtResource("6_4l45w")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_x0hv8"]
 script = ExtResource("2_oe4s0")
@@ -33,6 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s1gus")
+time_limit = 10
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -59,24 +65,28 @@ size_flags_vertical = 0
 text = "Interstingtitle.docx"
 label_settings = SubResource("LabelSettings_sawhp")
 
-[node name="Timer" type="TextureProgressBar" parent="."]
+[node name="Timer" type="Label" parent="."]
 unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(65, 30)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.80500007
-anchor_top = 0.148
-anchor_right = 0.82400006
-anchor_bottom = 0.18200001
-offset_left = -0.36010742
-offset_top = 0.09600067
-offset_right = -0.24804688
-offset_bottom = 0.06399536
-grow_horizontal = 0
+anchor_left = 0.86200005
+anchor_top = 0.164
+anchor_right = 0.86200005
+anchor_bottom = 0.164
+offset_left = -33.024048
+offset_top = -17.272003
+offset_right = 31.975952
+offset_bottom = 16.727997
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-value = 100.0
-exp_edit = true
-texture_progress = ExtResource("8_ved5p")
+text = "300"
+label_settings = SubResource("LabelSettings_55gcl")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="News" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
