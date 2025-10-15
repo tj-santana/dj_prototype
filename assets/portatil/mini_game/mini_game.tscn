@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bwo0anqu8k4a8" path="res://src/mini_game.gd" id="1_s1gus"]
 [ext_resource type="Texture2D" uid="uid://btpx5sxg2u2p1" path="res://assets/portatil/mini_game/laptopscreen - newsgame.png" id="2_n151k"]
-[ext_resource type="Script" uid="uid://dppr32xp2wbag" path="res://src/rich_text_good.gd" id="2_oe4s0"]
-[ext_resource type="Script" uid="uid://b2b2n7mv7oe84" path="res://src/rich_text_bad.gd" id="2_uc01f"]
+[ext_resource type="Script" path="res://src/rich_text_good.gd" id="2_oe4s0"]
+[ext_resource type="Script" path="res://src/rich_text_bad.gd" id="2_uc01f"]
 [ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="3_sawhp"]
 [ext_resource type="Script" uid="uid://cjemgf61mwwk0" path="res://src/news.gd" id="5_ved5p"]
 [ext_resource type="FontFile" uid="uid://bwtep74v4w50j" path="res://assets/portatil/PatrickHand-Regular.ttf" id="6_4l45w"]
 [ext_resource type="Texture2D" uid="uid://63qfvsffoc70" path="res://assets/portatil/mini_game/publishbutton.png" id="8_4l45w"]
 [ext_resource type="Texture2D" uid="uid://w3rweugt1olj" path="res://assets/portatil/temptimerclock.png" id="8_ved5p"]
 [ext_resource type="Texture2D" uid="uid://dxn8b33o3xbs3" path="res://assets/portatil/mini_game/moralbutton.png" id="10_6dm1v"]
-[ext_resource type="Script" uid="uid://biohqb30vn8a8" path="res://src/camera_shake.gd" id="10_ved5p"]
+[ext_resource type="Script" path="res://src/camera_shake.gd" id="10_ved5p"]
 [ext_resource type="Texture2D" uid="uid://byylgmmnwi7yi" path="res://assets/portatil/mini_game/immoralbutton.png" id="11_55gcl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sawhp"]
@@ -84,20 +84,19 @@ clip_contents = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.085
-anchor_top = 0.256
-anchor_right = 0.909
-anchor_bottom = 0.85
-offset_left = 4.383995
-offset_top = 0.11199951
+anchor_top = 0.252
+anchor_right = 0.91600007
+anchor_bottom = 0.846
+offset_left = 0.08000183
+offset_top = -0.29600525
 offset_right = -0.23205566
-offset_bottom = -4.799988
-theme_override_constants/separation = 4
+offset_bottom = -0.20800781
+theme_override_constants/separation = 8
 script = ExtResource("5_ved5p")
 
 [node name="Header" type="HBoxContainer" parent="News"]
 layout_direction = 2
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="HeaderText" type="RichTextLabel" parent="News/Header"]
 unique_name_in_owner = true
@@ -122,7 +121,6 @@ custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffe
 
 [node name="Options" type="HBoxContainer" parent="News"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 16
 alignment = 1
 
@@ -133,11 +131,14 @@ size_flags_horizontal = 3
 
 [node name="AntiCorruptButton" type="TextureButton" parent="News/Options/Anticorrupt"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
+size_flags_vertical = 4
 focus_mode = 0
 texture_normal = ExtResource("10_6dm1v")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="AnticorruptBody" type="RichTextLabel" parent="News/Options/Anticorrupt"]
 unique_name_in_owner = true
@@ -162,11 +163,14 @@ size_flags_horizontal = 3
 
 [node name="CorruptButton" type="TextureButton" parent="News/Options/Corrupt"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
 texture_normal = ExtResource("11_55gcl")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="CorruptBody" type="RichTextLabel" parent="News/Options/Corrupt"]
 unique_name_in_owner = true
@@ -185,11 +189,14 @@ custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffe
 
 [node name="PublishButton" type="TextureButton" parent="News"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
 texture_normal = ExtResource("8_4l45w")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="CameraShake" type="Camera2D" parent="."]
 unique_name_in_owner = true
