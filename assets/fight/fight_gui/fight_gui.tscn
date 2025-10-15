@@ -1,12 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvnj6m67ru0po"]
+[gd_scene load_steps=8 format=3 uid="uid://bvnj6m67ru0po"]
 
 [ext_resource type="Script" uid="uid://eyfa87prjr15" path="res://src/fight_gui.gd" id="1_kow8x"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/icon.svg" id="2_qfaqg"]
+[ext_resource type="Texture2D" uid="uid://c3wg1c6rvplqk" path="res://assets/fight/fight_gui/player_health_bar.png" id="2_qfaqg"]
 
-[sub_resource type="Gradient" id="Gradient_qfaqg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfgom"]
+atlas = ExtResource("2_qfaqg")
+region = Rect2(0, 0, 17, 17)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pfgom"]
-gradient = SubResource("Gradient_qfaqg")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7nj37"]
+load_path = "res://.godot/imported/player_health_bar.png-9b956f8818551d63588604542c65ebb3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wohyd"]
+atlas = SubResource("CompressedTexture2D_7nj37")
+region = Rect2(34, 0, 17, 17)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7a7p"]
 bg_color = Color(0.16924527, 0.16924533, 0.16924518, 1)
@@ -36,6 +42,7 @@ corner_radius_top_left = 5
 corner_radius_bottom_left = 5
 
 [node name="FightGUI" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,8 +50,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kow8x")
-heart_full = ExtResource("2_qfaqg")
-heart_half = SubResource("GradientTexture2D_pfgom")
+heart_full = SubResource("AtlasTexture_pfgom")
+heart_half = SubResource("AtlasTexture_wohyd")
+heart_size = 64.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -68,7 +76,30 @@ show_percentage = false
 
 [node name="PlayerHealthBar" type="HBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_constants/separation = 8
 alignment = 2
+
+[node name="PreviewOnly1" type="TextureRect" parent="MarginContainer/PlayerHealthBar"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_pfgom")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="PreviewOnly2" type="TextureRect" parent="MarginContainer/PlayerHealthBar"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_pfgom")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="PreviewOnly3" type="TextureRect" parent="MarginContainer/PlayerHealthBar"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_pfgom")
+expand_mode = 5
+stretch_mode = 5

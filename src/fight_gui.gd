@@ -3,6 +3,7 @@ extends Control
 # Public variables
 @export var heart_full: Texture2D
 @export var heart_half: Texture2D
+@export var heart_size: float = 50.0 # Size of each heart icon in pixels
 
 # Private variables
 @onready var boss_health_bar: ProgressBar = %BossHealthBar
@@ -29,7 +30,10 @@ func _on_player_health_gui_update(current_health: int) -> void:
 	if has_half:
 		var heart = TextureRect.new()
 		heart.texture = heart_half
+		heart.flip_h = true
 		heart.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		heart.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
+		heart.custom_minimum_size = Vector2(heart_size, heart_size)
 		player_health_bar.add_child(heart)
 
 	# Add full hearts
@@ -37,4 +41,6 @@ func _on_player_health_gui_update(current_health: int) -> void:
 		var heart = TextureRect.new()
 		heart.texture = heart_full
 		heart.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		heart.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
+		heart.custom_minimum_size = Vector2(heart_size, heart_size)
 		player_health_bar.add_child(heart)
