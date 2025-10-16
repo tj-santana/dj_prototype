@@ -1,7 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bvnj6m67ru0po"]
 
 [ext_resource type="Script" uid="uid://eyfa87prjr15" path="res://src/fight_gui.gd" id="1_kow8x"]
-[ext_resource type="Texture2D" uid="uid://c3wg1c6rvplqk" path="res://assets/fight/fight_gui/player_health_bar.png" id="2_qfaqg"]
+[ext_resource type="Texture2D" uid="uid://b6h0y7lusbbqu" path="res://assets/fight/fight_gui/player_health_bar.png" id="2_qfaqg"]
+[ext_resource type="Texture2D" uid="uid://dhih0pq5lpx82" path="res://assets/fight/fight_gui/no health bar.png" id="3_7nj37"]
+[ext_resource type="Texture2D" uid="uid://c5jtgc05mjrgv" path="res://assets/fight/fight_gui/health.png" id="4_7nj37"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfgom"]
 atlas = ExtResource("2_qfaqg")
@@ -13,33 +15,6 @@ load_path = "res://.godot/imported/player_health_bar.png-9b956f8818551d635886045
 [sub_resource type="AtlasTexture" id="AtlasTexture_wohyd"]
 atlas = SubResource("CompressedTexture2D_7nj37")
 region = Rect2(34, 0, 17, 17)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7a7p"]
-bg_color = Color(0.16924527, 0.16924533, 0.16924518, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.08274145, 0.08274146, 0.08274137, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-shadow_color = Color(0.11372549, 0, 0, 0.6)
-shadow_size = 5
-shadow_offset = Vector2(2.5, 2.5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kow8x"]
-bg_color = Color(0.8517918, 0.121355005, 0.1013358, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_bottom = 2
-corner_radius_top_left = 5
-corner_radius_bottom_left = 5
 
 [node name="FightGUI" type="Control"]
 texture_filter = 1
@@ -65,14 +40,16 @@ theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 
-[node name="BossHealthBar" type="ProgressBar" parent="MarginContainer"]
+[node name="BossHealthBar" type="TextureProgressBar" parent="MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_u7a7p")
-theme_override_styles/fill = SubResource("StyleBoxFlat_kow8x")
-show_percentage = false
+size_flags_vertical = 0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_7nj37")
+texture_progress = ExtResource("4_7nj37")
 
 [node name="PlayerHealthBar" type="HBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true

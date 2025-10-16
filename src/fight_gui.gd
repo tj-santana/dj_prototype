@@ -6,7 +6,7 @@ extends Control
 @export var heart_size: float = 50.0 # Size of each heart icon in pixels
 
 # Private variables
-@onready var boss_health_bar: ProgressBar = %BossHealthBar
+@onready var boss_health_bar: TextureProgressBar = %BossHealthBar
 @onready var player_health_bar: HBoxContainer = %PlayerHealthBar
 
 func _ready() -> void:
