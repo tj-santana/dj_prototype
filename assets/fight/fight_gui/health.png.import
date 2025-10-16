@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6h0y7lusbbqu"
-path="res://.godot/imported/player_health_bar.png-9b956f8818551d63588604542c65ebb3.ctex"
+uid="uid://c5jtgc05mjrgv"
+path="res://.godot/imported/health.png-88e548081e27cc758a9fb148c46bafe1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fight/fight_gui/player_health_bar.png"
-dest_files=["res://.godot/imported/player_health_bar.png-9b956f8818551d63588604542c65ebb3.ctex"]
+source_file="res://assets/fight/fight_gui/health.png"
+dest_files=["res://.godot/imported/health.png-88e548081e27cc758a9fb148c46bafe1.ctex"]
 
 [params]
 
