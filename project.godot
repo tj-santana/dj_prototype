@@ -21,6 +21,7 @@ AudioManager="*res://assets/audio_manager/audio_manager.tscn"
 Global="*res://src/global.gd"
 SignalBus="*res://src/signal_bus.gd"
 Refs="*res://src/refs.gd"
+GameManager="*res://src/game_manager.gd"
 
 [global_group]
 

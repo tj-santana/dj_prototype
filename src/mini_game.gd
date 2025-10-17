@@ -5,7 +5,7 @@ class_name MiniGame
 signal text_complete
 
 # Public Variables
-@export var time_limit: int = 300
+@export var time_limit: int = 90
 @export_group("Camera Shake")
 @export_range(0.0, 500.0, 1.0) var camera_shake_intensity: float = 8.0
 @export_range(0.0, 5.0, 0.1) var camera_shake_duration: float = 0.5
@@ -187,6 +187,8 @@ func _on_option_chosen() -> void:
 	# Strip BBCode for typing comparison
 	header_text = _strip_bbcode(original_header_text)
 	body_text = _strip_bbcode(original_body_text)
+	GameManager.set_body_text( _strip_bbcode(original_body_text))
+	GameManager.set_old_news(false)
 	typing_header = true
 	typed_index = 0
 	typed_text = ""
@@ -196,6 +198,7 @@ func _on_option_chosen() -> void:
 # Time's up
 func _on_time_timeout() -> void:
 	print("Time's up!")
+	GameManager.set_old_news(true)
 	print("Become old news!")
 
 # Publish button pressed

@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bwo0anqu8k4a8" path="res://src/mini_game.gd" id="1_s1gus"]
 [ext_resource type="Texture2D" uid="uid://btpx5sxg2u2p1" path="res://assets/portatil/mini_game/laptopscreen - newsgame.png" id="2_n151k"]
-[ext_resource type="Script" path="res://src/rich_text_good.gd" id="2_oe4s0"]
-[ext_resource type="Script" path="res://src/rich_text_bad.gd" id="2_uc01f"]
+[ext_resource type="Script" uid="uid://dppr32xp2wbag" path="res://src/rich_text_good.gd" id="2_oe4s0"]
+[ext_resource type="Script" uid="uid://b2b2n7mv7oe84" path="res://src/rich_text_bad.gd" id="2_uc01f"]
 [ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="3_sawhp"]
 [ext_resource type="Script" uid="uid://cjemgf61mwwk0" path="res://src/news.gd" id="5_ved5p"]
 [ext_resource type="FontFile" uid="uid://bwtep74v4w50j" path="res://assets/portatil/PatrickHand-Regular.ttf" id="6_4l45w"]
 [ext_resource type="Texture2D" uid="uid://63qfvsffoc70" path="res://assets/portatil/mini_game/publishbutton.png" id="8_4l45w"]
 [ext_resource type="Texture2D" uid="uid://dxn8b33o3xbs3" path="res://assets/portatil/mini_game/moralbutton.png" id="10_6dm1v"]
-[ext_resource type="Script" path="res://src/camera_shake.gd" id="10_ved5p"]
+[ext_resource type="Script" uid="uid://biohqb30vn8a8" path="res://src/camera_shake.gd" id="10_ved5p"]
 [ext_resource type="Texture2D" uid="uid://byylgmmnwi7yi" path="res://assets/portatil/mini_game/immoralbutton.png" id="11_55gcl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sawhp"]
@@ -160,7 +160,7 @@ theme_override_fonts/bold_font = ExtResource("3_sawhp")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 35
 bbcode_enabled = true
-text = "Both vaping and smoking are detrimental to your health and the health of those around you. It is the respnsibility of each of us to make sure it is never promoted to children. Be responsible!"
+text = "Both vaping and smoking are detrimental to your health and the health of those around you. It is the responsibility of each of us to make sure it is never promoted to children. Be responsible!"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false

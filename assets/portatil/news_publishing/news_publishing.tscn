@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c20bi27e7pxqp"]
+[gd_scene load_steps=12 format=3 uid="uid://c20bi27e7pxqp"]
 
 [ext_resource type="Script" uid="uid://yhfisnm6rncb" path="res://src/news_publishing.gd" id="1_hubj2"]
+[ext_resource type="Script" uid="uid://dppr32xp2wbag" path="res://src/rich_text_good.gd" id="3_5mghg"]
 [ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="3_q7lm8"]
 [ext_resource type="Texture2D" uid="uid://cn44owo58wx03" path="res://assets/portatil/news_publishing/continue.png" id="3_slhmv"]
+[ext_resource type="Script" uid="uid://b2b2n7mv7oe84" path="res://src/rich_text_bad.gd" id="4_fx488"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_slhmv"]
 load_path = "res://.godot/imported/Plain Paper UI SpriteSheet.png-87da19a0bca9fdccb0c944a4f04f03c9.ctex"
@@ -17,6 +19,14 @@ load_path = "res://.godot/imported/Plain Paper UI SpriteSheet.png-87da19a0bca9fd
 [sub_resource type="AtlasTexture" id="AtlasTexture_slhmv"]
 atlas = SubResource("CompressedTexture2D_lyo7j")
 region = Rect2(49, 780, 621, 503)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_x0hv8"]
+script = ExtResource("3_5mghg")
+metadata/_custom_type_script = "uid://dppr32xp2wbag"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_mjgqc"]
+script = ExtResource("4_fx488")
+metadata/_custom_type_script = "uid://b2b2n7mv7oe84"
 
 [node name="NewsPublishing" type="Control"]
 layout_mode = 3
@@ -57,6 +67,7 @@ texture = SubResource("AtlasTexture_slhmv")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="CenterContainer/News"]
+visible = false
 layout_mode = 0
 offset_left = 561.0
 offset_top = 67.00003
@@ -67,6 +78,92 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_q7lm8")
 theme_override_font_sizes/font_size = 43
 text = "BREAKING NEWS"
+
+[node name="HeaderText" type="RichTextLabel" parent="CenterContainer/News"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 571.0
+offset_top = 56.000027
+offset_right = 967.0
+offset_bottom = 333.00003
+rotation = 1.5707964
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_q7lm8")
+theme_override_fonts/bold_font = ExtResource("3_q7lm8")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b]The Rise of Vaping in Schools:[/b]
+
+The appearance of vapes in schools has been worrying parents and teachers.
+Are their concerns valid? Of course..."
+scroll_active = false
+shortcut_keys_enabled = false
+custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffect_mjgqc")]
+
+[node name="BodyText" type="RichTextLabel" parent="CenterContainer/News"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 380.0
+offset_top = 52.00002
+offset_right = 776.0
+offset_bottom = 388.00003
+rotation = 1.5707964
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_q7lm8")
+theme_override_fonts/bold_font = ExtResource("3_q7lm8")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+scroll_active = false
+shortcut_keys_enabled = false
+custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffect_mjgqc")]
+
+[node name="OldNewsWarning" type="RichTextLabel" parent="CenterContainer/News"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 534.0
+offset_top = -301.99997
+offset_right = 843.0
+offset_bottom = -142.99997
+rotation = 1.5707964
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_q7lm8")
+theme_override_fonts/bold_font = ExtResource("3_q7lm8")
+theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[b]THESE ARE OLD NEWS![/b]
+Your timer ran out! And so, your article will have a diminished impact!"
+scroll_active = false
+shortcut_keys_enabled = false
+custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffect_mjgqc")]
+
+[node name="OldNewsWarning2" type="RichTextLabel" parent="CenterContainer/News/OldNewsWarning"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -3.0
+offset_top = 122.0
+offset_right = 306.0
+offset_bottom = 257.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.81019723, 0.19102362, 3.85046e-07, 1)
+theme_override_fonts/normal_font = ExtResource("3_q7lm8")
+theme_override_fonts/bold_font = ExtResource("3_q7lm8")
+theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[b]-25% Attack strength[/b]"
+scroll_active = false
+shortcut_keys_enabled = false
+custom_effects = [SubResource("RichTextEffect_x0hv8"), SubResource("RichTextEffect_mjgqc")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
