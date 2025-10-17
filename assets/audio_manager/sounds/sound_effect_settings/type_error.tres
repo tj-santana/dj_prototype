@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://bqrcymtyv51xp"]
+
+[ext_resource type="Script" uid="uid://j2f5wpxl52bu" path="res://src/sound_effect_settings.gd" id="1_viuby"]
+[ext_resource type="AudioStream" uid="uid://ge7wnbbg5uge" path="res://assets/audio_manager/sounds/audio/type_error.mp3" id="2_viuby"]
+
+[resource]
+script = ExtResource("1_viuby")
+type = 1
+sound_effect = ExtResource("2_viuby")
+volume = -15
+metadata/_custom_type_script = "uid://j2f5wpxl52bu"

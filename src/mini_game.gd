@@ -16,6 +16,7 @@ signal text_complete
 @onready var _camera_shake: CameraShake = %CameraShake
 
 var timer: Timer = Timer.new()
+var played_timer_warning: bool = false
 var started: bool = false
 var typed_text: String = ""
 var typed_index: int = 0
@@ -39,6 +40,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if started and timer.time_left >= 0.0:
+		if not played_timer_warning and timer.time_left <= 10.0:
+			played_timer_warning = true
+			AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.TIMER_ENDING)
+
 		_timer_ui.text = str(int(ceil(timer.time_left)))
 
 func _input(event: InputEvent) -> void:
@@ -48,6 +53,7 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if started:
+		AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.KEYBOARD_PRESS)
 		_process_typed_char(char(event.unicode))
 	else:
 		_camera_shake.screen_shake(camera_shake_intensity, camera_shake_duration)
@@ -79,6 +85,7 @@ func _process_header_typing(c: String) -> void:
 		typed_text += c
 		typed_index += 1
 	else:
+		AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.TYPE_ERROR)
 		_camera_shake.screen_shake(camera_shake_intensity, camera_shake_duration)
 
 	_update_header_display()
@@ -102,6 +109,7 @@ func _process_body_typing(c: String) -> void:
 		if typed_index == body_text.length():
 			text_complete.emit()
 	else:
+		AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.TYPE_ERROR)
 		_camera_shake.screen_shake(camera_shake_intensity, camera_shake_duration)
 
 	_update_body_display()
@@ -196,6 +204,7 @@ func _on_publish_button_pressed() -> void:
 	if not typing_header and typed_text.length() == body_text.length():
 		print("All text typed correctly! Publishing...")
 		# Do whatever happens after completion
+		started = false
 		timer.stop()
 		await Global.game_controller.change_gui_scene(
 			Refs.PATHS.NEWS_PUBLISHING,

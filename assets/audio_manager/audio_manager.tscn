@@ -1,11 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://eyvkmbcoi5t3"]
+[gd_scene load_steps=13 format=3 uid="uid://w8kmq5y1pth7"]
 
 [ext_resource type="Script" uid="uid://dk1osmt2uvirg" path="res://src/audio_manager.gd" id="1_ci5fq"]
-[ext_resource type="Script" uid="uid://j2f5wpxl52bu" path="res://src/sound_effect_settings.gd" id="2_5r7ve"]
-[ext_resource type="Resource" uid="uid://nmdpofr4hnyq" path="res://assets/audio_manager/sounds/sound_effect_settings/cough.tres" id="3_raks6"]
-[ext_resource type="Resource" uid="uid://b3dgf0dfycr5r" path="res://assets/audio_manager/sounds/sound_effect_settings/smoke.tres" id="4_ojo7h"]
-[ext_resource type="Resource" uid="uid://bs2o08nnj5w5a" path="res://assets/audio_manager/sounds/sound_effect_settings/fight.tres" id="5_raks6"]
+[ext_resource type="Script" uid="uid://j2f5wpxl52bu" path="res://src/sound_effect_settings.gd" id="2_8g2bq"]
+[ext_resource type="Resource" uid="uid://drk2eo522dbgb" path="res://assets/audio_manager/sounds/sound_effect_settings/keyboard_press.tres" id="3_5r7ve"]
+[ext_resource type="Resource" uid="uid://bqrcymtyv51xp" path="res://assets/audio_manager/sounds/sound_effect_settings/type_error.tres" id="4_5r7ve"]
+[ext_resource type="Resource" uid="uid://2vjeok1a2x7a" path="res://assets/audio_manager/sounds/sound_effect_settings/close_window.tres" id="5_raks6"]
+[ext_resource type="Resource" uid="uid://r33pm2gb4hp6" path="res://assets/audio_manager/sounds/sound_effect_settings/mouse_click.tres" id="6_ojo7h"]
+[ext_resource type="Resource" uid="uid://bayad8fj453le" path="res://assets/audio_manager/sounds/sound_effect_settings/timer_ending.tres" id="7_3u3si"]
+[ext_resource type="Resource" uid="uid://cflqn2rr33std" path="res://assets/audio_manager/sounds/sound_effect_settings/portatil_music.tres" id="8_3dv8a"]
+[ext_resource type="Resource" uid="uid://cqbcqookux5fk" path="res://assets/audio_manager/sounds/sound_effect_settings/news_published.tres" id="9_mir0l"]
+[ext_resource type="Resource" uid="uid://nmdpofr4hnyq" path="res://assets/audio_manager/sounds/sound_effect_settings/cough.tres" id="10_raks6"]
+[ext_resource type="Resource" uid="uid://b3dgf0dfycr5r" path="res://assets/audio_manager/sounds/sound_effect_settings/smoke.tres" id="11_ojo7h"]
+[ext_resource type="Resource" uid="uid://bs2o08nnj5w5a" path="res://assets/audio_manager/sounds/sound_effect_settings/fight.tres" id="12_raks6"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_ci5fq")
-sound_effect_settings = Array[ExtResource("2_5r7ve")]([ExtResource("3_raks6"), ExtResource("4_ojo7h"), ExtResource("5_raks6")])
+sound_effect_settings = Array[ExtResource("2_8g2bq")]([ExtResource("3_5r7ve"), ExtResource("4_5r7ve"), ExtResource("5_raks6"), ExtResource("6_ojo7h"), ExtResource("7_3u3si"), ExtResource("8_3dv8a"), ExtResource("9_mir0l"), ExtResource("10_raks6"), ExtResource("11_ojo7h"), ExtResource("12_raks6")])
