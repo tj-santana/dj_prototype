@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://d363ld3jefcrm"]
+[gd_scene load_steps=16 format=3 uid="uid://cgpiuj0npbf6i"]
 
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_ultgh"]
+[ext_resource type="Script" uid="uid://d0ltig2yywdtk" path="res://src/overview/overviewtutorial.gd" id="1_vsqcu"]
 [ext_resource type="Texture2D" uid="uid://ff6dojch1p4d" path="res://assets/overview/resources/2dcitywithoutoutline/citysecondprops/citysecondcityprops0001.png" id="2_abrsk"]
 [ext_resource type="Texture2D" uid="uid://b0m2obd2ujrnr" path="res://assets/overview/resources/2dcitywithoutoutline/citysecondprops/road1.png" id="3_npvgp"]
 [ext_resource type="Texture2D" uid="uid://b0eedrpwp7138" path="res://assets/overview/resources/2dcitywithoutoutline/house3/3house0001.png" id="4_vsqcu"]
@@ -15,19 +16,21 @@
 [ext_resource type="Texture2D" uid="uid://derwa8tc1h0cr" path="res://assets/overview/tutorialtextwall.png" id="13_vsqcu"]
 [ext_resource type="FontFile" uid="uid://fu5e8at0umcu" path="res://assets/Merriweather.ttf" id="14_vsqcu"]
 
-[node name="Overview" type="Control"]
+[node name="OverviewTutorial" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vsqcu")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_top = -318.0
 offset_right = 1152.0
 offset_bottom = 330.0
+mouse_filter = 2
 texture = ExtResource("1_ultgh")
 expand_mode = 2
 
@@ -36,6 +39,7 @@ layout_mode = 0
 offset_top = 231.0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 color = Color(0.89492244, 0.89492244, 0.8949224, 1)
 
 [node name="Downroad 3" type="Sprite2D" parent="."]
@@ -440,6 +444,7 @@ texture = ExtResource("12_npvgp")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 652.0
+mouse_filter = 2
 color = Color(1.1374342, 1.1374342, 1.1374342, 0.70980394)
 
 [node name="Tutorialtextwall" type="Sprite2D" parent="ColorRect2"]
@@ -461,10 +466,15 @@ You’re a Senior Reporter in The Daily Burla, and your job is to expose the cor
 To do so, you can check the City Map for possible leads, which will show up in the form of Alerts[AlertSymbol]. After receiving a summary of the proposed piece and the Factions[FactionSymbol] it will affect, you can choose to start writing that article or choose a different one (if available).
 To begin, click on the Factory[FactorySymbol]’s Alerts[AlertSymbol] and choose it to be this week’s headliner!"
 
-[node name="TextureButton2" type="TextureButton" parent="."]
-visible = false
-layout_mode = 0
+[node name="Continue" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -2.0
 offset_top = 1.0
-offset_right = 1155.0
-offset_bottom = 654.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0

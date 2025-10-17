@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://7pp2qjsno264"]
+[gd_scene load_steps=16 format=3 uid="uid://7pp2qjsno264"]
 
+[ext_resource type="Script" uid="uid://bx5i26vh6ougp" path="res://src/overview/overview.gd" id="1_dx7nr"]
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_skwpw"]
 [ext_resource type="Texture2D" uid="uid://bncto63kvv4tu" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0001.png" id="2_6qvxk"]
 [ext_resource type="Texture2D" uid="uid://ff6dojch1p4d" path="res://assets/overview/resources/2dcitywithoutoutline/citysecondprops/citysecondcityprops0001.png" id="2_qcb0h"]
@@ -16,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="14_1xkay"]
 
 [node name="Overview" type="Node2D"]
+script = ExtResource("1_dx7nr")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_top = -318.0
