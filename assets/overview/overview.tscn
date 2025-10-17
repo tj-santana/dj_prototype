@@ -440,3 +440,8 @@ texture = ExtResource("13_1xkay")
 [node name="Smog" type="Sprite2D" parent="."]
 position = Vector2(574, 286)
 texture = ExtResource("14_1xkay")
+
+[node name="Mission" type="Button" parent="."]
+offset_right = 408.0
+offset_bottom = 408.0
+icon = ExtResource("13_1xkay")
