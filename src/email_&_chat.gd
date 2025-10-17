@@ -15,6 +15,8 @@ func _on_chat_close_window_pressed() -> void:
 		change_screen(Refs.PATHS.MINI_GAME_RULES)
 
 func _close_panel(panel: PanelContainer) -> void:
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.CLOSE_WINDOW)
+
 	# From center to scale down and fade out
 	panel.pivot_offset = panel.size / 2
 

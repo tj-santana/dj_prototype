@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://bayad8fj453le"]
+
+[ext_resource type="Script" uid="uid://j2f5wpxl52bu" path="res://src/sound_effect_settings.gd" id="1_br572"]
+[ext_resource type="AudioStream" uid="uid://cccigcsh4jns5" path="res://assets/audio_manager/sounds/audio/timer_ending.mp3" id="2_8oa1f"]
+
+[resource]
+script = ExtResource("1_br572")
+limit = 1
+type = 4
+sound_effect = ExtResource("2_8oa1f")
+volume = -20
+metadata/_custom_type_script = "uid://j2f5wpxl52bu"

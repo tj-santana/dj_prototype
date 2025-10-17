@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://drk2eo522dbgb"]
+
+[ext_resource type="Script" uid="uid://j2f5wpxl52bu" path="res://src/sound_effect_settings.gd" id="1_mxscd"]
+[ext_resource type="AudioStream" uid="uid://p2k56sndaku0" path="res://assets/audio_manager/sounds/audio/keyboard_press.mp3" id="2_66vqa"]
+
+[resource]
+script = ExtResource("1_mxscd")
+sound_effect = ExtResource("2_66vqa")
+volume = -15
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://j2f5wpxl52bu"

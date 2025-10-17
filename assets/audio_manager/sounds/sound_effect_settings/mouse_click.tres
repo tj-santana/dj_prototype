@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://r33pm2gb4hp6"]
+
+[ext_resource type="Script" uid="uid://j2f5wpxl52bu" path="res://src/sound_effect_settings.gd" id="1_2tuqy"]
+[ext_resource type="AudioStream" uid="uid://fdolpw70du78" path="res://assets/audio_manager/sounds/audio/mouse_click.mp3" id="2_lcloq"]
+
+[resource]
+script = ExtResource("1_2tuqy")
+type = 3
+sound_effect = ExtResource("2_lcloq")
+volume = -15
+metadata/_custom_type_script = "uid://j2f5wpxl52bu"

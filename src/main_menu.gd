@@ -12,9 +12,9 @@ func _ready() -> void:
 
 # Signal handlers
 func _on_play_pressed() -> void:
-	await Global.game_controller.change_scene(Refs.PATHS.FIGHT_GUI, Refs.PATHS.FIGHT, TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)
-	# await Global.game_controller.change_gui_scene("", TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)
-	# await Global.game_controller.change_2d_scene(Refs.PATHS["OVERVIEW"], TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)
+	await Global.game_controller.change_gui_scene(Refs.PATHS.PORTATIL, TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)
+	#await Global.game_controller.change_gui_scene("", TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)
+	#await Global.game_controller.change_2d_scene(Refs.PATHS["OVERVIEW"], TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)
 
 func _on_settings_pressed() -> void:
 	pass # Replace with function body.

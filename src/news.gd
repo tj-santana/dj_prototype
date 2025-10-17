@@ -53,6 +53,11 @@ func _on_anti_corrupt_button_pressed() -> void:
 	option_chosen.emit()
 
 func _on_corrupt_button_pressed() -> void:
+	# Pitch the music down
+	var music: AudioStreamPlayer = AudioManager.get_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.PORTATIL_MUSIC)
+	if music:
+		music.pitch_scale = 0.5
+
 	anticorrupt.visible = false
 	corrupt_button.disabled = true
 	corrupt_button.visible = false
@@ -62,5 +67,5 @@ func _on_corrupt_button_pressed() -> void:
 
 
 func _on_mini_game_text_complete() -> void:
-	publish_button.visible = true	
+	publish_button.visible = true
 	pass # Replace with function body.

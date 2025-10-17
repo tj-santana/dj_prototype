@@ -17,7 +17,13 @@ func get_scene_on_screen() -> ComputerScreen:
 	return child as ComputerScreen
 
 # Private Functions
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.MOUSE_CLICK)
+
 func _ready() -> void:
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.PORTATIL_MUSIC)
+
 	assert(computer_screen != null, "ComputerScreen reference is missing.")
 
 	current_screen = get_scene_on_screen()
