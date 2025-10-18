@@ -22,4 +22,6 @@ func _ready() -> void:
 	_boss_body._health_component.died.connect(_on_boss_died)
 
 func _on_boss_died() -> void:
+	if self is BossStateDeath:
+		return
 	transitioned.emit(self, "Death")

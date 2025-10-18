@@ -16,4 +16,6 @@ func _ready() -> void:
 	_player._health_component.died.connect(_on_died)
 
 func _on_died() -> void:
+	if self is PlayerStateDeath:
+		return
 	transitioned.emit(self, "Death")
