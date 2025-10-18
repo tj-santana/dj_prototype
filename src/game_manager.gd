@@ -1,6 +1,6 @@
 extends Node
 
-enum LEVEL{
+enum LEVEL {
 	TABACO,
 	VET,
 	BANK,
@@ -8,7 +8,7 @@ enum LEVEL{
 	PRESIDENTE
 }
 
-enum DECISION_TYPE{
+enum DECISION_TYPE {
 	MISS,
 	GOOD,
 	BAD

@@ -18,6 +18,9 @@ var debug: Dictionary = {
 const GRAVITY: float = 900.0
 
 func _ready() -> void:
+	# Apply debuffs
+	if GameManager.get_old_news():
+		_hitbox_component.attack.damage = 7 # Debuff of almost 25%
 	# Connect local health component signals
 	_health_component.health_changed.connect(_on_health_changed)
 	# Connect hurtbox invincibility signals
@@ -28,8 +31,9 @@ func _ready() -> void:
 
 # Visible debugging
 func _draw() -> void:
-	draw_line(Vector2.ZERO, debug["velocity"], Color.RED, 4.0)
-	draw_circle(debug["velocity"], 6.0, Color.RED)
+	#draw_line(Vector2.ZERO, debug["velocity"], Color.RED, 4.0)
+	#draw_circle(debug["velocity"], 6.0, Color.RED)
+	pass
 
 func _process(_delta: float) -> void:
 	# Update debug info
