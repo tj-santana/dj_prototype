@@ -4,7 +4,7 @@ const BOSS_CORRUPT = preload(Refs.PATHS.BOSS_CORRUPT)
 const BOSS_ANTI_CORRUPT = preload(Refs.PATHS.BOSS_ANTI_CORRUPT)
 
 func _ready() -> void:
-	if !Global.is_corrupt:
+	if GameManager.getLevelDecision(GameManager.LEVEL.TABACO) == GameManager.DECISION_TYPE.GOOD:
 		# Anti-Corrupt
 		var boss_instance = BOSS_ANTI_CORRUPT.instantiate()
 		add_child(boss_instance)
@@ -20,8 +20,10 @@ func _ready() -> void:
 
 func _on_boss_died() -> void:
 	print("Boss defeated! Emitting last enemy died signal.")
+	AudioManager.fade_out_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.FIGHT, 0.5)
 	await Global.game_controller.change_scene("", Refs.PATHS.OVERVIEW, TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)
 
 func _on_player_died() -> void:
 	print("Player defeated! Emitting last enemy died signal.")
+	AudioManager.fade_out_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.FIGHT, 0.5)
 	await Global.game_controller.change_scene("", Refs.PATHS.OVERVIEW, TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)

@@ -50,6 +50,7 @@ func _on_anti_corrupt_button_pressed() -> void:
 	anti_corrupt_button.visible = false
 	_body_text = anticorrupt_body.text
 	_body_label = anticorrupt_body
+	GameManager.setLevelDecision(GameManager.LEVEL.TABACO, GameManager.DECISION_TYPE.GOOD)
 	option_chosen.emit()
 
 func _on_corrupt_button_pressed() -> void:
@@ -63,6 +64,7 @@ func _on_corrupt_button_pressed() -> void:
 	corrupt_button.visible = false
 	_body_text = corrupt_body.text
 	_body_label = corrupt_body
+	GameManager.setLevelDecision(GameManager.LEVEL.TABACO, GameManager.DECISION_TYPE.BAD)
 	option_chosen.emit()
 
 

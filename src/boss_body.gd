@@ -24,8 +24,9 @@ func _ready() -> void:
 
 # Visible debugging
 func _draw() -> void:
-	draw_line(Vector2.ZERO, debug["velocity"], Color.RED, 4.0)
-	draw_circle(debug["velocity"], 6.0, Color.RED)
+	#draw_line(Vector2.ZERO, debug["velocity"], Color.RED, 4.0)
+	#draw_circle(debug["velocity"], 6.0, Color.RED)
+	pass
 
 func _process(_delta: float) -> void:
 	# Update debug info
