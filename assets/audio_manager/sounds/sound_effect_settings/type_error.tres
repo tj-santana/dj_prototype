@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_viuby")
-type = 1
+type = 4
 sound_effect = ExtResource("2_viuby")
 volume = -15
 metadata/_custom_type_script = "uid://j2f5wpxl52bu"

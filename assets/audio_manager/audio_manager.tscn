@@ -15,4 +15,4 @@
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_ci5fq")
-sound_effect_settings = Array[ExtResource("2_8g2bq")]([ExtResource("3_5r7ve"), ExtResource("4_5r7ve"), ExtResource("5_raks6"), ExtResource("6_ojo7h"), ExtResource("7_3u3si"), ExtResource("8_3dv8a"), ExtResource("9_mir0l"), ExtResource("10_raks6"), ExtResource("11_ojo7h"), ExtResource("12_raks6")])
+sound_effect_settings = Array[ExtResource("2_8g2bq")]([ExtResource("5_raks6"), ExtResource("10_raks6"), ExtResource("12_raks6"), ExtResource("3_5r7ve"), ExtResource("6_ojo7h"), ExtResource("9_mir0l"), ExtResource("8_3dv8a"), ExtResource("11_ojo7h"), ExtResource("7_3u3si"), ExtResource("4_5r7ve")])
