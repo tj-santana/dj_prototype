@@ -24,11 +24,11 @@ func _ready() -> void:
 		initial_state.enter(null)
 		_current_state = initial_state
 
-func _process(delta) -> void:
+func _process(delta: float) -> void:
 	if _current_state:
 		_current_state.update(delta)
-	
-func _physics_process(delta) -> void:
+
+func _physics_process(delta: float) -> void:
 	if _current_state:
 		_current_state.physics_update(delta)
 

@@ -8,6 +8,7 @@ class_name PlayerStateJump
 @export var deceleration: float = 1500.0
 
 func enter(_previous_state: State = null) -> void:
+	_player_animation_tree.set_state("Jump")
 	_player.velocity.y = - jump_force
 	
 func physics_update(delta: float) -> void:
@@ -16,7 +17,8 @@ func physics_update(delta: float) -> void:
 	_player.update_velocity()
 
 	if _player.is_on_floor():
-		if abs(_player.velocity.x) > 0.0:
-			transitioned.emit(self, "Walk")
-		else:
-			transitioned.emit(self, "Idle")
+		transitioned.emit(self, "Idle")
+
+	if Input.is_action_just_pressed("attack"):
+		#print("Player: Attack input detected.")
+		transitioned.emit(self, "Attack")

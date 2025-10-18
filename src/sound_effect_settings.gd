@@ -2,7 +2,9 @@ extends Resource
 class_name SoundEffectSettings
 
 enum SOUND_EFFECT_TYPE {
-	DEFAULT,
+	SMOKE,
+	COUGH,
+	FIGHT,
 }
 
 # Public variables

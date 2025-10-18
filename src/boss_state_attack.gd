@@ -16,6 +16,7 @@ var _closest_point: Vector2 = Vector2.ZERO
 var _timer: Timer = null
 
 func enter(_previous_state: State = null) -> void:
+	_boss_animation_tree.set_state("Attack")
 	# Make invincible
 	_hurtbox_component.set_invincible(true)
 	# Setup timer
@@ -40,7 +41,6 @@ func enter(_previous_state: State = null) -> void:
 	print("Closest point on path: ", _closest_point)
 
 func exit() -> void:
-	print("Exiting Attack State")
 	# Remove invincibility
 	_hurtbox_component.set_invincible(false)
 
@@ -58,8 +58,7 @@ func exit() -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	#_boss_body.update_gravity(delta)
-	#_boss_body.update_velocity()
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.SMOKE)
 	if not _reached_path:
 		# Move boss toward the closest point
 		if _boss_body.global_position.distance_to(_closest_point) > 1.0:

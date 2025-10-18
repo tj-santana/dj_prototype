@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjliwopjeuk3d"]
+
+[ext_resource type="Texture2D" uid="uid://dwt8ob1ig1uc8" path="res://assets/fight/arena/arena_bg.png" id="1_d7s6f"]
+[ext_resource type="Texture2D" uid="uid://0mf5m7a5chmp" path="res://assets/fight/arena/arena_tiles.png" id="2_qnmuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avfyy"]
+size = Vector2(240, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cteil"]
+atlas = ExtResource("2_qnmuy")
+region = Rect2(480, 24, 96, 16)
+
+[node name="Arena" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_d7s6f")
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(275, 450)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+shape = SubResource("RectangleShape2D_avfyy")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform1"]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = SubResource("AtlasTexture_cteil")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(578, 300)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource("RectangleShape2D_avfyy")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2"]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = SubResource("AtlasTexture_cteil")
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(875, 450)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+shape = SubResource("RectangleShape2D_avfyy")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform3"]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = SubResource("AtlasTexture_cteil")
+
+[node name="ArenaBox" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArenaBox"]
+position = Vector2(574, 326.00003)
+scale = Vector2(58.400005, 33.600002)
+polygon = PackedVector2Array(-9.828766, -9.702381, 9.897259, -9.702381, 9.897259, 9.583332, -9.828766, 9.583332, -9.828766, -9.702381, -9.828766, -9.702381, -9.811643, -9.732143, -9.845889, -9.732143, -9.863012, -9.702381, -9.863012, 9.642857, 10.017122, 9.761904, 9.948629, -9.791667, -9.811643, -9.732143)

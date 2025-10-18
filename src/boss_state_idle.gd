@@ -7,6 +7,7 @@ class_name BossStateIdle
 var _timer: Timer = null
 
 func enter(_previous_state: State = null) -> void:
+	_boss_animation_tree.set_state("Idle")
 	_timer = Timer.new()
 	_timer.wait_time = idle_time
 	_timer.one_shot = true
@@ -15,7 +16,6 @@ func enter(_previous_state: State = null) -> void:
 	_timer.start()
 
 func exit() -> void:
-	print("Exiting Idle State")
 	# Timer cleanup
 	if _timer:
 		_timer.queue_free()
@@ -25,6 +25,8 @@ func exit() -> void:
 func physics_update(delta: float) -> void:
 	_boss_body.update_gravity(delta)
 	_boss_body.update_velocity()
+
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.COUGH)
 
 func _on_timer_timeout() -> void:
 	transitioned.emit(self, "Attack")

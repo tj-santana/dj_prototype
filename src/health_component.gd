@@ -29,7 +29,7 @@ func set_current_health(value: int) -> void:
 func take_damage(amount: int) -> void:
 	if amount <= 0:
 		return
-	print("Taking damage: %d" % amount)
+	#print("Taking damage: %d" % amount)
 	set_current_health(_current_health - amount)
 
 func heal(amount: int) -> void:

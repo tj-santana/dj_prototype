@@ -2,9 +2,12 @@ extends CharacterBody2D
 class_name BossBody
 
 # Private variables
-@onready var _visuals: Sprite2D = %Visuals
+@onready var _visuals: AnimatedSprite2D = %Visuals
 @onready var _health_component: HealthComponent = %HealthComponent
 @onready var _hurtbox_component: HurtboxComponent = %HurtboxComponent
+@onready var _hitbox_component: HitboxComponent = %HitboxComponent
+@onready var _animation_player: AnimationPlayer = %AnimationPlayer
+@onready var _animation_tree: AnimationTreeParameters = $AnimationTree
 
 # Debug dictionary
 var debug: Dictionary = {
@@ -13,9 +16,11 @@ var debug: Dictionary = {
 const GRAVITY: float = 900.0
 
 func _ready() -> void:
+	_animation_tree.active = true
 	# Connect local health component signals
 	_health_component.health_changed.connect(_on_health_changed)
-	_health_component.died.connect(_on_died)
+	# Connect hurtbox signals
+	_hurtbox_component.hit.connect(_on_hurtbox_hit)
 
 # Visible debugging
 func _draw() -> void:
@@ -41,7 +46,5 @@ func _on_health_changed(current_health: int) -> void:
 	print("Boss Health Updated: %d" % current_health)
 	SignalBus.on_boss_health_changed.emit(current_health)
 
-func _on_died() -> void:
-	print("Boss has died!")
-	# TODO: on_boss_died connection
-	SignalBus.on_boss_died.emit()
+func _on_hurtbox_hit(_attacker: Node, _attack_data: Attack) -> void:
+	_animation_tree.set("parameters/conditions/hurt", true)
