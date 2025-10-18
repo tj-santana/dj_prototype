@@ -22,6 +22,11 @@ Global="*res://src/global.gd"
 SignalBus="*res://src/signal_bus.gd"
 Refs="*res://src/refs.gd"
 
+[global_group]
+
+Player=""
+Teen=""
+
 [input]
 
 move_left={
