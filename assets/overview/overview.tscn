@@ -30,6 +30,7 @@ expand_mode = 2
 offset_top = 231.0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 color = Color(0.89492244, 0.89492244, 0.8949224, 1)
 
 [node name="Downroad 3" type="Sprite2D" parent="."]
@@ -442,6 +443,10 @@ position = Vector2(574, 286)
 texture = ExtResource("14_1xkay")
 
 [node name="Mission" type="Button" parent="."]
-offset_right = 408.0
-offset_bottom = 408.0
+unique_name_in_owner = true
+offset_left = 104.0
+offset_top = 502.0
+offset_right = 204.0
+offset_bottom = 602.0
 icon = ExtResource("13_1xkay")
+expand_icon = true
