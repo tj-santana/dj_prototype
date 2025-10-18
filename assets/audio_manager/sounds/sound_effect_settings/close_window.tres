@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_yu5jh")
-type = 2
+type = 5
 sound_effect = ExtResource("2_hd0hr")
 volume = -15
 metadata/_custom_type_script = "uid://j2f5wpxl52bu"
