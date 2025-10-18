@@ -14,6 +14,11 @@ func _ready() -> void:
 	Global.game_controller = self
 	_current_gui_scene = _main_menu
 
+func freeze_game(freeze_time: float, freeze_slow: float) -> void:
+	Engine.time_scale = freeze_slow
+	await get_tree().create_timer(freeze_time * freeze_slow).timeout
+	Engine.time_scale = 1.0
+
 ## Change both the current 2D scene and GUI scene with optional transition effects.
 func change_scene(
 	gui_scene: String = "",

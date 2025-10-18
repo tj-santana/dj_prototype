@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://b3dgf0dfycr5r"]
+
+[ext_resource type="Script" uid="uid://j2f5wpxl52bu" path="res://src/sound_effect_settings.gd" id="1_fb0lp"]
+[ext_resource type="AudioStream" uid="uid://dg52k6yck30ny" path="res://assets/audio_manager/sounds/audio/smoke.mp3" id="2_xw1qo"]
+
+[resource]
+script = ExtResource("1_fb0lp")
+limit = 1
+sound_effect = ExtResource("2_xw1qo")
+volume = -10
+metadata/_custom_type_script = "uid://j2f5wpxl52bu"

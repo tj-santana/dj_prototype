@@ -14,12 +14,9 @@ func _ready() -> void:
 	SignalBus.on_player_health_changed.connect(_on_player_health_gui_update)
 
 func _on_boss_health_gui_update(current_health: int) -> void:
-	print("Boss Health Updated: %d" % current_health)
 	boss_health_bar.value = current_health
 
 func _on_player_health_gui_update(current_health: int) -> void:
-	print("Player Health Updated: %d" % current_health)
-
 	for child in player_health_bar.get_children():
 		child.queue_free()
 

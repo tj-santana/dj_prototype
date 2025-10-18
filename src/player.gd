@@ -2,11 +2,12 @@ extends CharacterBody2D
 class_name Player
 
 # Private variables
-@onready var _visuals: Sprite2D = %Visuals
+@onready var _visuals: AnimatedSprite2D = %Visuals
 @onready var _health_component: HealthComponent = %HealthComponent
 @onready var _hurtbox_component: HurtboxComponent = %HurtboxComponent
 @onready var _hitbox_component: HitboxComponent = %HitboxComponent
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
+@onready var _animation_tree: AnimationTreeParameters = %AnimationTree
 
 var _facing_right: bool = true
 
@@ -19,10 +20,11 @@ const GRAVITY: float = 900.0
 func _ready() -> void:
 	# Connect local health component signals
 	_health_component.health_changed.connect(_on_health_changed)
-	_health_component.died.connect(_on_died)
 	# Connect hurtbox invincibility signals
 	_hurtbox_component.invincibility_started.connect(_on_invincibility_started)
 	_hurtbox_component.invincibility_ended.connect(_on_invincibility_ended)
+	# Set up animation tree
+	_animation_tree.active = true
 
 # Visible debugging
 func _draw() -> void:
@@ -36,7 +38,10 @@ func _process(_delta: float) -> void:
 
 func _flip_facing(facing_right: bool) -> void:
 	# Flip the sprite
-	_visuals.scale.x = 1 if facing_right else -1
+	if facing_right:
+		_visuals.flip_h = false
+	else:
+		_visuals.flip_h = true
 
 	# Flip the hitbox horizontally relative to the player
 	_hitbox_component.scale.x = 1 if facing_right else -1
@@ -44,10 +49,6 @@ func _flip_facing(facing_right: bool) -> void:
 func _on_health_changed(current_health: int) -> void:
 	print("Player Health Updated: %d" % current_health)
 	SignalBus.on_player_health_changed.emit(current_health)
-
-func _on_died() -> void:
-	print("Player has died!")
-	SignalBus.on_player_died.emit()
 
 func _on_invincibility_started() -> void:
 	var tween = create_tween().set_loops()
@@ -84,12 +85,6 @@ func update_input(speed: float, acceleration: float, deceleration: float, delta:
 
 	# Flip visuals and hitbox
 	_flip_facing(_facing_right)
-
-	# Attack
-	# Handle attack input
-	if Input.is_action_just_pressed("attack"):
-		print("Player: Attack input detected.")
-		_animation_player.play("light_attack")
 
 func update_velocity() -> void:
 	move_and_slide()

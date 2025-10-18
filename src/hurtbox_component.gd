@@ -2,6 +2,7 @@ extends Area2D
 class_name HurtboxComponent
 
 @export var health_component: HealthComponent
+@export var particle_effect: GPUParticles2D
 
 @export_group("Invincibility")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "invincibility_enabled")
@@ -12,6 +13,7 @@ var _invincible: bool = false
 
 signal invincibility_started
 signal invincibility_ended
+signal hit(attacker: Node, attack_data: Attack)
 
 # Public Functions
 func set_invincible(value: bool) -> void:
@@ -34,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 			var hitbox: HitboxComponent = area
 			if hitbox.attack and health_component:
 				hitbox.attack.perform_attack(owner, area.owner)
-
+				hit.emit(area.owner, hitbox.attack)
 				if invincibility_enabled:
 					_start_invincibility()
 				return # avoid multiple hits in one frame
@@ -48,7 +50,13 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:
 		var hitbox: HitboxComponent = area
 		if hitbox.attack and health_component:
+			if particle_effect:
+				particle_effect.emitting = true
+				var direction = (area.global_position - global_position).normalized()
+				var angle = direction.angle()
+				particle_effect.rotation = angle + PI / 2
 			hitbox.attack.perform_attack(owner, hitbox.owner)
+			hit.emit(hitbox.owner, hitbox.attack)
 
 func _start_invincibility() -> void:
 	if invincibility_enabled:
