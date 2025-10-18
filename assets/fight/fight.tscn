@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cje2ap7ple78a"]
+[gd_scene load_steps=4 format=3 uid="uid://cje2ap7ple78a"]
 
 [ext_resource type="PackedScene" uid="uid://bx1imjkaglqrh" path="res://assets/fight/player/player.tscn" id="1_6nq0e"]
 [ext_resource type="Script" uid="uid://psitj5i30njj" path="res://src/fight.gd" id="1_o5df5"]
-[ext_resource type="PackedScene" uid="uid://bof3ks2cj1btn" path="res://assets/fight/boss/boss.tscn" id="2_avfyy"]
 [ext_resource type="PackedScene" uid="uid://bjliwopjeuk3d" path="res://assets/fight/arena/arena.tscn" id="3_hum70"]
 
 [node name="Fight" type="Node2D"]
@@ -12,6 +11,3 @@ script = ExtResource("1_o5df5")
 
 [node name="Player" parent="." instance=ExtResource("1_6nq0e")]
 position = Vector2(144, 580)
-
-[node name="Boss" parent="." instance=ExtResource("2_avfyy")]
-position = Vector2(576, 598)

@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://3fe5ij0dftxt"]
+
+[ext_resource type="Script" uid="uid://b83dkqm5staar" path="res://src/teen_projectile.gd" id="1_1mus2"]
+[ext_resource type="Script" uid="uid://epblsx3i6y5v" path="res://src/hitbox_component.gd" id="1_m8uvo"]
+[ext_resource type="Script" uid="uid://dof5pd4m1eyvl" path="res://src/attack.gd" id="2_550n5"]
+[ext_resource type="Texture2D" uid="uid://fswm2m7s3b3p" path="res://assets/fight/boss/boss_corrupt/teen/teen_projectile.png" id="2_aprbm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mwko"]
+atlas = ExtResource("2_aprbm")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pge71"]
+atlas = ExtResource("2_aprbm")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_347ns"]
+atlas = ExtResource("2_aprbm")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5bwh"]
+atlas = ExtResource("2_aprbm")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mct5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mwko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pge71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_347ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5bwh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Resource" id="Resource_3vyjx"]
+script = ExtResource("2_550n5")
+damage = 1
+metadata/_custom_type_script = "uid://dof5pd4m1eyvl"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_550n5"]
+radius = 10.049875
+
+[node name="TeenProjectile" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 16
+motion_mode = 1
+slide_on_ceiling = false
+script = ExtResource("1_1mus2")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_mct5h")
+autoplay = "default"
+frame_progress = 0.3317041
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_m8uvo")
+attack = SubResource("Resource_3vyjx")
+metadata/_custom_type_script = "uid://epblsx3i6y5v"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_550n5")
+
+[connection signal="body_entered" from="HitboxComponent" to="." method="_on_hitbox_component_body_entered"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch1yx31kbmfm8"]
+
+[ext_resource type="Script" uid="uid://dytpcs8nhibxb" path="res://src/boss_corrupt.gd" id="1_glfak"]
+[ext_resource type="PackedScene" uid="uid://c0exbtavdha6b" path="res://assets/fight/boss/boss_corrupt/teen/teen.tscn" id="1_tk5j0"]
+
+[node name="BossCorrupt" type="Node2D"]
+script = ExtResource("1_glfak")
+
+[node name="Teen" parent="." instance=ExtResource("1_tk5j0")]
+position = Vector2(575, 208)
+
+[node name="Teen2" parent="." instance=ExtResource("1_tk5j0")]
+position = Vector2(880, 360)
+
+[node name="Teen3" parent="." instance=ExtResource("1_tk5j0")]
+position = Vector2(280, 360)
+
+[node name="Teen4" parent="." instance=ExtResource("1_tk5j0")]
+position = Vector2(576, 576)

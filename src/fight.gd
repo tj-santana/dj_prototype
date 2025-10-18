@@ -1,6 +1,17 @@
 extends Node2D
 
+const BOSS_CORRUPT = preload(Refs.PATHS.BOSS_CORRUPT)
+const BOSS_ANTI_CORRUPT = preload(Refs.PATHS.BOSS_ANTI_CORRUPT)
+
 func _ready() -> void:
+	if !Global.is_corrupt:
+		# Anti-Corrupt
+		var boss_instance = BOSS_ANTI_CORRUPT.instantiate()
+		add_child(boss_instance)
+	else:
+		# Corrupt
+		var teen_instance = BOSS_CORRUPT.instantiate()
+		add_child(teen_instance)
 	# Music
 	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.FIGHT)
 	# Signal connections

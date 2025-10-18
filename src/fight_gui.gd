@@ -10,7 +10,10 @@ extends Control
 @onready var player_health_bar: HBoxContainer = %PlayerHealthBar
 
 func _ready() -> void:
-	SignalBus.on_boss_health_changed.connect(_on_boss_health_gui_update)
+	if Global.is_corrupt:
+		boss_health_bar.visible = false
+	else:
+		SignalBus.on_boss_health_changed.connect(_on_boss_health_gui_update)
 	SignalBus.on_player_health_changed.connect(_on_player_health_gui_update)
 
 func _on_boss_health_gui_update(current_health: int) -> void:
