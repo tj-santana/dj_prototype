@@ -1,0 +1,164 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtbab27gq2l8p"]
+
+[ext_resource type="Texture2D" uid="uid://b1g4bybju7n18" path="res://assets/fight/fight_tutorial/arena_bg.png" id="1_rxmwk"]
+[ext_resource type="Texture2D" uid="uid://com8ihgtlb7hf" path="res://assets/fight/fight_tutorial/arena_tiles.png" id="2_t7jpy"]
+[ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="3_otdps"]
+[ext_resource type="Texture2D" uid="uid://dykhwvjm5ntfq" path="res://assets/fight/fight_tutorial/LMB.png" id="4_otdps"]
+[ext_resource type="Texture2D" uid="uid://bm5sr8pe4ptni" path="res://assets/fight/fight_tutorial/RMB.png" id="5_i7o25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avfyy"]
+size = Vector2(240, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cteil"]
+atlas = ExtResource("2_t7jpy")
+region = Rect2(480, 24, 96, 16)
+
+[node name="Arena" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_rxmwk")
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(275, 450)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+shape = SubResource("RectangleShape2D_avfyy")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform1"]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = SubResource("AtlasTexture_cteil")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(578, 300)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource("RectangleShape2D_avfyy")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2"]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = SubResource("AtlasTexture_cteil")
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(875, 450)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+shape = SubResource("RectangleShape2D_avfyy")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform3"]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = SubResource("AtlasTexture_cteil")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1157.0
+offset_bottom = 652.0
+color = Color(1, 1, 1, 0.6)
+
+[node name="Summary" type="RichTextLabel" parent="."]
+offset_left = 30.0
+offset_top = 32.0
+offset_right = 1091.0
+offset_bottom = 577.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_otdps")
+theme_override_fonts/bold_font = ExtResource("3_otdps")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 34
+bbcode_enabled = true
+text = "[b]Now, it’s time to face the consequences of your actions:[/b]
+ - If you         		    your article will go viral!
+ - If you         you will not receive any money and your article
+will have no effect on Burla City."
+scroll_active = false
+
+[node name="Survive" type="RichTextLabel" parent="Summary"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 1063.0
+offset_bottom = 548.0
+theme_override_colors/default_color = Color(9.62615e-07, 0.9180385, 0.29343152, 1)
+theme_override_fonts/normal_font = ExtResource("3_otdps")
+theme_override_fonts/bold_font = ExtResource("3_otdps")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 34
+bbcode_enabled = true
+text = "
+                  survive"
+scroll_active = false
+
+[node name="Fail" type="RichTextLabel" parent="Summary"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 1063.0
+offset_bottom = 548.0
+theme_override_colors/default_color = Color(0.8355884, 0, 0.01913053, 1)
+theme_override_fonts/normal_font = ExtResource("3_otdps")
+theme_override_fonts/bold_font = ExtResource("3_otdps")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 34
+bbcode_enabled = true
+text = "
+   
+				  fail"
+scroll_active = false
+
+[node name="Controls" type="RichTextLabel" parent="."]
+offset_left = 31.0
+offset_top = 223.0
+offset_right = 520.0
+offset_bottom = 472.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_otdps")
+theme_override_fonts/bold_font = ExtResource("3_otdps")
+theme_override_fonts/italics_font = ExtResource("3_otdps")
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 29
+theme_override_font_sizes/italics_font_size = 40
+bbcode_enabled = true
+text = "[i]Controls[/i]
+[b]Movement[/b]: A,D
+[b]Jump:[/b] W, Space
+[b]Light Attack[/b]: M1
+[b]Heavy Attack[/b]: M2"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Lmb" type="Sprite2D" parent="Controls"]
+position = Vector2(243.00006, 169)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_otdps")
+
+[node name="Rmb" type="Sprite2D" parent="Controls"]
+position = Vector2(259, 206)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_i7o25")
+
+[node name="Click" type="RichTextLabel" parent="."]
+offset_left = 356.99997
+offset_top = 600.99994
+offset_right = 792.0
+offset_bottom = 638.99994
+rotation = -0.006230199
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_otdps")
+theme_override_fonts/bold_font = ExtResource("3_otdps")
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 34
+bbcode_enabled = true
+text = "Click anywhere to continue."
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
