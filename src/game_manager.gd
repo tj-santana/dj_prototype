@@ -1,7 +1,7 @@
 extends Node
 
 
-enum LEVEL{
+enum LEVEL {
 	TABACO,
 	VET,
 	BANK,
@@ -9,7 +9,7 @@ enum LEVEL{
 	PRESIDENTE
 }
 
-enum DECISION_TYPE{
+enum DECISION_TYPE {
 	MISS,
 	TODO,
 	GOOD,
@@ -20,10 +20,13 @@ enum DECISION_TYPE{
 @onready var _money: int = 500
 @onready var _body_text: String = ""
 @onready var _oldNews: bool
+@onready var _tabaco_done: bool = true
 
 func _ready() -> void:
-	for level in LEVEL:
-		_decisionLog.set(int(level),DECISION_TYPE.TODO)
+	_decisionLog = {} # make sure it’s initialized
+	for level_name in LEVEL.keys():
+		var level_value = LEVEL[level_name]
+		_decisionLog[level_value] = DECISION_TYPE.TODO
 
 func getLevelDecision(level: LEVEL) -> DECISION_TYPE:
 	return _decisionLog.get(level)

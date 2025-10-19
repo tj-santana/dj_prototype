@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyfls6bxsau75"]
+
+[ext_resource type="Script" uid="uid://bltv56uo8fp2d" path="res://src/fight/boss_corrupt_pres.gd" id="1_8gy54"]
+[ext_resource type="PackedScene" uid="uid://cx3ai3krmpwh2" path="res://assets/fight/boss/boss_corrupt_pres/president/president.tscn" id="1_umgiq"]
+
+[node name="BossCorruptPres" type="Node2D"]
+script = ExtResource("1_8gy54")
+
+[node name="President" parent="." instance=ExtResource("1_umgiq")]
+unique_name_in_owner = true
+position = Vector2(566, 555)

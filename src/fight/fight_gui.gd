@@ -10,7 +10,7 @@ extends Control
 @onready var player_health_bar: HBoxContainer = %PlayerHealthBar
 
 func _ready() -> void:
-	if GameManager.getLevelDecision(GameManager.LEVEL.TABACO) == GameManager.DECISION_TYPE.BAD:
+	if GameManager.getLevelDecision(GameManager.LEVEL.TABACO) == GameManager.DECISION_TYPE.BAD || (GameManager._tabaco_done && GameManager.getLevelDecision(GameManager.LEVEL.PRESIDENTE) == GameManager.DECISION_TYPE.GOOD):
 		boss_health_bar.visible = false
 	else:
 		SignalBus.on_boss_health_changed.connect(_on_boss_health_gui_update)

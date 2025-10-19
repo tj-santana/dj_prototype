@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bstr10sxixk1y"]
+
+[ext_resource type="Script" uid="uid://b77wr7vd0caw1" path="res://src/fight/boss_anti_corrupt_pres.gd" id="1_65gju"]
+[ext_resource type="PackedScene" uid="uid://cnbnlje17j17c" path="res://assets/fight/boss/boss_anti_corrupt_pres/homeless/homeless.tscn" id="1_g5oha"]
+
+[node name="BossAntiCorruptPres" type="Node2D"]
+script = ExtResource("1_65gju")
+
+[node name="Homeless" parent="." instance=ExtResource("1_g5oha")]
+position = Vector2(619, 539)
+
+[node name="Homeless2" parent="." instance=ExtResource("1_g5oha")]
+position = Vector2(891, 336)
+
+[node name="Homeless3" parent="." instance=ExtResource("1_g5oha")]
+position = Vector2(599, 201)
+
+[node name="Homeless4" parent="." instance=ExtResource("1_g5oha")]
+position = Vector2(241, 345)

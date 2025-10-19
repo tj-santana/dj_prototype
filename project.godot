@@ -27,6 +27,8 @@ GameManager="*res://src/game_manager.gd"
 
 Player=""
 Teen=""
+Presidente=""
+Homeless=""
 
 [input]
 
