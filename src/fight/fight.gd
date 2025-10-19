@@ -16,11 +16,12 @@ func _ready() -> void:
 			var teen_instance = BOSS_CORRUPT.instantiate()
 			add_child(teen_instance)
 	else:
+		print(GameManager.getLevelDecision(GameManager.LEVEL.PRESIDENTE))
 		if GameManager.getLevelDecision(GameManager.LEVEL.PRESIDENTE) == GameManager.DECISION_TYPE.GOOD:
 			# Anti-Corrupt
 			var boss_instance = BOSS_ANTI_CORRUPT_PRES.instantiate()
 			add_child(boss_instance)
-		else:
+		if GameManager.getLevelDecision(GameManager.LEVEL.PRESIDENTE) == GameManager.DECISION_TYPE.BAD:
 			# Corrupt
 			var teen_instance = BOSS_CORRUPT_PRES.instantiate()
 			add_child(teen_instance)
@@ -41,6 +42,8 @@ func _on_player_died() -> void:
 	print("Player defeated! Emitting last enemy died signal.")
 	if !GameManager._tabaco_done:
 		GameManager._tabaco_done = true
+		GameManager.setLevelDecision(GameManager.LEVEL.TABACO, GameManager.DECISION_TYPE.MISS)
+	else:
+		GameManager.setLevelDecision(GameManager.LEVEL.PRESIDENTE, GameManager.DECISION_TYPE.MISS)
 	AudioManager.fade_out_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.FIGHT, 0.5)
-	GameManager.setLevelDecision(GameManager.LEVEL.TABACO, GameManager.DECISION_TYPE.MISS)
 	await Global.game_controller.change_scene(Refs.PATHS.FIGHT_RESULTS, "", TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)

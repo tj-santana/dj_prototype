@@ -10,6 +10,7 @@ class_name Overview
 @onready var presWarning: Sprite2D = %MayorWarning
 
 
+
 	# Button ditection is not working for som reason.
 	# So intead we calculate if the click was on the area of the button.
 
@@ -43,11 +44,11 @@ func _ready() -> void:
 
 	if presstate != GameManager.DECISION_TYPE.TODO: 
 		endWeek.visible = true
+		presmission.visible = false
+		presWarning.visible = false
 	
 	
 	tabacomission.visible = false
-	presmission.visible = true
-	presWarning.visible = true
 	
 	match tabacostate:
 		GameManager.DECISION_TYPE.GOOD:
