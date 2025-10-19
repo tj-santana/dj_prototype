@@ -1,9 +1,455 @@
-[gd_scene format=3 uid="uid://7pp2qjsno264"]
+[gd_scene load_steps=17 format=3 uid="uid://7pp2qjsno264"]
 
-[node name="Overview" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" uid="uid://bx5i26vh6ougp" path="res://src/overview/overview.gd" id="1_dx7nr"]
+[ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_skwpw"]
+[ext_resource type="Texture2D" uid="uid://bncto63kvv4tu" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0001.png" id="2_6qvxk"]
+[ext_resource type="Texture2D" uid="uid://ff6dojch1p4d" path="res://assets/overview/resources/2dcitywithoutoutline/citysecondprops/citysecondcityprops0001.png" id="2_qcb0h"]
+[ext_resource type="Texture2D" uid="uid://b0m2obd2ujrnr" path="res://assets/overview/resources/2dcitywithoutoutline/citysecondprops/road1.png" id="3_87qgn"]
+[ext_resource type="Texture2D" uid="uid://b0eedrpwp7138" path="res://assets/overview/resources/2dcitywithoutoutline/house3/3house0001.png" id="4_dx7nr"]
+[ext_resource type="Texture2D" uid="uid://j1mc7ulwnitw" path="res://assets/overview/resources/2dcitywithoutoutline/house2/2house0001.png" id="6_1xkay"]
+[ext_resource type="Texture2D" uid="uid://d0u4a0jktfh8i" path="res://assets/overview/resources/2dcitywithoutoutline/house4/4house0001.png" id="7_wsua8"]
+[ext_resource type="Texture2D" uid="uid://b3wildg4gacyj" path="res://assets/overview/resources/2dcitywithoutoutline/divers/divers0001.png" id="8_hjwqe"]
+[ext_resource type="Texture2D" uid="uid://cjubxd1jk6xa2" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0007.png" id="9_jcbmv"]
+[ext_resource type="Texture2D" uid="uid://cwicrn4o51f8j" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0003.png" id="10_b7odv"]
+[ext_resource type="Texture2D" uid="uid://cocf2l76a14u6" path="res://assets/overview/resources/2dcitywithoutoutline/vehicles/vehicles0001.png" id="11_7vgr4"]
+[ext_resource type="Texture2D" uid="uid://b2auv4j5k7bkn" path="res://assets/overview/resources/smogworse.png" id="12_dx7nr"]
+[ext_resource type="Texture2D" uid="uid://b0lf1xbgymh2g" path="res://assets/overview/resources/factoryicon.png" id="13_1xkay"]
+[ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="14_1xkay"]
+[ext_resource type="Texture2D" uid="uid://cqdg1xuaqpn1q" path="res://assets/overview/resources/emotes_vector.svg" id="16_hjwqe"]
+
+[node name="Overview" type="Node2D"]
+script = ExtResource("1_dx7nr")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_top = -318.0
+offset_right = 1152.0
+offset_bottom = 330.0
+texture = ExtResource("1_skwpw")
+expand_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 231.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.7330054, 0.73300546, 0.733005, 1)
+
+[node name="Downroad 3" type="Sprite2D" parent="."]
+position = Vector2(574.25, 253)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qcb0h")
+region_enabled = true
+region_rect = Rect2(875, 746, 348, 186)
+
+[node name="Road1" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(575, 308)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_87qgn")
+region_enabled = true
+region_rect = Rect2(0, 0, 4900, 217)
+
+[node name="House7" type="Sprite2D" parent="."]
+position = Vector2(574.25, 308)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qcb0h")
+region_enabled = true
+region_rect = Rect2(792, 1121.585, 464, 287)
+
+[node name="House1" type="Sprite2D" parent="."]
+position = Vector2(69.25, 185)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_dx7nr")
+region_enabled = true
+region_rect = Rect2(112, 547, 396, 662)
+
+[node name="House2" type="Sprite2D" parent="."]
+position = Vector2(174.25, 185)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_dx7nr")
+region_enabled = true
+region_rect = Rect2(112, 547, 396, 662)
+
+[node name="House4" type="Sprite2D" parent="."]
+position = Vector2(274.25, 231)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(799, 82, 374, 363)
+
+[node name="House5" type="Sprite2D" parent="."]
+position = Vector2(374.25, 231)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(90, 752, 435, 350)
+
+[node name="House6" type="Sprite2D" parent="."]
+position = Vector2(478.25, 231)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_dx7nr")
+region_enabled = true
+region_rect = Rect2(1580, 900, 370, 309)
+
+[node name="House8" type="Sprite2D" parent="."]
+position = Vector2(674.25, 231)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_dx7nr")
+region_enabled = true
+region_rect = Rect2(1580, 900, 370, 309)
+
+[node name="House9" type="Sprite2D" parent="."]
+position = Vector2(774.25, 214)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(159, 110, 401, 502)
+
+[node name="House12" type="Sprite2D" parent="."]
+position = Vector2(888.25, 233)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_1xkay")
+region_enabled = true
+region_rect = Rect2(1515, 1507, 421, 469)
+
+[node name="House13" type="Sprite2D" parent="."]
+position = Vector2(1046.25, 231)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_wsua8")
+region_enabled = true
+region_rect = Rect2(709, 725, 782, 333)
+
+[node name="House 30" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(274, -44)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(90, 752, 435, 350)
+
+[node name="House 6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(165, 175)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="Downroad 1" type="Sprite2D" parent="."]
+position = Vector2(574.25, 363)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qcb0h")
+region_enabled = true
+region_rect = Rect2(875, 746, 348, 186)
+
+[node name="House3" type="Sprite2D" parent="."]
+position = Vector2(66.75, 323.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(159, 110, 401, 502)
+
+[node name="House11" type="Sprite2D" parent="."]
+position = Vector2(188.75, 323.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(159, 110, 401, 502)
+
+[node name="House16" type="Sprite2D" parent="."]
+position = Vector2(343.75, 323.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(159, 110, 401, 502)
+
+[node name="House17" type="Sprite2D" parent="."]
+position = Vector2(463.75, 322.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_1xkay")
+region_enabled = true
+region_rect = Rect2(104, 1432, 540, 514)
+
+[node name="House19" type="Sprite2D" parent="."]
+position = Vector2(671.75, 340.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(799, 82, 374, 363)
+
+[node name="House20" type="Sprite2D" parent="."]
+position = Vector2(771.75, 340.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1008, 1564, 401, 363)
+
+[node name="House21" type="Sprite2D" parent="."]
+position = Vector2(871.75, 340.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1008, 1564, 401, 363)
+
+[node name="House22" type="Sprite2D" parent="."]
+position = Vector2(871.75, 340.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1008, 1564, 401, 363)
+
+[node name="House23" type="Sprite2D" parent="."]
+position = Vector2(971.75, 340.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(799, 82, 374, 363)
+
+[node name="House24" type="Sprite2D" parent="."]
+position = Vector2(1082.75, 340.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(90, 752, 435, 350)
+
+[node name="House 31" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(274, -44)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(90, 752, 435, 350)
+
+[node name="House 7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(165, 175)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="Road2" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(576.5, 417.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_87qgn")
+region_enabled = true
+region_rect = Rect2(0, 0, 4900, 217)
+
+[node name="House18" type="Sprite2D" parent="."]
+position = Vector2(573.75, 417.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qcb0h")
+region_enabled = true
+region_rect = Rect2(792, 1121.835, 461.735, 287)
+
+[node name="Downroad 2" type="Sprite2D" parent="."]
+position = Vector2(574.25, 472)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qcb0h")
+region_enabled = true
+region_rect = Rect2(875, 746, 348, 186)
+
+[node name="House25" type="Sprite2D" parent="."]
+position = Vector2(52.75, 412.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_dx7nr")
+region_enabled = true
+region_rect = Rect2(112, 547, 396, 662)
+
+[node name="House26" type="Sprite2D" parent="."]
+position = Vector2(159.75, 352.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_wsua8")
+region_enabled = true
+region_rect = Rect2(1585, 829, 371, 1153)
+
+[node name="House27" type="Sprite2D" parent="."]
+position = Vector2(272.75, 414.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_dx7nr")
+region_enabled = true
+region_rect = Rect2(1458, 57, 454, 678)
+
+[node name="House28" type="Sprite2D" parent="."]
+position = Vector2(380.75, 437.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_wsua8")
+region_enabled = true
+region_rect = Rect2(180, 622, 356, 455)
+
+[node name="House29" type="Sprite2D" parent="."]
+position = Vector2(477.75, 437.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_wsua8")
+region_enabled = true
+region_rect = Rect2(180, 622, 356, 455)
+
+[node name="House30" type="Sprite2D" parent="."]
+position = Vector2(669.75, 437.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_wsua8")
+region_enabled = true
+region_rect = Rect2(180, 622, 356, 455)
+
+[node name="House31" type="Sprite2D" parent="."]
+position = Vector2(767.75, 437.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_wsua8")
+region_enabled = true
+region_rect = Rect2(180, 622, 356, 455)
+
+[node name="House33" type="Sprite2D" parent="."]
+position = Vector2(871.75, 431.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(159, 110, 401, 502)
+
+[node name="House34" type="Sprite2D" parent="."]
+position = Vector2(977.75, 431.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(159, 110, 401, 502)
+
+[node name="House35" type="Sprite2D" parent="."]
+position = Vector2(1083.75, 449.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(799, 82, 374, 363)
+
+[node name="House 32" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(274, -44)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(90, 752, 435, 350)
+
+[node name="House 8" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(165, 175)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6qvxk")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="Road3" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(576.5, 526.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_87qgn")
+region_enabled = true
+region_rect = Rect2(0, 0, 4900, 217)
+
+[node name="House36" type="Sprite2D" parent="."]
+position = Vector2(573.75, 526.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qcb0h")
+region_enabled = true
+region_rect = Rect2(792, 1121.835, 461.735, 287)
+
+[node name="House37" type="Sprite2D" parent="."]
+position = Vector2(51, 557)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_jcbmv")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="House38" type="Sprite2D" parent="."]
+position = Vector2(109, 557)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_jcbmv")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="House39" type="Sprite2D" parent="."]
+position = Vector2(167, 557)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_jcbmv")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="House40" type="Sprite2D" parent="."]
+position = Vector2(225, 557)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_jcbmv")
+region_enabled = true
+region_rect = Rect2(1525, 1562, 401, 363)
+
+[node name="House41" type="Sprite2D" parent="."]
+position = Vector2(282.125, 556.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_b7odv")
+region_enabled = true
+region_rect = Rect2(1645, 65, 144, 376)
+
+[node name="House43" type="Sprite2D" parent="."]
+position = Vector2(101, 607)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_7vgr4")
+region_enabled = true
+region_rect = Rect2(803, 175, 519, 367)
+
+[node name="House42" type="Sprite2D" parent="."]
+position = Vector2(318.125, 556.375)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_b7odv")
+region_enabled = true
+region_rect = Rect2(745, 1075, 144, 375)
+
+[node name="Downroad 4" type="Sprite2D" parent="."]
+position = Vector2(382, 565)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qcb0h")
+region_enabled = true
+region_rect = Rect2(875, 753.07, 348, 181.5)
+
+[node name="Downroad 5" type="Sprite2D" parent="."]
+position = Vector2(382, 606)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qcb0h")
+region_enabled = true
+region_rect = Rect2(875, 753.07, 348, 181.5)
+
+[node name="Downroad 6" type="Sprite2D" parent="."]
+position = Vector2(382, 645)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qcb0h")
+region_enabled = true
+region_rect = Rect2(875, 753.07, 348, 181.5)
+
+[node name="House32" type="Sprite2D" parent="."]
+position = Vector2(573, 542)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_hjwqe")
+region_enabled = true
+region_rect = Rect2(98, 147, 607, 391)
+
+[node name="Smogworse" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(577, 284)
+texture = ExtResource("12_dx7nr")
+
+[node name="Smog" type="Sprite2D" parent="."]
+position = Vector2(574, 286)
+texture = ExtResource("14_1xkay")
+
+[node name="Mission" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 119.99999
+offset_top = 502.99997
+offset_right = 220.0
+offset_bottom = 603.0
+scale = Vector2(0.715, 0.715)
+icon = ExtResource("13_1xkay")
+expand_icon = true
+
+[node name="FactoryWarning" type="Sprite2D" parent="."]
+position = Vector2(154, 477.00003)
+scale = Vector2(1.075, 1.075)
+texture = ExtResource("16_hjwqe")
+region_enabled = true
+region_rect = Rect2(320, 0, 32, 38)
