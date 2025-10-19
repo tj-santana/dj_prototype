@@ -429,7 +429,6 @@ region_enabled = true
 region_rect = Rect2(98, 147, 607, 391)
 
 [node name="Smogworse" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(577, 284)
 texture = ExtResource("12_dx7nr")
 
