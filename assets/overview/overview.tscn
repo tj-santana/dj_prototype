@@ -515,6 +515,7 @@ offset_top = 569.0
 offset_right = 1249.0
 offset_bottom = 688.0
 scale = Vector2(0.5, 0.5)
+disabled = true
 texture_normal = ExtResource("17_jcbmv")
 
 [connection signal="ready" from="." to="." method="_on_ready"]

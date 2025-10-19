@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjliwopjeuk3d"]
+[gd_scene load_steps=7 format=3 uid="uid://bjliwopjeuk3d"]
 
 [ext_resource type="Script" uid="uid://5itpoolav2hc" path="res://src/fight/arena.gd" id="1_cteil"]
+[ext_resource type="Texture2D" uid="uid://dwt8ob1ig1uc8" path="res://assets/fight/arena/arena_bg.png" id="1_d7s6f"]
 [ext_resource type="Texture2D" uid="uid://bu5b1xh8h5t7x" path="res://assets/fight/arena/Free-City-Ruin-Backgrounds-Pixel-Art5.png" id="2_cteil"]
 [ext_resource type="Texture2D" uid="uid://0mf5m7a5chmp" path="res://assets/fight/arena/arena_tiles.png" id="2_qnmuy"]
 
@@ -20,7 +21,7 @@ unique_name_in_owner = true
 texture_filter = 1
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_cteil")
+texture = ExtResource("1_d7s6f")
 expand_mode = 3
 
 [node name="Platform1" type="StaticBody2D" parent="."]

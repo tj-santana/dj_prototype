@@ -33,6 +33,8 @@ func _input(event):
 
 func _handle_mission_click():
 	AudioManager.fade_out_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.OVERVIEW_MUSIC)
+	if !GameManager._tabaco_done:
+		tabacomission.disabled = true
 	await Global.game_controller.change_gui_scene(Refs.PATHS.PORTATIL, TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)
 
 
@@ -46,6 +48,7 @@ func _ready() -> void:
 		endWeek.visible = true
 		presmission.visible = false
 		presWarning.visible = false
+		endWeek.disabled = false
 	
 	
 	tabacomission.visible = false
@@ -54,8 +57,8 @@ func _ready() -> void:
 		GameManager.DECISION_TYPE.GOOD:
 			smog.visible = false
 			factoryWarning.visible=false
-			tabacomission.disabled = true
 			GameManager._tabaco_done = true
+			tabacomission.disabled = true
 		GameManager.DECISION_TYPE.TODO:
 			smog.visible = true
 			tabacomission.visible = true
