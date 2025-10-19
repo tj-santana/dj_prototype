@@ -443,8 +443,9 @@ unique_name_in_owner = true
 position = Vector2(574, 286)
 texture = ExtResource("14_1xkay")
 
-[node name="Mission" type="Button" parent="."]
+[node name="TabacoMission" type="Button" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = 119.99999
 offset_top = 502.99997
 offset_right = 220.0
