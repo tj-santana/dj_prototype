@@ -127,6 +127,31 @@ layout_mode = 2
 texture = ExtResource("5_xqmil")
 stretch_mode = 5
 
+[node name="RichTextLabel5" type="RichTextLabel" parent="Control/HBoxContainer/Chat/ChatVisuals"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.037
+anchor_bottom = 0.086
+offset_left = 18.000008
+offset_top = 70.0
+offset_right = 470.611
+offset_bottom = 364.376
+theme_override_colors/default_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+theme_override_constants/line_separation = 3
+theme_override_fonts/normal_font = ExtResource("4_uuhjh")
+theme_override_fonts/italics_font = ExtResource("5_25iqt")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "[b]cooldad21:[/b] u there?
+[b]you[/b]: yeah
+[b]cooldad21:[/b] ur good at making good arguments, can u help me?
+[b]cooldad21:[/b] my boy wont stop vaping no matter what!
+[b]cooldad21:[/b] its gotten to the point where he will cough for an entire minute
+[b]cooldad21:[/b] we took away his games and his phone and he didn't care
+[b]cooldad21:[/b] can you help me make him stop?"
+
 [node name="ChatCloseWindow" type="TextureButton" parent="Control/HBoxContainer/Chat"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
