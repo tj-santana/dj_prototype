@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://7pp2qjsno264"]
+[gd_scene load_steps=17 format=3 uid="uid://7pp2qjsno264"]
 
 [ext_resource type="Script" uid="uid://bx5i26vh6ougp" path="res://src/overview/overview.gd" id="1_dx7nr"]
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_skwpw"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b2auv4j5k7bkn" path="res://assets/overview/resources/smogworse.png" id="12_dx7nr"]
 [ext_resource type="Texture2D" uid="uid://b0lf1xbgymh2g" path="res://assets/overview/resources/factoryicon.png" id="13_1xkay"]
 [ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="14_1xkay"]
+[ext_resource type="Texture2D" uid="uid://cqdg1xuaqpn1q" path="res://assets/overview/resources/emotes_vector.svg" id="16_hjwqe"]
 
 [node name="Overview" type="Node2D"]
 script = ExtResource("1_dx7nr")
@@ -31,7 +32,7 @@ offset_top = 231.0
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
-color = Color(0.89492244, 0.89492244, 0.8949224, 1)
+color = Color(0.7330054, 0.73300546, 0.733005, 1)
 
 [node name="Downroad 3" type="Sprite2D" parent="."]
 position = Vector2(574.25, 253)
@@ -432,21 +433,23 @@ visible = false
 position = Vector2(577, 284)
 texture = ExtResource("12_dx7nr")
 
-[node name="Factoryicon" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(183, 591)
-scale = Vector2(0.135, 0.135)
-texture = ExtResource("13_1xkay")
-
 [node name="Smog" type="Sprite2D" parent="."]
 position = Vector2(574, 286)
 texture = ExtResource("14_1xkay")
 
 [node name="Mission" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 104.0
-offset_top = 502.0
-offset_right = 204.0
-offset_bottom = 602.0
+offset_left = 119.99999
+offset_top = 502.99997
+offset_right = 220.0
+offset_bottom = 603.0
+scale = Vector2(0.715, 0.715)
 icon = ExtResource("13_1xkay")
 expand_icon = true
+
+[node name="FactoryWarning" type="Sprite2D" parent="."]
+position = Vector2(154, 477.00003)
+scale = Vector2(1.075, 1.075)
+texture = ExtResource("16_hjwqe")
+region_enabled = true
+region_rect = Rect2(320, 0, 32, 38)
