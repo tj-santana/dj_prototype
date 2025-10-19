@@ -26,4 +26,5 @@ func _on_boss_died() -> void:
 func _on_player_died() -> void:
 	print("Player defeated! Emitting last enemy died signal.")
 	AudioManager.fade_out_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.FIGHT, 0.5)
+	GameManager.setLevelDecision(GameManager.LEVEL.TABACO, GameManager.DECISION_TYPE.MISS)
 	await Global.game_controller.change_scene("", Refs.PATHS.OVERVIEW, TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)

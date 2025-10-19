@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://7pp2qjsno264"]
+[gd_scene load_steps=18 format=3 uid="uid://7pp2qjsno264"]
 
 [ext_resource type="Script" uid="uid://bx5i26vh6ougp" path="res://src/overview/overview.gd" id="1_dx7nr"]
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_skwpw"]
@@ -12,10 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://cjubxd1jk6xa2" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0007.png" id="9_jcbmv"]
 [ext_resource type="Texture2D" uid="uid://cwicrn4o51f8j" path="res://assets/overview/resources/2dcitywithoutoutline/house1/1house0003.png" id="10_b7odv"]
 [ext_resource type="Texture2D" uid="uid://cocf2l76a14u6" path="res://assets/overview/resources/2dcitywithoutoutline/vehicles/vehicles0001.png" id="11_7vgr4"]
-[ext_resource type="Texture2D" uid="uid://b2auv4j5k7bkn" path="res://assets/overview/resources/smogworse.png" id="12_dx7nr"]
+[ext_resource type="Texture2D" uid="uid://b2auv4j5k7bkn" path="res://assets/overview/resources/smogBad.png" id="12_dx7nr"]
 [ext_resource type="Texture2D" uid="uid://b0lf1xbgymh2g" path="res://assets/overview/resources/factoryicon.png" id="13_1xkay"]
 [ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="14_1xkay"]
 [ext_resource type="Texture2D" uid="uid://cqdg1xuaqpn1q" path="res://assets/overview/resources/emotes_vector.svg" id="16_hjwqe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjwqe"]
 
 [node name="Overview" type="Node2D"]
 script = ExtResource("1_dx7nr")
@@ -428,11 +430,14 @@ texture = ExtResource("8_hjwqe")
 region_enabled = true
 region_rect = Rect2(98, 147, 607, 391)
 
-[node name="Smogworse" type="Sprite2D" parent="."]
-position = Vector2(577, 284)
+[node name="SmogBad" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(576, 284)
 texture = ExtResource("12_dx7nr")
 
 [node name="Smog" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(574, 286)
 texture = ExtResource("14_1xkay")
 
@@ -443,6 +448,7 @@ offset_top = 502.99997
 offset_right = 220.0
 offset_bottom = 603.0
 scale = Vector2(0.715, 0.715)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hjwqe")
 icon = ExtResource("13_1xkay")
 expand_icon = true
 
@@ -452,3 +458,5 @@ scale = Vector2(1.075, 1.075)
 texture = ExtResource("16_hjwqe")
 region_enabled = true
 region_rect = Rect2(320, 0, 32, 38)
+
+[connection signal="ready" from="." to="." method="_on_ready"]

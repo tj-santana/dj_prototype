@@ -10,8 +10,8 @@ enum LEVEL{
 }
 
 enum DECISION_TYPE{
-	TODO,
 	MISS,
+	TODO,
 	GOOD,
 	BAD
 }
@@ -20,13 +20,13 @@ enum DECISION_TYPE{
 @onready var _money: int
 @onready var _body_text: String = ""
 @onready var _oldNews: bool
+
 func _ready() -> void:
-	Global.game_manager = self
 	for level in LEVEL:
-		_decisionLog[level] = DECISION_TYPE.TODO
+		_decisionLog.set(int(level),DECISION_TYPE.TODO)
 
 func getLevelDecision(level: LEVEL) -> DECISION_TYPE:
-	return _decisionLog[level]
+	return _decisionLog.get(level)
 
 func setLevelDecision(level: LEVEL, decision: DECISION_TYPE):
 	_decisionLog[level] = decision
@@ -55,6 +55,3 @@ func get_old_news() -> bool:
 
 func set_old_news(result: bool) -> void:
 	_oldNews = result
-
-
-	

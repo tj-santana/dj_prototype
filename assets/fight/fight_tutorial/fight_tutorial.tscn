@@ -131,17 +131,18 @@ bbcode_enabled = true
 text = "[i]Controls[/i]
 [b]Movement[/b]: A,D
 [b]Jump:[/b] W, Space
-[b]Light Attack[/b]: M1
-[b]Heavy Attack[/b]: M2"
+[b]Attack[/b]: M1
+"
 scroll_active = false
 vertical_alignment = 1
 
 [node name="Lmb" type="Sprite2D" parent="Controls"]
-position = Vector2(243.00006, 169)
+position = Vector2(243.00006, 185)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_otdps")
 
 [node name="Rmb" type="Sprite2D" parent="Controls"]
+visible = false
 position = Vector2(259, 206)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_i7o25")

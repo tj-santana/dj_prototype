@@ -78,7 +78,7 @@ func _process_header_typing(c: String) -> void:
 		typed_text = ""
 		_update_body_display()
 		return
-
+		
 	var expected_char = header_text[typed_index]
 
 	if c == expected_char:
@@ -103,6 +103,7 @@ func _process_body_typing(c: String) -> void:
 		return
 	
 	var expected_char = body_text[typed_index]
+	
 	if c == expected_char:
 		typed_text += c
 		typed_index += 1

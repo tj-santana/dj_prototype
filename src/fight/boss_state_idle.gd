@@ -8,6 +8,7 @@ var _timer: Timer = null
 
 func enter(_previous_state: State = null) -> void:
 	_boss_animation_tree.set_state("Idle")
+	_hitbox_component.get_child(0).disabled = true
 	_timer = Timer.new()
 	_timer.wait_time = idle_time
 	_timer.one_shot = true

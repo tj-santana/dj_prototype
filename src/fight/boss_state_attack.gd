@@ -17,6 +17,7 @@ var _timer: Timer = null
 
 func enter(_previous_state: State = null) -> void:
 	_boss_animation_tree.set_state("Attack")
+	_hitbox_component.get_child(0).disabled = false
 	# Make invincible
 	_hurtbox_component.set_invincible(true)
 	# Setup timer
