@@ -79,6 +79,16 @@ func _process_header_typing(c: String) -> void:
 		_update_body_display()
 		return
 		
+	if c == "<": #Bypass
+		print("All text bypassed")
+		started = false
+		timer.stop()
+		await Global.game_controller.change_gui_scene(
+			Refs.PATHS.NEWS_PUBLISHING,
+			TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME
+		)
+
+		
 	var expected_char = header_text[typed_index]
 
 	if c == expected_char:
