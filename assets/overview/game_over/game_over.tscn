@@ -129,13 +129,22 @@ text = "Corrupt leaders defeated: 0
 "
 fit_content = true
 
+[node name="Losses" type="RichTextLabel" parent="Table/News/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_uel1k")
+theme_override_font_sizes/normal_font_size = 24
+text = "Arguments lost: 0
+"
+fit_content = true
+
 [node name="Thanks" type="RichTextLabel" parent="Table/News/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("1_uel1k")
 theme_override_font_sizes/normal_font_size = 24
 text = "
-
 
 
 

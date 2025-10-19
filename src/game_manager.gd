@@ -28,6 +28,18 @@ func _ready() -> void:
 		var level_value = LEVEL[level_name]
 		_decisionLog[level_value] = DECISION_TYPE.TODO
 
+func _reset() -> void:
+	_money = 500
+	_body_text = ""
+	_tabaco_done = false
+	_decisionLog = {} # make sure it’s initialized
+	for level_name in LEVEL.keys():
+		var level_value = LEVEL[level_name]
+		_decisionLog[level_value] = DECISION_TYPE.TODO
+
+
+	
+
 func getLevelDecision(level: LEVEL) -> DECISION_TYPE:
 	return _decisionLog.get(level)
 

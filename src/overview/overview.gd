@@ -39,6 +39,7 @@ func _handle_mission_click():
 
 
 func _ready() -> void:
+	
 	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.OVERVIEW_MUSIC)
 	var tabacostate = GameManager.getLevelDecision(GameManager.LEVEL.TABACO)
 	var presstate = GameManager.getLevelDecision(GameManager.LEVEL.PRESIDENTE)

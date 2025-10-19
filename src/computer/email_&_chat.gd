@@ -9,7 +9,7 @@ class_name EmailAndChat
 @onready var body: RichTextLabel = %Body
 @onready var dm: RichTextLabel = %DM
 
-if _ready() -> void:
+func _ready() -> void:
 	if GameManager._tabaco_done:
 		from.text = "mayor123@mayor.pt"
 		subject.text = "Important im the mayor"
