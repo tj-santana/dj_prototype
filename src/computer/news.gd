@@ -35,6 +35,12 @@ func set_body_text(text: String) -> void:
 # Private Functions
 
 func _ready() -> void:
+	if GameManager._tabaco_done:
+		# HARD CODED MSM...
+		header_label.text = "Burla Mayor Accused of Corruption”: Rumors have been spreading that some of Burla City’s taxes are being diverted into the Mayor’s personal fund. Are they true, or mere baseless accusations? The truth is that for many years, Mayor Metralha and his party have been..."
+		corrupt_body.text = "defending our best interests, and any and all accusations against him are fake news! Vote Metralha, not the “canalha” 2030!"
+		anticorrupt_body.text = "…taking money from the city’s accounts, disguising their withdrawals as payments for services or public renovations that never happened, for fictitious companies. The people of Burla City deserve much better than a corrupt leader, who only serves his own interests instead of the interests of the citizens! If you have any information, call or message The Daily Burla’s Tip-line: 91 234 5678."
+	
 	# Initialize header text
 	_header_text = header_label.text
 	publish_button.visible = false
