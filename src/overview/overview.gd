@@ -2,7 +2,7 @@ extends Node2D
 class_name Overview
 
 @onready var tabacomission: Button = %TabacoMission
-@onready var presmission: Button = %PresMission
+#@onready var presmission: Button = %PresMission
 @onready var smog: Sprite2D = %Smog
 @onready var smogBad: Sprite2D = %SmogBad
 @onready var factoryWarning: Sprite2D = %FactoryWarning

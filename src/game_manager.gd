@@ -20,7 +20,7 @@ enum DECISION_TYPE {
 @onready var _money: int = 500
 @onready var _body_text: String = ""
 @onready var _oldNews: bool
-@onready var _tabaco_done: bool = true
+@onready var _tabaco_done: bool = false
 
 func _ready() -> void:
 	_decisionLog = {} # make sure it’s initialized
