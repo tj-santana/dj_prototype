@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://7pp2qjsno264"]
+[gd_scene load_steps=21 format=3 uid="uid://7pp2qjsno264"]
 
 [ext_resource type="Script" uid="uid://bx5i26vh6ougp" path="res://src/overview/overview.gd" id="1_dx7nr"]
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_skwpw"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b0lf1xbgymh2g" path="res://assets/overview/resources/factoryicon.png" id="13_1xkay"]
 [ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="14_1xkay"]
 [ext_resource type="Texture2D" uid="uid://cqdg1xuaqpn1q" path="res://assets/overview/resources/emotes_vector.svg" id="16_hjwqe"]
+[ext_resource type="Texture2D" uid="uid://chtn2gc0qmsx8" path="res://assets/overview/resources/maayoricon.png" id="17_b7odv"]
 [ext_resource type="Texture2D" uid="uid://coneqfxktmmg7" path="res://assets/overview/resources/endweek.png" id="17_jcbmv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjwqe"]
@@ -458,7 +459,27 @@ expand_icon = true
 
 [node name="FactoryWarning" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(154, 477.00003)
+position = Vector2(156, 477.00003)
+scale = Vector2(1.075, 1.075)
+texture = ExtResource("16_hjwqe")
+region_enabled = true
+region_rect = Rect2(320, 0, 32, 38)
+
+[node name="MayorMission" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 538.0
+offset_top = 512.4249
+offset_right = 638.0
+offset_bottom = 612.4249
+scale = Vector2(0.715, 0.715)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hjwqe")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jcbmv")
+icon = ExtResource("17_b7odv")
+expand_icon = true
+
+[node name="MayorWarning" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(575, 486.425)
 scale = Vector2(1.075, 1.075)
 texture = ExtResource("16_hjwqe")
 region_enabled = true
