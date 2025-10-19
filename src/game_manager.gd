@@ -17,7 +17,7 @@ enum DECISION_TYPE{
 }
 
 @onready var _decisionLog: Dictionary
-@onready var _money: int
+@onready var _money: int = 500
 @onready var _body_text: String = ""
 @onready var _oldNews: bool
 
@@ -43,6 +43,9 @@ func getMoney() -> int:
 
 func setMoney(money: int):
 	_money = money
+	
+func addMoney(money: int):
+	_money += money
 
 func get_body_text() -> String:
 	return _body_text

@@ -10,6 +10,8 @@ const PATHS = {
 	"PORTATIL": "uid://b2b4chdg82qnc",
 	"FIGHT": "uid://cje2ap7ple78a",
 	"FIGHT_GUI": "uid://bvnj6m67ru0po",
+	"FIGHT_TUTORIAL": "uid://dtbab27gq2l8p",
+	"FIGHT_RESULTS": "uid://dai18euoxxi4t",
 	"BOSS_CORRUPT": "uid://ch1yx31kbmfm8",
 	"BOSS_ANTI_CORRUPT": "uid://bof3ks2cj1btn",
 	"TEEN_PROJECTILE": "uid://3fe5ij0dftxt",

@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtbab27gq2l8p"]
+[gd_scene load_steps=11 format=3 uid="uid://dtbab27gq2l8p"]
 
+[ext_resource type="Script" uid="uid://cf7bi6qab4yfj" path="res://assets/fight/fight_tutorial/fight_tutorial.gd" id="1_i7o25"]
 [ext_resource type="Texture2D" uid="uid://b1g4bybju7n18" path="res://assets/fight/fight_tutorial/arena_bg.png" id="1_rxmwk"]
 [ext_resource type="Texture2D" uid="uid://com8ihgtlb7hf" path="res://assets/fight/fight_tutorial/arena_tiles.png" id="2_t7jpy"]
 [ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="3_otdps"]
 [ext_resource type="Texture2D" uid="uid://dykhwvjm5ntfq" path="res://assets/fight/fight_tutorial/LMB.png" id="4_otdps"]
 [ext_resource type="Texture2D" uid="uid://bm5sr8pe4ptni" path="res://assets/fight/fight_tutorial/RMB.png" id="5_i7o25"]
+[ext_resource type="Texture2D" uid="uid://d3et86vs1d4cy" path="res://assets/fight/fight_tutorial/bosspreview.png" id="7_h3vph"]
+[ext_resource type="Texture2D" uid="uid://cv0fmlnutu6c5" path="res://assets/fight/fight_tutorial/teenspreview.png" id="8_gjrxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avfyy"]
 size = Vector2(240, 24)
@@ -13,7 +16,8 @@ size = Vector2(240, 24)
 atlas = ExtResource("2_t7jpy")
 region = Rect2(480, 24, 96, 16)
 
-[node name="Arena" type="Node2D"]
+[node name="FightTutorial" type="Node2D"]
+script = ExtResource("1_i7o25")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
@@ -118,7 +122,7 @@ scroll_active = false
 [node name="Controls" type="RichTextLabel" parent="."]
 offset_left = 31.0
 offset_top = 223.0
-offset_right = 520.0
+offset_right = 247.0
 offset_bottom = 472.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_otdps")
@@ -137,7 +141,7 @@ scroll_active = false
 vertical_alignment = 1
 
 [node name="Lmb" type="Sprite2D" parent="Controls"]
-position = Vector2(243.00006, 185)
+position = Vector2(161.00006, 188)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_otdps")
 
@@ -163,3 +167,81 @@ text = "Click anywhere to continue."
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 569.0
+offset_top = 287.0
+offset_right = 1153.0
+offset_bottom = 651.0
+
+[node name="Enemy" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_otdps")
+theme_override_fonts/bold_font = ExtResource("3_otdps")
+theme_override_fonts/italics_font = ExtResource("3_otdps")
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 29
+theme_override_font_sizes/italics_font_size = 40
+bbcode_enabled = true
+text = "[i]YOUR ENEMY IS:[/i]
+"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="BossText" type="RichTextLabel" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_otdps")
+theme_override_fonts/bold_font = ExtResource("3_otdps")
+theme_override_fonts/italics_font = ExtResource("3_otdps")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 29
+theme_override_font_sizes/italics_font_size = 40
+bbcode_enabled = true
+text = "                        The Tobacco Factory CEO
+						\"If I can't sell my smoke, I'll smoke you!\"
+						Has a strong cough. 
+
+"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="TeensText" type="RichTextLabel" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_otdps")
+theme_override_fonts/bold_font = ExtResource("3_otdps")
+theme_override_fonts/italics_font = ExtResource("3_otdps")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 29
+theme_override_font_sizes/italics_font_size = 40
+bbcode_enabled = true
+text = "                        Teen Addicts
+						\"You took our lungs, we'll take your life!\"
+						Can't stop vaping. 
+
+"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Bosspreview" type="Sprite2D" parent="VBoxContainer"]
+unique_name_in_owner = true
+position = Vector2(50, 101)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_h3vph")
+
+[node name="Teenspreview" type="Sprite2D" parent="VBoxContainer"]
+unique_name_in_owner = true
+position = Vector2(50, 102)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_gjrxg")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="ready" from="VBoxContainer" to="." method="_on_v_box_container_ready"]
