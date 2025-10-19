@@ -32,7 +32,7 @@ func _input(event):
 				
 
 func _handle_mission_click():
-	AudioManager.stop_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.OVERVIEW_MUSIC)
+	AudioManager.fade_out_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.OVERVIEW_MUSIC)
 	await Global.game_controller.change_gui_scene(Refs.PATHS.PORTATIL, TransitionSettings.TRANSITION_TYPE.MAIN_MENU_TO_GAME)
 
 
