@@ -4,6 +4,18 @@ class_name EmailAndChat
 @onready var chat: PanelContainer = %Chat
 @onready var email: PanelContainer = %Email
 
+@onready var from: RichTextLabel = %From
+@onready var subject: RichTextLabel = %Subject
+@onready var body: RichTextLabel = %Body
+@onready var dm: RichTextLabel = %DM
+
+if _ready() -> void:
+	if GameManager._tabaco_done:
+		from.text = "mayor123@mayor.pt"
+		subject.text = "Important im the mayor"
+		body.text = "Good morning,\n\nI have seen the incredible ability you have with words. For this reason, I would personally love to have you I my PR department, as Head no less.\n\nThe offer is of around 300000$ a year. Yes those 0's are right. Just need you to write a small article defending me of the (false) accusations that have surfaced.\n\nTo our bright future,\nMayor of Burla City"
+		dm.text = "[b]Grandma:[/b]Hey sweety, how are you?\n[b]Me:[/b]Doing ok grandma, how about you?\nI think I have something for you, a story maybe\nI dont know if it's of interest to you youngesters\nThe buses around the city have been coming less and less\nIts getting really hard to go to my appointments.\n[b]Me:[/b]I'll see if I can do anything\n[b]Grandma:[/b]Thank you so much sweetheart"
+
 func _on_email_close_window_pressed() -> void:
 	_close_panel(email)
 	if not chat.visible:
