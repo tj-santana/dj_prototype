@@ -39,16 +39,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 8.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"homeless",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"president",
-"speed": 5.0
 }]
 
 [sub_resource type="Resource" id="Resource_3vyjx"]
@@ -70,7 +60,7 @@ script = ExtResource("1_1mus2")
 texture_filter = 1
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_mct5h")
-animation = &"homeless"
+autoplay = "default"
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 2
