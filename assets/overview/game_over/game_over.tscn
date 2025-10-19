@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmlbi7t5xiiya"]
+[gd_scene load_steps=12 format=3 uid="uid://cmlbi7t5xiiya"]
 
 [ext_resource type="Script" uid="uid://cdksadgf5onau" path="res://assets/overview/game_over/game_over.gd" id="1_2myse"]
 [ext_resource type="FontFile" uid="uid://c6fal4glk34ky" path="res://assets/portatil/Merriweather_36pt-Bold.ttf" id="1_uel1k"]
 [ext_resource type="Script" uid="uid://dppr32xp2wbag" path="res://src/computer/rich_text_good.gd" id="2_2myse"]
 [ext_resource type="Script" uid="uid://b2b2n7mv7oe84" path="res://src/computer/rich_text_bad.gd" id="3_d01fm"]
+[ext_resource type="Texture2D" uid="uid://d4iftvjhodss1" path="res://assets/overview/game_over/mainmenu.png" id="5_d01fm"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_slhmv"]
 load_path = "res://.godot/imported/Plain Paper UI SpriteSheet.png-87da19a0bca9fdccb0c944a4f04f03c9.ctex"
@@ -144,4 +145,14 @@ text = "
                 Thanks for playing!"
 fit_content = true
 
+[node name="MainMenu" type="TextureButton" parent="Table"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 884.0
+offset_top = 507.0
+offset_right = 1117.0
+offset_bottom = 626.0
+texture_normal = ExtResource("5_d01fm")
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="Table/MainMenu" to="." method="_on_texture_button_pressed"]

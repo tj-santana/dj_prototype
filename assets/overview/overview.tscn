@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://7pp2qjsno264"]
+[gd_scene load_steps=20 format=3 uid="uid://7pp2qjsno264"]
 
 [ext_resource type="Script" uid="uid://bx5i26vh6ougp" path="res://src/overview/overview.gd" id="1_dx7nr"]
 [ext_resource type="Texture2D" uid="uid://lktj7t7bktfa" path="res://assets/overview/resources/sky1.png" id="1_skwpw"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b0lf1xbgymh2g" path="res://assets/overview/resources/factoryicon.png" id="13_1xkay"]
 [ext_resource type="Texture2D" uid="uid://bw6nvi2y66yom" path="res://assets/overview/resources/smog.png" id="14_1xkay"]
 [ext_resource type="Texture2D" uid="uid://cqdg1xuaqpn1q" path="res://assets/overview/resources/emotes_vector.svg" id="16_hjwqe"]
+[ext_resource type="Texture2D" uid="uid://coneqfxktmmg7" path="res://assets/overview/resources/endweek.png" id="17_jcbmv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjwqe"]
 
@@ -445,7 +446,6 @@ texture = ExtResource("14_1xkay")
 
 [node name="TabacoMission" type="Button" parent="."]
 unique_name_in_owner = true
-visible = false
 offset_left = 119.99999
 offset_top = 502.99997
 offset_right = 220.0
@@ -464,4 +464,15 @@ texture = ExtResource("16_hjwqe")
 region_enabled = true
 region_rect = Rect2(320, 0, 32, 38)
 
+[node name="EndWeek" type="TextureButton" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 1016.0
+offset_top = 569.0
+offset_right = 1249.0
+offset_bottom = 688.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("17_jcbmv")
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="EndWeek" to="." method="_on_end_week_pressed"]

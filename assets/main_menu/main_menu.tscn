@@ -32,7 +32,7 @@ theme = ExtResource("1_ay6qh")
 [node name="Title" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ay6qh")
-text = "DJ-Prototype"
+text = "City Reporter"
 horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]

@@ -17,5 +17,6 @@ const PATHS = {
 	"TEEN_PROJECTILE": "uid://3fe5ij0dftxt",
 	"MINI_GAME_RULES": "uid://c76di0uhcydaa",
 	"MINI_GAME": "uid://d0wtpgkfw785g",
+	"GAME_OVER": "uid://cmlbi7t5xiiya",
 	"NEWS_PUBLISHING": "uid://c20bi27e7pxqp",
 }
