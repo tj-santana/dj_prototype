@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cje2ap7ple78a"]
 
 [ext_resource type="PackedScene" uid="uid://bx1imjkaglqrh" path="res://assets/fight/player/player.tscn" id="1_6nq0e"]
-[ext_resource type="Script" uid="uid://psitj5i30njj" path="res://src/fight.gd" id="1_o5df5"]
+[ext_resource type="Script" uid="uid://psitj5i30njj" path="res://src/fight/fight.gd" id="1_o5df5"]
 [ext_resource type="PackedScene" uid="uid://bjliwopjeuk3d" path="res://assets/fight/arena/arena.tscn" id="3_hum70"]
 
 [node name="Fight" type="Node2D"]

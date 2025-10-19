@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bvnj6m67ru0po"]
 
-[ext_resource type="Script" uid="uid://eyfa87prjr15" path="res://src/fight_gui.gd" id="1_kow8x"]
+[ext_resource type="Script" uid="uid://eyfa87prjr15" path="res://src/fight/fight_gui.gd" id="1_kow8x"]
 [ext_resource type="Texture2D" uid="uid://b6h0y7lusbbqu" path="res://assets/fight/fight_gui/player_health_bar.png" id="2_qfaqg"]
 [ext_resource type="Texture2D" uid="uid://dhih0pq5lpx82" path="res://assets/fight/fight_gui/no health bar.png" id="3_7nj37"]
 [ext_resource type="Texture2D" uid="uid://c5jtgc05mjrgv" path="res://assets/fight/fight_gui/health.png" id="4_7nj37"]

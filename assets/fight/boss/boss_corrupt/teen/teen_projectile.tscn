@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://3fe5ij0dftxt"]
 
-[ext_resource type="Script" uid="uid://b83dkqm5staar" path="res://src/teen_projectile.gd" id="1_1mus2"]
-[ext_resource type="Script" uid="uid://epblsx3i6y5v" path="res://src/hitbox_component.gd" id="1_m8uvo"]
-[ext_resource type="Script" uid="uid://dof5pd4m1eyvl" path="res://src/attack.gd" id="2_550n5"]
+[ext_resource type="Script" uid="uid://b83dkqm5staar" path="res://src/fight/teen_projectile.gd" id="1_1mus2"]
+[ext_resource type="Script" uid="uid://epblsx3i6y5v" path="res://src/fight/hitbox_component.gd" id="1_m8uvo"]
+[ext_resource type="Script" uid="uid://dof5pd4m1eyvl" path="res://src/fight/attack.gd" id="2_550n5"]
 [ext_resource type="Texture2D" uid="uid://fswm2m7s3b3p" path="res://assets/fight/boss/boss_corrupt/teen/teen_projectile.png" id="2_aprbm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0mwko"]

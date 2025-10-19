@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c76di0uhcydaa"]
 
-[ext_resource type="Script" uid="uid://ky67c70xvrqd" path="res://src/mini_game_rules.gd" id="1_1fsob"]
+[ext_resource type="Script" uid="uid://ky67c70xvrqd" path="res://src/computer/mini_game_rules.gd" id="1_1fsob"]
 [ext_resource type="Texture2D" uid="uid://fgwxt17f1ht5" path="res://assets/portatil/mini_game_rules/writing game tutorial.png" id="2_m2pgn"]
 [ext_resource type="FontFile" uid="uid://bwtep74v4w50j" path="res://assets/portatil/PatrickHand-Regular.ttf" id="3_ljj5u"]
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://bof3ks2cj1btn"]
 
-[ext_resource type="Script" uid="uid://cqi7p1a657ydg" path="res://src/boss.gd" id="1_2yrpj"]
+[ext_resource type="Script" uid="uid://cqi7p1a657ydg" path="res://src/fight/boss.gd" id="1_2yrpj"]
 [ext_resource type="PackedScene" uid="uid://btosv36bli7l5" path="res://assets/fight/boss/boss_anti_corrupt/boss_body.tscn" id="2_l4sxb"]
 [ext_resource type="Script" uid="uid://b4fxwm2xv38nw" path="res://src/state_machine.gd" id="3_ontfr"]
-[ext_resource type="Script" uid="uid://2624vrfshfi6" path="res://src/boss_state_idle.gd" id="4_k67xo"]
-[ext_resource type="Script" uid="uid://du4rksljymchq" path="res://src/boss_state_attack.gd" id="5_ak6go"]
-[ext_resource type="Script" uid="uid://bbppm2f4evt6i" path="res://src/boss_state_death.gd" id="6_8xvih"]
+[ext_resource type="Script" uid="uid://2624vrfshfi6" path="res://src/fight/boss_state_idle.gd" id="4_k67xo"]
+[ext_resource type="Script" uid="uid://du4rksljymchq" path="res://src/fight/boss_state_attack.gd" id="5_ak6go"]
+[ext_resource type="Script" uid="uid://bbppm2f4evt6i" path="res://src/fight/boss_state_death.gd" id="6_8xvih"]
 
 [sub_resource type="Curve2D" id="Curve2D_aephb"]
 _data = {

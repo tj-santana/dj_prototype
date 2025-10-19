@@ -20,8 +20,8 @@ enum DECISION_TYPE{
 @onready var _money: int
 @onready var _body_text: String = ""
 @onready var _oldNews: bool
-
 func _ready() -> void:
+	Global.game_manager = self
 	for level in LEVEL:
 		_decisionLog[level] = DECISION_TYPE.TODO
 

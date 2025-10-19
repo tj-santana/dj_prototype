@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2b4chdg82qnc"]
 
-[ext_resource type="Script" uid="uid://25i3phlwomn0" path="res://src/portatil.gd" id="1_xbodo"]
+[ext_resource type="Script" uid="uid://25i3phlwomn0" path="res://src/computer/portatil.gd" id="1_xbodo"]
 [ext_resource type="PackedScene" uid="uid://by3l8pe5cny04" path="res://assets/portatil/email_&_chat/email_&_chat.tscn" id="2_716mo"]
 [ext_resource type="Texture2D" uid="uid://kgqk7aofxrqt" path="res://assets/portatil/screen.png" id="2_juyrk"]
 
